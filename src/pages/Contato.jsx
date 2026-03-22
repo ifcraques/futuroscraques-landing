@@ -54,7 +54,7 @@ export default function Contato() {
             <div className="contact-social">
               <h3>Redes Sociais</h3>
               <div className="social-links">
-                <a href="https://www.facebook.com/institutofuturoscraques/" target="_blank" rel="noreferrer">📘 Facebook</a>
+                <a href="https://www.facebook.com/futuroscraquesoficial" target="_blank" rel="noreferrer">📘 Facebook</a>
                 <a href="https://www.instagram.com/institutofuturoscraques/" target="_blank" rel="noreferrer">📷 Instagram</a>
                 <a href="https://www.youtube.com/@institutofuturoscraques" target="_blank" rel="noreferrer">🎬 YouTube</a>
               </div>

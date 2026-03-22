@@ -8,6 +8,7 @@ import Transparencia from './pages/Transparencia'
 import QuemSomos from './pages/QuemSomos'
 import Contato from './pages/Contato'
 import ComoApoiar from './pages/ComoApoiar'
+import Projetos from './pages/Projetos'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/quemsomos" element={<QuemSomos />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/comoapoiar" element={<ComoApoiar />} />
+          <Route path="/projetos" element={<Projetos />} />
         </Routes>
       </main>
       <Footer />

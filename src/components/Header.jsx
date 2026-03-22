@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const navItems = [
   { label: 'Quem Somos', href: '/quemsomos', type: 'page' },
-  { label: 'Projetos', href: '#projects-section', type: 'scroll' },
+  { label: 'Projetos', href: '/projetos', type: 'page' },
   { label: 'Impacto', href: '#impact-section', type: 'scroll' },
   { label: 'Transparência', href: '/transparencia', type: 'page' },
   { label: 'Parceiros', href: '#sponsors-section', type: 'scroll' },

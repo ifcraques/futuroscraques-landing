@@ -22,7 +22,7 @@ const columns = [
   {
     title: 'Conecte-se',
     links: [
-      { label: '📘 Facebook', url: 'https://www.facebook.com/institutofuturoscraques/' },
+      { label: '📘 Facebook', url: 'https://www.facebook.com/futuroscraquesoficial' },
       { label: '📷 Instagram', url: 'https://www.instagram.com/institutofuturoscraques/' },
       { label: '🎬 YouTube', url: 'https://www.youtube.com/@institutofuturoscraques' },
       { label: '💌 Newsletter', url: '#' }
