@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Futuros Craques - Basquete, Educação, Transformação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4a7c59;
+            --primary-light: #6ba875;
+            --primary-dark: #2d5040;
+            --accent: #f9a620;
+            --accent-dark: #d67f15;
+            --secondary: #b7472a;
+            --cream: #f5f3ed;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --border: #e2e8f0;
+            --bg-light: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particles Background */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(74, 124, 89, 0.6), rgba(249, 166, 32, 0.3));
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out;
+            opacity: 0.25;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.15;
+            }
+            50% {
+                transform: translateY(-80px) translateX(40px);
+                opacity: 0.4;
+            }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .header.scrolled {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 0;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent), #f5b035);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(249, 166, 32, 0.25);
+            position: relative;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 166, 32, 0.35);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 70px;
+            position: relative;
+            background: linear-gradient(135deg, #f5f3ed 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+            animation: slideInUp 0.9s ease 0.1s backwards;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            animation: slideInUp 0.9s ease 0.2s backwards;
+            max-width: 500px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInUp 0.9s ease 0.3s backwards;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            animation: slideInUp 0.9s ease 0.4s backwards;
+        }
+
+        .hero-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 20px;
+            top: 50px;
+            right: 0;
+            opacity: 0.9;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-shape::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.3), rgba(183, 71, 42, 0.3));
+            border-radius: 20px;
+            top: 30px;
+            left: 30px;
+            z-index: -1;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(135deg, var(--primary) 0%, #3a6347 100%);
+            color: white;
+            padding: 3rem 0;
+            border-top: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-row {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(249, 166, 32, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* Projects Grid */
+        #projects {
+            background: linear-gradient(180deg, rgba(74, 124, 89, 0.03) 0%, transparent 50%, rgba(249, 166, 32, 0.02) 100%);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-header {
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.05), rgba(249, 166, 32, 0.05));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .project-stat {
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.05), rgba(249, 166, 32, 0.05));
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .project-stat strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Stories Section */
+        #stories {
+            background: linear-gradient(180deg, transparent 0%, rgba(74, 124, 89, 0.02) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--accent);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* Sponsorship Section */
+        #sponsorship {
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.03) 0%, rgba(249, 166, 32, 0.03) 100%);
+        }
+
+        .sponsorship-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .sponsorship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .sponsorship-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border-top: 5px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .sponsorship-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .sponsorship-card h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+        }
+
+        .sponsorship-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .value-option {
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.05), rgba(249, 166, 32, 0.05));
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .value-option strong {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .value-option small {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        .tax-incentive {
+            background: linear-gradient(135deg, rgba(183, 71, 42, 0.08), rgba(249, 166, 32, 0.08));
+            border: 1px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .tax-incentive h5 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .tax-incentive p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Transparency Section */
+        #transparency {
+            background: linear-gradient(180deg, transparent 0%, rgba(74, 124, 89, 0.02) 100%);
+        }
+
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .doc-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 16px 16px 0 0;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .doc-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .doc-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+        }
+
+        .doc-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .doc-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .doc-link:hover {
+            color: var(--secondary);
+            transform: translateX(4px);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #3a6347 100%);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content .section-title {
+            color: white;
+        }
+
+        .contact-content .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                height: 60px;
+            }
+
+            .nav {
+                gap: 1.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid,
+            .sponsorship-grid,
+            .transparency-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo">🏀 IFC</a>
+            <nav class="nav">
+                <a href="#projects" class="nav-link">Projetos</a>
+                <a href="#stories" class="nav-link">Histórias</a>
+                <a href="#sponsorship" class="nav-link">Apoiar</a>
+                <a href="#transparency" class="nav-link">Transparência</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </nav>
+            <a href="#sponsorship" class="cta-btn">Ser Padrinho</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Transformando vidas através do basquete</h1>
+                <p>Educação, esporte e oportunidades para jovens em São Paulo. Instituto Futuros Craques: 12 anos mudando histórias.</p>
+                <div class="hero-actions">
+                    <a href="#sponsorship" class="cta-btn">Apoiar Agora</a>
+                    <a href="#stories" class="btn-secondary">Ver Impacto</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shape"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number">800+</div>
+                <div class="stat-label">Jovens Atendidos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Permanência Escolar</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Anos de Atuação</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2 class="section-title">Nossos Projetos</h2>
+        <p class="section-subtitle">Três pilares de transformação através do basquete e educação</p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🏀</span>
+                    <h3>Drible Certo 3x3</h3>
+                </div>
+                <div class="project-body">
+                    <p>Programa de basquete 3x3 focado em desenvolvimento esportivo, cidadania e valores fundamentais.</p>
+                    <div class="project-stat">
+                        <strong>Participantes</strong>
+                        350+ atletas
+                    </div>
+                    <div class="project-stat">
+                        <strong>Foco</strong>
+                        Inclusão social e desenvolvimento técnico
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🏢</span>
+                    <h3>Centro de Treinamento</h3>
+                </div>
+                <div class="project-body">
+                    <p>Espaço dedicado com infraestrutura para treinos intensivos e preparação de atletas de alto rendimento.</p>
+                    <div class="project-stat">
+                        <strong>Infraestrutura</strong>
+                        Quadra oficial e equipamentos profissionais
+                    </div>
+                    <div class="project-stat">
+                        <strong>Objetivo</strong>
+                        Desenvolvimento técnico e psicológico
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-icon">🎯</span>
+                    <h3>Circuitos IFC</h3>
+                </div>
+                <div class="project-body">
+                    <p>Série de competições e eventos que promovem o basquete 3x3 em diferentes regiões de São Paulo.</p>
+                    <div class="project-stat">
+                        <strong>Alcance</strong>
+                        Múltiplas regiões da capital
+                    </div>
+                    <div class="project-stat">
+                        <strong>Participação</strong>
+                        450+ atletas por temporada
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="section" id="stories">
+        <h2 class="section-title">Histórias de Sucesso</h2>
+        <p class="section-subtitle">Vidas transformadas pelo basquete e educação</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    O Instituto me mostrou que o basquete é mais que um esporte. Aprendi disciplina, liderança e como construir um futuro diferente. Hoje sou técnico e ajudo outros jovens como eu.
+                </div>
+                <div class="testimonial-author">— João Silva, Atleta e Técnico</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    Vejo meu filho crescer com confiança e propósito. A estrutura, os treinadores e os valores do Instituto fazem toda a diferença na vida dele.
+                </div>
+                <div class="testimonial-author">— Responsável de Atleta</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    Como padrinho de um atleta, pude acompanhar de perto o desenvolvimento integral. É gratificante ver esse impacto real na vida de um jovem.
+                </div>
+                <div class="testimonial-author">— Padrinho/Madrinha</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsorship Section -->
+    <section class="section" id="sponsorship">
+        <h2 class="section-title">Como Você Pode Ajudar</h2>
+        <div class="sponsorship-intro">
+            <p>O Instituto Futuros Craques depende do apoio de pessoas como você. Existem várias formas de contribuir para transformar a vida de jovens talentos em São Paulo.</p>
+        </div>
+
+        <div class="sponsorship-grid">
+            <div class="sponsorship-card">
+                <h4>Doação Individual</h4>
+                <p>Apoio direto a atletas com benefícios fiscais</p>
+                <div class="sponsorship-values">
+                    <div class="value-option">
+                        <strong>R$ 50</strong>
+                        <small>Mensal</small>
+                    </div>
+                    <div class="value-option">
+                        <strong>R$ 100</strong>
+                        <small>Mensal</small>
+                    </div>
+                    <div class="value-option">
+                        <strong>R$ 250</strong>
+                        <small>Mensal</small>
+                    </div>
+                    <div class="value-option">
+                        <strong>R$ 500+</strong>
+                        <small>Customizado</small>
+                    </div>
+                </div>
+                <p>Seja padrinho ou madrinha de um atleta.</p>
+                <div class="tax-incentive">
+                    <h5>💰 Benefício Fiscal</h5>
+                    <p>Dedução de até <strong>6%</strong> do Imposto de Renda (Lei Estadual SP)</p>
+                </div>
+            </div>
+
+            <div class="sponsorship-card">
+                <h4>Apoio Corporativo</h4>
+                <p>Três caminhos para sua empresa apoiar</p>
+                <div style="margin: 1.5rem 0; text-align: left;">
+                    <p style="margin-bottom: 1rem;"><strong style="color: var(--secondary);">1. Projetos Específicos</strong><br>
+                    <small style="color: var(--text-light);">Financiar um projeto completo (estrutura, equipamentos, bolsas)</small></p>
+                    <p style="margin-bottom: 1rem;"><strong style="color: var(--secondary);">2. Apoio Institucional</strong><br>
+                    <small style="color: var(--text-light);">Contribuição anual para operação geral</small></p>
+                    <p><strong style="color: var(--secondary);">3. Lei de Incentivo</strong><br>
+                    <small style="color: var(--text-light);">Deduza até 2% do IR corporativo</small></p>
+                </div>
+                <div class="tax-incentive">
+                    <h5>💰 Benefício Fiscal Corporativo</h5>
+                    <p>Lei Federal permite dedução de até <strong>2%</strong> do IR</p>
+                </div>
+            </div>
+
+            <div class="sponsorship-card">
+                <h4>Outras Formas de Apoiar</h4>
+                <p>Você pode contribuir além de dinheiro</p>
+                <div style="margin: 1.5rem 0; text-align: left;">
+                    <p style="margin-bottom: 1rem;"><strong style="color: var(--secondary);">Voluntariado</strong><br>
+                    <small style="color: var(--text-light);">Compartilhe expertise como técnico, mentor ou gestor</small></p>
+                    <p style="margin-bottom: 1rem;"><strong style="color: var(--secondary);">Doação de Materiais</strong><br>
+                    <small style="color: var(--text-light);">Equipamentos, uniformes, livros e tecnologia</small></p>
+                    <p><strong style="color: var(--secondary);">Networking</strong><br>
+                    <small style="color: var(--text-light);">Conecte atletas com oportunidades</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="section" id="transparency">
+        <h2 class="section-title">Transparência</h2>
+        <p class="section-subtitle">O Instituto Futuros Craques acredita que transparência é fundamental. Aqui você encontra documentos que mostram como operamos.</p>
+
+        <div class="transparency-grid">
+            <div class="doc-card">
+                <span class="doc-icon">📊</span>
+                <h4>Relatório Financeiro</h4>
+                <p>Demonstração de receitas, despesas e resultado do período</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">📈</span>
+                <h4>Relatório de Impacto</h4>
+                <p>Indicadores de resultados e impacto dos nossos projetos</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">📋</span>
+                <h4>Estatuto Social</h4>
+                <p>Documento legal que define a estrutura e governança</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">✅</span>
+                <h4>Certificações</h4>
+                <p>Certidão de inscrição e declaração de utilidade pública</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">👥</span>
+                <h4>Equipe e Governança</h4>
+                <p>Informações sobre liderança, conselho e estrutura</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">🎯</span>
+                <h4>Plano Estratégico</h4>
+                <p>Visão de longo prazo, metas e planos de ação</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">🤝</span>
+                <h4>Parcerias</h4>
+                <p>Lista de parceiros, apoiadores e colaboradores</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+
+            <div class="doc-card">
+                <span class="doc-icon">📞</span>
+                <h4>Canais de Comunicação</h4>
+                <p>Como entrar em contato e enviar sugestões</p>
+                <a href="#" class="doc-link">Acessar →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Vamos Conversar</h2>
+            <p class="section-subtitle">Entre em contato e conheça mais sobre como contribuir para a transformação de vidas.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email Institucional</strong>
+                    <a href="mailto:contato@futuroscraques.org">contato@futuroscraques.org</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>WhatsApp</strong>
+                    <a href="https://wa.me/5511987654321">(11) 98765-4321</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>Endereço</strong>
+                    São Paulo - SP
+                </div>
+
+                <div class="contact-item">
+                    <strong>Siga-nos nas Redes</strong>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="https://instagram.com/futuroscraques" style="margin-right: 1.5rem;">Instagram</a>
+                        <a href="https://facebook.com/futuroscraques" style="margin-right: 1.5rem;">Facebook</a>
+                        <a href="https://youtube.com/futuroscraques">YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Instituto Futuros Craques</strong></p>
+        <p>Transformando vidas através do basquete, educação e oportunidades</p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.8;">
+            © 2024-2026 Instituto Futuros Craques. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <script>
+        // Particle animation
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(particle);
+        }
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href !== '#') {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

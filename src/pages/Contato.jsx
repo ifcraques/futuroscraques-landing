@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const contactInfo = [
   { icon: '✉️', label: 'Email', value: 'contato@futuroscraques.org', href: 'mailto:contato@futuroscraques.org' },
   { icon: '📱', label: 'Telefone', value: '(11) 2532-5697', href: 'tel:+551125325697' },
-  { icon: '📍', label: 'Localização', value: 'São Paulo, SP', href: '#' },
+  { icon: '📍', label: 'Endereço', value: 'Av. Tiradentes, 960 – 4º andar – Luz – São Paulo/SP – CEP 01102-000', href: 'https://www.google.com/maps/search/Avenida+Tiradentes+960+Luz+São+Paulo+SP' },
 ]
 
 function SuccessModal({ onClose }) {

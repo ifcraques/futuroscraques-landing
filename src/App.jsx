@@ -9,6 +9,7 @@ import QuemSomos from './pages/QuemSomos'
 import Contato from './pages/Contato'
 import ComoApoiar from './pages/ComoApoiar'
 import Projetos from './pages/Projetos'
+import Login from './pages/Login'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/contato" element={<Contato />} />
           <Route path="/comoapoiar" element={<ComoApoiar />} />
           <Route path="/projetos" element={<Projetos />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" width="240" height="120">
+  <rect width="240" height="120" fill="white" rx="4"/>
+
+  <!-- Figura 1: laranja/dourado - com livro (educação) -->
+  <g fill="#E67E00" transform="translate(12,8)">
+    <circle cx="18" cy="12" r="9"/>
+    <path d="M10 24 Q18 20 26 24 L24 48 L28 48 L22 30 L32 20 L26 14Z"/>
+    <path d="M10 28 Q2 24 0 32 L6 36 Q8 28 12 26Z"/>
+    <path d="M24 48 L20 62 L26 62 Z"/>
+    <path d="M28 48 L30 60 L24 62 Z"/>
+    <!-- Livro -->
+    <rect x="-2" y="28" width="10" height="8" rx="1" fill="#E67E00" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Figura 2: azul - cadeirante -->
+  <g fill="#1565C0" transform="translate(72,8)">
+    <circle cx="18" cy="10" r="9"/>
+    <path d="M12 22 Q18 18 24 22 L26 38 L16 38 Z"/>
+    <!-- Cadeira de rodas -->
+    <circle cx="28" cy="52" r="12" fill="none" stroke="#1565C0" stroke-width="4"/>
+    <circle cx="14" cy="55" r="8" fill="none" stroke="#1565C0" stroke-width="3"/>
+    <line x1="22" y1="38" x2="28" y2="42" stroke="#1565C0" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Braço levantado -->
+    <line x1="22" y1="28" x2="34" y2="16" stroke="#1565C0" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="34" cy="14" r="4" fill="#F7B731"/>
+  </g>
+
+  <!-- Figura 3: verde - atleta com medalha -->
+  <g fill="#2E7D32" transform="translate(138,5)">
+    <circle cx="18" cy="12" r="9"/>
+    <path d="M10 24 Q18 20 26 24 L22 48 L28 48 L24 28 L32 18 L26 12Z"/>
+    <line x1="10" y1="28" x2="2" y2="40" stroke="#2E7D32" stroke-width="4" stroke-linecap="round"/>
+    <line x1="24" y1="26" x2="34" y2="36" stroke="#2E7D32" stroke-width="4" stroke-linecap="round"/>
+    <line x1="22" y1="48" x2="18" y2="64" stroke="#2E7D32" stroke-width="4" stroke-linecap="round"/>
+    <line x1="28" y1="48" x2="32" y2="64" stroke="#2E7D32" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bandeirinha Brasil pequena -->
+  <g transform="translate(188, 8)">
+    <rect width="36" height="24" fill="#009C3B" rx="3"/>
+    <polygon points="18,3 33,12 18,21 3,12" fill="#F7B731"/>
+    <circle cx="18" cy="12" r="6" fill="#002776"/>
+    <path d="M12 12 Q18 9 24 12" stroke="white" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Linha -->
+  <line x1="12" y1="88" x2="228" y2="88" stroke="#1565C0" stroke-width="1.5"/>
+
+  <!-- Texto -->
+  <text x="120" y="103" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#1565C0" text-anchor="middle" letter-spacing="0.5">LEI DE INCENTIVO AO ESPORTE</text>
+  <text x="120" y="116" font-family="Arial, sans-serif" font-size="9" fill="#2E7D32" text-anchor="middle" letter-spacing="0.5">MINISTÉRIO DO ESPORTE</text>
+</svg>

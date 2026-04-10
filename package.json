@@ -8,14 +8,18 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "checkpoint": "git add -A && git commit -m \"checkpoint: estado salvo antes de mudanças\"",
+    "revert": "git reset --hard HEAD~1"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
     "framer-motion": "^12.38.0",
     "playwright": "^1.58.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.1"
+    "react-router-dom": "^7.13.1",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

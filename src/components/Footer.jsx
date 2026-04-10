@@ -33,7 +33,7 @@ const columns = [
     links: [
       { label: '✉️ contato@futuroscraques.org', url: 'mailto:contato@futuroscraques.org' },
       { label: '📱 (11) 2532-5697', url: 'tel:+551125325697' },
-      { label: '📍 São Paulo, SP', url: '#' },
+      { label: '📍 Av. Tiradentes, 960 – Luz, SP', url: 'https://www.google.com/maps/search/Avenida+Tiradentes+960+Luz+São+Paulo+SP' },
       { label: '📅 Agendar Reunião', url: '#' }
     ],
   },

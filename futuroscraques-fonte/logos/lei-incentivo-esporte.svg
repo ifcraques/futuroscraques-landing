@@ -1,0 +1,32 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#0052a3" stroke-width="2"/>
+
+  <!-- Main icon - stylized people in motion (athletes/sports) -->
+  <g transform="translate(100, 70)">
+    <!-- Person 1 - Running -->
+    <circle cx="-25" cy="-20" r="8" fill="#0052a3"/>
+    <path d="M -25 -12 Q -20 5 -15 15" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M -25 0 Q -30 8 -35 12" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Person 2 - Center (jumping/active) -->
+    <circle cx="0" cy="-25" r="8" fill="#0052a3"/>
+    <path d="M 0 -17 L 0 8" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M -8 -5 L 8 -5" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M -6 8 L -10 18" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 6 8 L 10 18" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Person 3 - Swimming/Sports -->
+    <circle cx="25" cy="-20" r="8" fill="#0052a3"/>
+    <path d="M 25 -12 Q 22 5 20 15" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 25 0 Q 32 8 38 12" stroke="#0052a3" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Text circle at bottom -->
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0052a3">
+    LEI DE INCENTIVO
+  </text>
+  <text x="100" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0052a3">
+    AO ESPORTE
+  </text>
+</svg>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFC — Paleta de Cores & Preview</title>
+<style>
+  :root {
+    --green-primary: #4DA844;
+    --green-dark:    #2D7A27;
+    --green-olive:   #7AAD3A;
+    --blue-ifc:      #6AB4D8;
+    --yellow-ifc:    #F2D43A;
+    --black:         #1A1A1A;
+    --white:         #FFFFFF;
+    --gray-light:    #F5F5F5;
+    --gray-mid:      #6B7280;
+    --green-bg:      #EBF5EA;
+    --blue-bg:       #EAF4FB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f0f0; color: var(--black); }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    background: var(--green-dark);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .nav-logo {
+    font-size: 20px; font-weight: 800; color: var(--white);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--yellow-ifc); }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--yellow-ifc); }
+  .nav-cta {
+    background: var(--yellow-ifc); color: var(--black);
+    padding: 8px 20px; border-radius: 6px;
+    font-weight: 700; font-size: 14px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .nav-cta:hover { background: #e0c42e; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-primary) 60%, var(--green-olive) 100%);
+    min-height: 520px;
+    display: flex; align-items: center;
+    padding: 80px 48px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: var(--yellow-ifc);
+    border-radius: 50%;
+    opacity: 0.08;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    background: var(--blue-ifc);
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+  .hero-content { max-width: 600px; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(242,212,58,0.2);
+    border: 1px solid var(--yellow-ifc);
+    color: var(--yellow-ifc);
+    padding: 4px 14px; border-radius: 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; color: var(--white);
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--yellow-ifc); font-style: normal; }
+  .hero p {
+    font-size: 18px; color: rgba(255,255,255,0.8);
+    line-height: 1.6; margin-bottom: 36px; max-width: 480px;
+  }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--yellow-ifc); color: var(--black);
+    padding: 14px 28px; border-radius: 8px;
+    font-weight: 700; font-size: 16px; text-decoration: none;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: #e0c42e; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 12px 28px; border-radius: 8px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  /* ─── STATS ─── */
+  .stats {
+    background: var(--white);
+    padding: 64px 48px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .stat-card {
+    text-align: center; padding: 32px 24px;
+    border-radius: 12px; border: 2px solid var(--green-bg);
+    transition: all 0.25s;
+  }
+  .stat-card:hover { border-color: var(--green-primary); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(77,168,68,0.12); }
+  .stat-icon { font-size: 32px; margin-bottom: 12px; }
+  .stat-number { font-size: 42px; font-weight: 900; color: var(--green-primary); line-height: 1; }
+  .stat-label { font-size: 14px; color: var(--gray-mid); margin-top: 8px; font-weight: 500; }
+
+  /* ─── SECTION TITLE ─── */
+  .section { padding: 80px 48px; }
+  .section-alt { background: var(--green-bg); }
+  .section-blue { background: var(--blue-bg); }
+  .section-dark { background: var(--green-dark); }
+  .section-title {
+    font-size: 36px; font-weight: 800; color: var(--black);
+    margin-bottom: 8px;
+  }
+  .section-title span { color: var(--green-primary); }
+  .section-subtitle {
+    font-size: 16px; color: var(--gray-mid); margin-bottom: 48px;
+  }
+  .section-title-white { color: var(--white); }
+  .section-subtitle-white { color: rgba(255,255,255,0.7); }
+
+  /* ─── PROGRAMAS ─── */
+  .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .card {
+    background: var(--white); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.25s; border: 1px solid #e8e8e8;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+  .card-header {
+    padding: 24px; background: var(--green-bg);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .card-header.blue { background: var(--blue-bg); }
+  .card-header.yellow { background: #fffbe6; }
+  .card-icon { font-size: 28px; }
+  .card-title { font-size: 16px; font-weight: 700; color: var(--green-dark); }
+  .card-age { font-size: 12px; color: var(--gray-mid); font-weight: 500; }
+  .card-body { padding: 20px 24px; }
+  .card-desc { font-size: 14px; color: var(--gray-mid); line-height: 1.6; margin-bottom: 16px; }
+  .card-link {
+    color: var(--green-primary); font-weight: 600; font-size: 14px;
+    text-decoration: none; display: flex; align-items: center; gap: 4px;
+  }
+  .card-link:hover { color: var(--green-dark); }
+
+  /* ─── IMPACTO / DASHBOARD ─── */
+  .dashboard-container {
+    background: var(--white); border-radius: 16px;
+    padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+  .map-placeholder {
+    background: var(--green-bg); border-radius: 12px;
+    height: 280px; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px; border: 2px dashed var(--green-primary);
+    position: relative; overflow: hidden;
+  }
+  .map-placeholder::before {
+    content: '🗺️'; font-size: 48px;
+  }
+  .map-label { font-size: 14px; color: var(--green-dark); font-weight: 600; }
+  .map-sub { font-size: 12px; color: var(--gray-mid); }
+
+  .map-pins { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+  .pin {
+    position: absolute; width: 12px; height: 12px;
+    border-radius: 50%; border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+  .pin-sp { background: var(--green-primary); width: 16px; height: 16px; }
+  .pin-other { background: var(--blue-ifc); }
+  .pin-label {
+    position: absolute; background: var(--black); color: white;
+    font-size: 10px; padding: 2px 6px; border-radius: 4px;
+    white-space: nowrap; top: -22px; left: 50%; transform: translateX(-50%);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .pin:hover .pin-label { opacity: 1; }
+
+  .chart-section { display: flex; flex-direction: column; gap: 24px; }
+  .mini-chart {
+    background: var(--gray-light); border-radius: 12px; padding: 20px;
+  }
+  .chart-title { font-size: 13px; font-weight: 700; color: var(--black); margin-bottom: 16px; }
+  .bars { display: flex; gap: 8px; align-items: flex-end; height: 80px; }
+  .bar {
+    flex: 1; border-radius: 4px 4px 0 0;
+    background: var(--green-primary);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .bar:hover { background: var(--green-dark); }
+  .bar-label { font-size: 10px; text-align: center; color: var(--gray-mid); margin-top: 4px; }
+  .bars-container { display: flex; flex-direction: column; }
+
+  /* ─── PARCEIROS ─── */
+  .logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .logo-card {
+    background: var(--white); border-radius: 10px;
+    padding: 24px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid #e8e8e8; min-height: 80px;
+    font-weight: 700; font-size: 13px; color: var(--gray-mid);
+    transition: all 0.2s; text-align: center;
+  }
+  .logo-card:hover { border-color: var(--green-primary); background: var(--green-bg); color: var(--green-dark); }
+  .logo-card.gov { border-color: var(--blue-ifc); background: var(--blue-bg); color: #1a6a8a; }
+
+  /* ─── PALETA VISUAL ─── */
+  .palette { padding: 64px 48px; background: var(--white); }
+  .swatches { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+  .swatch {
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 140px;
+  }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 10px 14px; background: white; border: 1px solid #eee; border-top: none; }
+  .swatch-name { font-size: 13px; font-weight: 700; color: var(--black); }
+  .swatch-hex { font-size: 12px; color: var(--gray-mid); font-family: monospace; }
+  .swatch-use { font-size: 11px; color: var(--gray-mid); margin-top: 2px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--green-dark); color: var(--white);
+    padding: 48px; text-align: center;
+  }
+  footer .footer-logo { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  footer .footer-logo span { color: var(--yellow-ifc); }
+  footer p { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+  /* ─── HEADING DA PÁGINA ─── */
+  .page-header {
+    background: #fff; padding: 20px 48px;
+    border-bottom: 3px solid var(--green-primary);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .page-header h2 { font-size: 18px; color: var(--green-dark); }
+  .page-header p { font-size: 13px; color: var(--gray-mid); }
+
+  .tag {
+    display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .tag-green { background: var(--green-bg); color: var(--green-dark); }
+  .tag-blue { background: var(--blue-bg); color: #1a6a8a; }
+  .tag-yellow { background: #fffbe6; color: #7a6300; }
+</style>
+</head>
+<body>
+
+<!-- Cabeçalho da página de preview -->
+<div class="page-header">
+  <div>
+    <h2>Instituto Futuros Craques — Preview de Design</h2>
+    <p>Paleta oficial extraída do logo IFC · Aprovação visual antes da implementação</p>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <span class="tag tag-green">Versão 2.0</span>
+    <span class="tag tag-blue">27 Mar 2026</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">IFC <span>·</span> Instituto Futuros Craques</div>
+  <div class="nav-links">
+    <a href="#">Quem Somos</a>
+    <a href="#">Programas</a>
+    <a href="#">Impacto</a>
+    <a href="#">Transparência</a>
+    <a href="#">Notícias</a>
+    <a href="#">Patrocinadores</a>
+  </div>
+  <a href="#" class="nav-cta">Quero Participar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">⚽ Instituto Futuros Craques</div>
+    <h1>Transformando Vidas Através do <em>Basquete</em></h1>
+    <p>Aqui, todo jovem tem a chance de ser o craque que sonha. Não é sobre troféus — é sobre descobrir uma força que você não sabia que tinha.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">🏀 Quero Participar</a>
+      <a href="#" class="btn-outline">Sou Patrocinador →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-card">
+    <div class="stat-icon">🏀</div>
+    <div class="stat-number">150+</div>
+    <div class="stat-label">Jovens Transformados</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">📚</div>
+    <div class="stat-number">87%</div>
+    <div class="stat-label">Em Projetos Educacionais</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🗺️</div>
+    <div class="stat-number">18</div>
+    <div class="stat-label">Cidades no Brasil</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🤝</div>
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Parceiros Envolvidos</div>
+  </div>
+</section>
+
+<!-- PROGRAMAS -->
+<section class="section">
+  <div class="section-title">Programas que <span>Mudam Vidas</span></div>
+  <div class="section-subtitle">Conheça as diferentes jornadas que oferecemos para cada fase</div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🌱</div>
+        <div>
+          <div class="card-title">Basquete Base</div>
+          <div class="card-age">7 a 12 anos</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">Desenvolvimento de habilidades fundamentais, amizades e diversão dentro e fora das quadras.</div>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header blue">
+        <div class="card-icon">🏆</div>
+        <div>
+          <div class="card-title">Basquete Competição</div>
+          <div class="card-age">13 a 18 anos</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">Treinamento técnico intensivo, competições regionais e desenvolvimento de liderança.</div>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header yellow">
+        <div class="card-icon">⚡</div>
+        <div>
+          <div class="card-title">3x3 Basketball</div>
+          <div class="card-age">Todas as idades</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">O formato olímpico mais dinâmico do basquete. Rápido, inclusivo e emocionante.</div>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">💡</div>
+        <div>
+          <div class="card-title">Dev. Humano</div>
+          <div class="card-age">Todas as idades</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">Caráter, liderança e valores. O que o esporte ensina que vai além da quadra.</div>
+        <a href="#" class="card-link">Saiba mais →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD DE IMPACTO -->
+<section class="section section-alt">
+  <div class="section-title">Impacto em <span>Números Vivos</span></div>
+  <div class="section-subtitle">Mapa do Brasil com todas as cidades atendidas · SP em destaque como sede</div>
+  <div class="dashboard-container">
+    <div class="map-placeholder">
+      <div style="font-size:48px">🇧🇷</div>
+      <div class="map-label">Mapa Interativo do Brasil</div>
+      <div class="map-sub">Pins por cidade · SP em destaque · Clicável</div>
+      <div style="display:flex;gap:16px;margin-top:12px;font-size:12px;">
+        <span style="display:flex;align-items:center;gap:4px;color:#2D7A27">
+          <span style="width:10px;height:10px;background:#4DA844;border-radius:50%;display:inline-block;"></span> São Paulo (sede)
+        </span>
+        <span style="display:flex;align-items:center;gap:4px;color:#1a6a8a">
+          <span style="width:10px;height:10px;background:#6AB4D8;border-radius:50%;display:inline-block;"></span> Outras cidades
+        </span>
+      </div>
+      <div style="margin-top:12px;">
+        <a href="#" style="background:#4DA844;color:white;padding:6px 16px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:600;">Ver SP em detalhe →</a>
+      </div>
+    </div>
+    <div class="chart-section">
+      <div class="mini-chart">
+        <div class="chart-title">📈 Crescimento Anual de Participantes</div>
+        <div class="bars-container">
+          <div class="bars">
+            <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+              <div class="bar" style="height:30%;background:#7AAD3A;"></div>
+              <div class="bar-label">2021</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+              <div class="bar" style="height:45%;"></div>
+              <div class="bar-label">2022</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+              <div class="bar" style="height:60%;"></div>
+              <div class="bar-label">2023</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+              <div class="bar" style="height:75%;background:#2D7A27;"></div>
+              <div class="bar-label">2024</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+              <div class="bar" style="height:88%;background:#2D7A27;"></div>
+              <div class="bar-label">2025</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+              <div class="bar" style="height:100%;background:#F2D43A;"></div>
+              <div class="bar-label" style="font-weight:700;color:#2D7A27">2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mini-chart">
+        <div class="chart-title">🏀 Distribuição por Programa</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;">
+              <span>Basquete Base</span><span style="color:#4DA844;font-weight:700;">45%</span>
+            </div>
+            <div style="background:#e8e8e8;border-radius:4px;height:8px;">
+              <div style="background:#4DA844;width:45%;height:100%;border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;">
+              <span>Competição</span><span style="color:#6AB4D8;font-weight:700;">35%</span>
+            </div>
+            <div style="background:#e8e8e8;border-radius:4px;height:8px;">
+              <div style="background:#6AB4D8;width:35%;height:100%;border-radius:4px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;">
+              <span>3x3</span><span style="color:#F2D43A;font-weight:700;">20%</span>
+            </div>
+            <div style="background:#e8e8e8;border-radius:4px;height:8px;">
+              <div style="background:#F2D43A;width:20%;height:100%;border-radius:4px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCEIROS -->
+<section class="section section-blue">
+  <div class="section-title">Parceiros da <span>Transformação</span></div>
+  <div class="section-subtitle">Governo, empresas e instituições que acreditam no nosso trabalho</div>
+  <div class="logos-grid">
+    <div class="logo-card gov">Secretaria Estadual de Esportes · SP</div>
+    <div class="logo-card gov">Ministério do Esporte</div>
+    <div class="logo-card gov">Secretaria Municipal de Esportes · SP</div>
+    <div class="logo-card">Empresa Parceira A</div>
+    <div class="logo-card">Empresa Parceira B</div>
+    <div class="logo-card">Empresa Parceira C</div>
+    <div class="logo-card">Empresa Parceira D</div>
+    <div class="logo-card" style="border:2px dashed #4DA844;color:#4DA844;font-weight:700;">+ Seja um Patrocinador →</div>
+  </div>
+</section>
+
+<!-- PALETA VISUAL -->
+<section class="palette">
+  <div class="section-title" style="margin-bottom:8px">Paleta Oficial IFC</div>
+  <div class="section-subtitle">Extraída do logo · Aprovada para uso em todos os materiais</div>
+  <div class="swatches">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#4DA844;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Verde IFC</div>
+        <div class="swatch-hex">#4DA844</div>
+        <div class="swatch-use">Cor dominante · botões</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#2D7A27;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Verde Escuro</div>
+        <div class="swatch-hex">#2D7A27</div>
+        <div class="swatch-use">Navbar · hover · footer</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#7AAD3A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Verde Oliva</div>
+        <div class="swatch-hex">#7AAD3A</div>
+        <div class="swatch-use">Tags · categorias</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#6AB4D8;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Azul IFC</div>
+        <div class="swatch-hex">#6AB4D8</div>
+        <div class="swatch-use">Governo · parcerias</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F2D43A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Amarelo Sol</div>
+        <div class="swatch-hex">#F2D43A</div>
+        <div class="swatch-use">Sunny · CTAs · destaques</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A1A1A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Preto IFC</div>
+        <div class="swatch-hex">#1A1A1A</div>
+        <div class="swatch-use">Tipografia · uniforme</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Instituto Futuros <span>Craques</span></div>
+  <p>Transformando vidas através do basquete · São Paulo, Brasil</p>
+  <p style="margin-top:16px;font-size:12px;">© 2026 IFC — CNPJ XX.XXX.XXX/XXXX-XX · Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>

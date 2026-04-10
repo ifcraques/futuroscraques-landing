@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(playwright install:*)",
+      "Bash(python:*)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(nlm login:*)",
+      "Bash(PYTHONIOENCODING=utf-8 nlm login)",
+      "Bash(curl -s https://api.github.com/repos/thedotmack/claude-mem)",
+      "Bash(gh api:*)",
+      "mcp__notebooklm-mcp__notebook_describe",
+      "mcp__notebooklm-mcp__notebook_query",
+      "Bash(python3 \"C:/Users/Gustavo/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"sports youth NGO nonprofit brazil soccer landing page\" --design-system -p \"Instituto Futuros Craques\")",
+      "Bash(dir:*)",
+      "Bash(cmd:*)",
+      "Bash(uipro init:*)",
+      "Bash(bash:*)",
+      "Bash(npm run:*)"
+    ]
+  }
+}

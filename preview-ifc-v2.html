@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instituto Futuros Craques — Preview Atualizado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #4DA844; --green-dark: #2D7A27; --green-olive: #7AAD3A;
+      --green-light: #EBF5EA; --blue: #6AB4D8; --yellow: #F2D43A;
+      --text: #1a1a1a; --text-light: #555; --bg: #fff; --bg-alt: #F7F9F7;
+      --radius: 16px; --shadow: 0 8px 32px rgba(0,0,0,0.08); --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    img { max-width: 100%; display: block; }
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 70px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem;
+      color: var(--green-dark); text-decoration: none; cursor: pointer;
+    }
+    .logo img { height: 44px; }
+    .nav { display: flex; align-items: center; gap: 0.2rem; }
+    .nav-btn { background: none; border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 500; color: #444; padding: 8px 12px; border-radius: 8px; transition: all 0.2s; }
+    .nav-btn:hover { background: var(--green-light); color: var(--green-dark); }
+    .cta-btn { background: var(--green); color: white; border: none; padding: 10px 22px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all 0.25s; margin-left: 0.5rem; box-shadow: 0 4px 16px rgba(77,168,68,0.3); }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(77,168,68,0.45); }
+    .hero { min-height: 100vh; background: linear-gradient(135deg, #0d2c0b 0%, #1a4d17 40%, #2d7a27 70%, #3d9e34 100%); display: flex; align-items: center; padding-top: 70px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1600&q=60') center/cover; opacity: 0.12; }
+    .hero-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; position: relative; z-index: 1; }
+    .hero-pretitle { display: inline-block; background: rgba(242,212,58,0.2); border: 1px solid rgba(242,212,58,0.4); color: var(--yellow); padding: 6px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); color: white; font-weight: 900; line-height: 1.08; margin-bottom: 1.5rem; }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+    .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.82); max-width: 620px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--yellow); color: #1a1a1a; border: none; padding: 16px 36px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem; cursor: pointer; transition: all 0.25s; box-shadow: 0 6px 24px rgba(242,212,58,0.4); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(242,212,58,0.55); }
+    .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); padding: 14px 32px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.25s; }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+    .stats-bar { background: var(--green-dark); padding: 2.5rem 2rem; }
+    .stats-row { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; text-align: center; }
+    .stat-item { color: white; }
+    .stat-num { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2.4rem; color: var(--yellow); line-height: 1; }
+    .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 4px; font-weight: 500; }
+    .section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-tag { display: inline-block; background: var(--green-light); color: var(--green-dark); padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--text); line-height: 1.15; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-light); max-width: 640px; line-height: 1.7; margin-bottom: 3rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; }
+    .project-card { border-radius: var(--radius); overflow: hidden; background: white; box-shadow: var(--shadow); transition: all 0.3s; border: 1px solid rgba(0,0,0,0.05); }
+    .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .project-card img { height: 200px; width: 100%; object-fit: cover; }
+    .project-card-body { padding: 1.5rem; }
+    .project-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .project-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .project-tag { background: var(--green-light); color: var(--green-dark); padding: 2px 8px; border-radius: 10px; font-size: 0.74rem; font-weight: 600; }
+    .project-link-btn { background: none; border: none; color: var(--green); font-weight: 700; font-size: 0.88rem; cursor: pointer; font-family: 'Inter', sans-serif; padding: 0; }
+    .project-link-btn:hover { color: var(--green-dark); }
+    .bg-alt { background: var(--bg-alt); }
+    .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .achievement-card { background: white; border-radius: var(--radius); padding: 2rem 1.5rem; text-align: center; box-shadow: var(--shadow); border-top: 4px solid transparent; transition: all 0.3s; }
+    .achievement-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .achievement-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .achievement-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .achievement-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+    .gustavo-section { background: linear-gradient(135deg, var(--green-dark), #1a4d17); padding: 5rem 2rem; color: white; }
+    .gustavo-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: start; }
+    .gustavo-avatar { width: 130px; height: 130px; border-radius: 50%; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 3.8rem; flex-shrink: 0; border: 3px solid rgba(242,212,58,0.4); }
+    .gustavo-tag { display: inline-block; background: rgba(242,212,58,0.2); border: 1px solid rgba(242,212,58,0.4); color: var(--yellow); padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+    .gustavo-inner h2 { font-size: 2.2rem; font-weight: 900; color: white; margin-bottom: 0.5rem; }
+    .gustavo-inner > div > p { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+    blockquote { border-left: 3px solid var(--yellow); padding-left: 1.2rem; font-style: italic; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; line-height: 1.6; }
+    .gustavo-creds { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .cred-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
+    .gov-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .gov-card { background: white; border-radius: var(--radius); padding: 2rem; text-align: center; box-shadow: var(--shadow); border: 2px solid transparent; transition: all 0.3s; }
+    .gov-card:hover { border-color: var(--green); transform: translateY(-4px); }
+    .gov-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+    .gov-card h3 { font-size: 1rem; font-weight: 800; color: var(--green-dark); margin-bottom: 0.5rem; }
+    .gov-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.5; }
+    .sponsors-section { background: var(--green-dark); padding: 4rem 2rem; }
+    .sponsors-label { text-align: center; color: rgba(255,255,255,0.6); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 2rem; }
+    .sponsors-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem; max-width: 1000px; margin: 0 auto; }
+    .sponsor-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 10px 18px; color: rgba(255,255,255,0.75); font-weight: 700; font-size: 0.88rem; transition: all 0.25s; }
+    .sponsor-item:hover { background: rgba(255,255,255,0.2); color: white; }
+    footer { background: #0d1a0c; color: rgba(255,255,255,0.65); padding: 4rem 2rem 2rem; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-bottom: 3rem; }
+    .footer-col h4 { color: white; font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1.2rem; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.87rem; margin-bottom: 0.6rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--green-olive); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+    .page { display: none; }
+    .page.active { display: block; }
+    .page-hero { background: linear-gradient(135deg, #0d2c0b, #2d7a27); padding: 120px 2rem 5rem; text-align: center; }
+    .page-pretitle { display: inline-block; background: rgba(242,212,58,0.2); border: 1px solid rgba(242,212,58,0.4); color: var(--yellow); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .page-hero h1 { color: white; font-size: 3rem; font-weight: 900; margin-bottom: 1rem; }
+    .page-hero p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 680px; margin: 0 auto; line-height: 1.7; }
+    .timeline { max-width: 700px; margin: 0 auto; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 72px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--green), var(--blue)); opacity: 0.3; }
+    .timeline-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: flex-start; }
+    .timeline-year { min-width: 64px; text-align: right; font-size: 0.9rem; font-weight: 700; color: var(--green); padding-top: 3px; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 4px; box-shadow: 0 0 0 4px rgba(77,168,68,0.15); }
+    .timeline-text { color: #444; line-height: 1.6; font-size: 0.97rem; padding-top: 1px; }
+    .diferenciais-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .diferencial-card { background: white; border-radius: var(--radius); padding: 1.8rem; border: 1px solid rgba(77,168,68,0.15); transition: all 0.3s; }
+    .diferencial-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(77,168,68,0.15); }
+    .diferencial-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .diferencial-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--green-dark); margin-bottom: 0.5rem; }
+    .diferencial-card p { color: #555; font-size: 0.93rem; line-height: 1.6; }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+    .news-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s; cursor: pointer; }
+    .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .news-card img { height: 180px; width: 100%; object-fit: cover; }
+    .news-card-body { padding: 1.2rem; }
+    .news-date { font-size: 0.78rem; color: var(--text-light); margin-bottom: 0.5rem; }
+    .news-card h3 { font-size: 0.98rem; font-weight: 700; line-height: 1.4; color: var(--text); }
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .stat-num { font-size: 1.8rem; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .gustavo-inner { grid-template-columns: 1fr; }
+      .gustavo-avatar { margin: 0 auto; }
+      .nav .nav-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo" onclick="showPage('home')">
+      <img src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png" alt="IFC" onerror="this.style.display='none'">
+      Instituto Futuros Craques
+    </div>
+    <nav class="nav">
+      <button class="nav-btn" onclick="showPage('quemsomos')">Quem Somos</button>
+      <button class="nav-btn" onclick="showPage('projetos')">Projetos</button>
+      <button class="nav-btn" onclick="showPage('impacto')">Impacto</button>
+      <button class="nav-btn" onclick="showPage('noticias')">Notícias</button>
+      <button class="nav-btn" onclick="showPage('transparencia')">Transparência</button>
+      <button class="nav-btn" onclick="showPage('contato')">Contato</button>
+      <button class="cta-btn" onclick="showPage('apoiar')">Contribua 💚</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-pretitle">Instituto Futuros Craques — Desde 2005</div>
+      <h1>Somos o Esporte<br/>que <em>Transforma</em><br/>o Brasil</h1>
+      <p>Basquete 3x3 olímpico. Mountain Bike. Futebol. Corrida de Rua. Tênis. Projetos aprovados pelo governo federal, estadual e municipal — liderados por um ex-atleta da Seleção Brasileira.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('apoiar')">Quero Apoiar o IFC</button>
+        <button class="btn-outline" onclick="showPage('projetos')">Nossos Projetos →</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num" data-count="4000" data-suffix="+">4000+</div><div class="stat-label">Alunos Ativos</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="27" data-suffix="+">27+</div><div class="stat-label">Projetos Executados</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="30" data-suffix="+">30+</div><div class="stat-label">Viagens Internacionais</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="8" data-suffix="x">8x</div><div class="stat-label">Títulos Nacionais 3x3</div></div>
+      <div class="stat-item"><div class="stat-num" data-count="5" data-suffix="">5</div><div class="stat-label">Modalidades Esportivas</div></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-tag">Nossos Programas</div>
+      <h2 class="section-title">Projetos que Transformam o Brasil</h2>
+      <p class="section-subtitle">10 projetos aprovados pelo governo federal, estadual e municipal. Resultados reais em 5 modalidades esportivas.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://static.wixstatic.com/media/3db4e0_4cf34c41f2774e429703a7b5e9756124~mv2.jpg" onerror="this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70'" alt="Drible Certo 3x3">
+          <div class="project-card-body">
+            <span class="project-badge" style="background:#0052a318;color:#0052a3;border:1.5px solid #0052a330">SEESP · LPIE</span>
+            <h3>Drible Certo no Mundo</h3>
+            <p>8x Campeão Nacional (Superliga ANB) e 2x Campeão Mundial FISU. O mais vitorioso projeto de basquete 3x3 do Brasil.</p>
+            <div class="project-tags"><span class="project-tag">8x Campeão Nacional</span><span class="project-tag">2x Campeão Mundial</span></div>
+            <button class="project-link-btn" onclick="showPage('projetos')">Ver detalhes →</button>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://static.wixstatic.com/media/3db4e0_4beea58f86504c6889e7cc86814b91da~mv2.jpg" onerror="this.src='https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=70'" alt="Neo Running">
+          <div class="project-card-body">
+            <span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal + SEESP</span>
+            <h3>Circuito Neo Running</h3>
+            <p>Mais de 30 etapas anuais de corridas de rua em todo o Brasil. Aprovado pelo Ministério do Esporte e pela SEESP.</p>
+            <div class="project-tags"><span class="project-tag">30+ etapas/ano</span><span class="project-tag">@circuitos.ifc</span></div>
+            <button class="project-link-btn" onclick="showPage('projetos')">Ver detalhes →</button>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70" alt="CT3x3">
+          <div class="project-card-body">
+            <span class="project-badge" style="background:#0052a318;color:#0052a3;border:1.5px solid #0052a330">SEESP · LPIE</span>
+            <h3>Centro de Treinamento 3x3</h3>
+            <p>A primeira escolinha de Basquete 3x3 do país. Pioneirismo absoluto — a modalidade virou olímpica em Tóquio 2020.</p>
+            <div class="project-tags"><span class="project-tag">1ª escolinha 3x3 BR</span><span class="project-tag">Olímpico</span></div>
+            <button class="project-link-btn" onclick="showPage('projetos')">Ver detalhes →</button>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70" alt="Bike MTB">
+          <div class="project-card-body">
+            <span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal</span>
+            <h3>Bike — Conectando Histórias</h3>
+            <p>O maior projeto de Mountain Bike do país. Conecta comunidades, natureza e histórias de transformação em todo o Brasil.</p>
+            <div class="project-tags"><span class="project-tag">Maior MTB do Brasil</span><span class="project-tag">Nacional</span></div>
+            <button class="project-link-btn" onclick="showPage('projetos')">Ver detalhes →</button>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button onclick="showPage('projetos')" style="background:var(--green);color:white;border:none;padding:14px 36px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 8px 28px rgba(77,168,68,0.3);transition:all 0.25s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          Ver Todos os 10 Projetos →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="section-inner">
+      <div class="section-tag">Conquistas</div>
+      <h2 class="section-title">Resultados que Falam por Si</h2>
+      <p class="section-subtitle">Nenhuma ONG esportiva do Brasil tem esse histórico.</p>
+      <div class="achievements-grid">
+        <div class="achievement-card" style="border-top-color:var(--yellow)"><div class="achievement-icon">🏆</div><h3>8x Campeão Nacional</h3><p>Superliga ANB de Basquete 3x3</p></div>
+        <div class="achievement-card" style="border-top-color:var(--green)"><div class="achievement-icon">🌍</div><h3>2x Campeão Mundial FISU</h3><p>Chengdu 2019 e 2022</p></div>
+        <div class="achievement-card" style="border-top-color:var(--blue)"><div class="achievement-icon">✈️</div><h3>30+ Viagens Internacionais</h3><p>Europa, Américas e Ásia</p></div>
+        <div class="achievement-card" style="border-top-color:#C41E3A"><div class="achievement-icon">🏛️</div><h3>Tripla Parceria Gov.</h3><p>SEME + SEESP + Ministério do Esporte</p></div>
+        <div class="achievement-card" style="border-top-color:var(--green-olive)"><div class="achievement-icon">👥</div><h3>4.000+ Alunos Ativos</h3><p>16 escolinhas gerenciadas simultaneamente</p></div>
+        <div class="achievement-card" style="border-top-color:#9333ea"><div class="achievement-icon">🥇</div><h3>Pioneiros no 3x3</h3><p>1ª escolinha de Basquete 3x3 do Brasil</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gustavo-section">
+    <div class="gustavo-inner">
+      <div class="gustavo-avatar">🏀</div>
+      <div>
+        <div class="gustavo-tag">Presidente e Fundador</div>
+        <h2>Gustavo Bracco</h2>
+        <p>Advogado, fundador e presidente do IFC desde 2005. Ex-atleta profissional de basquete 3x3 — representou a <strong>Seleção Brasileira no FIBA 3x3 World Tour</strong> e disputou o <strong>Campeonato Mundial pelo Brasil</strong>. Mais de <strong>30 viagens internacionais</strong> — como atleta e acompanhando os atletas do IFC.</p>
+        <blockquote>"O diferencial do IFC é que nosso presidente não fala de esporte em teoria. Ele viveu. Ele jogou. Ele sabe o que um atleta precisa."</blockquote>
+        <div class="gustavo-creds">
+          <span class="cred-tag">🏅 Seleção Brasileira 3x3</span>
+          <span class="cred-tag">🌍 30+ viagens internacionais</span>
+          <span class="cred-tag">⚖️ Advogado</span>
+          <span class="cred-tag">🏆 Campeão Mundial FISU</span>
+          <span class="cred-tag">🎓 Fundador — 2005</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-tag">Parceiros Governamentais</div>
+      <h2 class="section-title">Confiança em Três Níveis de Governo</h2>
+      <p class="section-subtitle">Uma raridade no terceiro setor esportivo brasileiro.</p>
+      <div class="gov-grid">
+        <div class="gov-card"><div class="gov-icon">🏙️</div><h3>SEME — Prefeitura SP</h3><p>Clube Escola (4.000+ alunos, 16 escolinhas) e Verão para Todos / Virada Esportiva</p></div>
+        <div class="gov-card"><div class="gov-icon">🏛️</div><h3>SEESP — Estado de SP</h3><p>Drible Certo no Mundo, CT3x3 e Circuito Neo Running — aprovados pela Lei Paulista de Incentivo ao Esporte (LPIE)</p></div>
+        <div class="gov-card"><div class="gov-icon">🇧🇷</div><h3>Ministério do Esporte</h3><p>Bike MTB, Capacitação 3x3, Neo Running Federal e CT3x3 — aprovados pela LIE Federal</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsors-section">
+    <div class="sponsors-label">Patrocinadores que Acreditam no IFC</div>
+    <div class="sponsors-row">
+      <div class="sponsor-item">UOL</div><div class="sponsor-item">Ecolab</div><div class="sponsor-item">Unipar</div>
+      <div class="sponsor-item">NTS</div><div class="sponsor-item">Havan</div><div class="sponsor-item">B3</div>
+      <div class="sponsor-item">Caixa Residencial</div><div class="sponsor-item">Estácio</div>
+      <div class="sponsor-item">Freixenet</div><div class="sponsor-item">Coca-Cola</div>
+      <div class="sponsor-item">Sonda Supermercados</div><div class="sponsor-item">CAEDU</div>
+      <div class="sponsor-item">Engemet</div><div class="sponsor-item">Altre</div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn-primary" onclick="showPage('apoiar')">Quero ser Patrocinador →</button>
+    </div>
+  </section>
+</div>
+
+<!-- QUEM SOMOS -->
+<div id="page-quemsomos" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">Fundado em 2005 · São Paulo, Brasil</div>
+    <h1>Quem Somos</h1>
+    <p>Uma potência técnica e operacional do esporte brasileiro — com projetos aprovados pelo Ministério do Esporte, pela SEESP e pela SEME, presença internacional e um ex-atleta da Seleção Brasileira à frente.</p>
+  </div>
+  <section class="gustavo-section">
+    <div class="gustavo-inner">
+      <div class="gustavo-avatar">🏀</div>
+      <div>
+        <div class="gustavo-tag">Presidente e Fundador</div>
+        <h2>Gustavo Bracco</h2>
+        <p>Advogado, fundador e presidente do IFC desde 2005. Ex-atleta profissional de basquete 3x3 — representou a <strong>Seleção Brasileira no FIBA 3x3 World Tour</strong> e disputou o <strong>Campeonato Mundial pelo Brasil</strong>. Mais de <strong>30 viagens internacionais</strong> em competições.</p>
+        <blockquote>"Quero que todo jovem tenha a chance que eu tive."</blockquote>
+        <div class="gustavo-creds">
+          <span class="cred-tag">🏅 Seleção Brasileira 3x3</span>
+          <span class="cred-tag">🌍 30+ viagens internacionais</span>
+          <span class="cred-tag">⚖️ Advogado</span>
+          <span class="cred-tag">🏆 Campeão Mundial FISU</span>
+          <span class="cred-tag">🎓 Fundador — 2005</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-tag">Nossa Essência</div>
+      <h2 class="section-title">Missão, Visão e Valores</h2>
+      <div class="gov-grid">
+        <div class="gov-card"><div class="gov-icon">🎯</div><h3>Missão</h3><p>Transformar vidas de jovens através do esporte, criando oportunidades reais, desenvolvendo caráter e abrindo caminhos que mudam histórias para sempre.</p></div>
+        <div class="gov-card"><div class="gov-icon">🔭</div><h3>Visão</h3><p>Ser referência latino-americana em desenvolvimento social através do esporte, reconhecida por impacto real e comprovado.</p></div>
+        <div class="gov-card"><div class="gov-icon">💎</div><h3>Valores</h3><p>Transformação, Inclusão, Transparência, Movimento e Comunidade. O esporte é a ferramenta mais poderosa de desenvolvimento humano.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-alt">
+    <div class="section-inner">
+      <div class="section-tag">Nossa Trajetória</div>
+      <h2 class="section-title" style="text-align:center">Quase 20 Anos de Legado</h2>
+      <div style="margin: 0 auto 3rem; max-width: 600px; text-align:center; color:var(--text-light); font-size:1rem; line-height:1.7">Cada ano, um passo novo na transformação do esporte social brasileiro.</div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-year">2005</div><div class="timeline-dot"></div><div class="timeline-text">Fundação do Instituto Futuros Craques em São Paulo</div></div>
+        <div class="timeline-item"><div class="timeline-year">2012</div><div class="timeline-dot"></div><div class="timeline-text">Primeiros projetos aprovados pela SEME e SEESP</div></div>
+        <div class="timeline-item"><div class="timeline-year">2014</div><div class="timeline-dot"></div><div class="timeline-text">Gustavo representa a Seleção Brasileira no FIBA 3x3 World Tour</div></div>
+        <div class="timeline-item"><div class="timeline-year">2016</div><div class="timeline-dot"></div><div class="timeline-text">Basquete 3x3 entra no programa olímpico — IFC já era pioneiro</div></div>
+        <div class="timeline-item"><div class="timeline-year">2019</div><div class="timeline-dot"></div><div class="timeline-text">Drible Certo 3x3 conquista o Campeonato Mundial Universitário FISU em Chengdu</div></div>
+        <div class="timeline-item"><div class="timeline-year">2020</div><div class="timeline-dot"></div><div class="timeline-text">Gestão de 4.000+ alunos em 16 escolinhas de futebol — Clube Escola / SEME</div></div>
+        <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-dot"></div><div class="timeline-text">Basquete 3x3 estreia nos Jogos Olímpicos de Tóquio</div></div>
+        <div class="timeline-item"><div class="timeline-year">2022</div><div class="timeline-dot"></div><div class="timeline-text">Drible Certo 3x3 conquista 2º título mundial universitário FISU</div></div>
+        <div class="timeline-item"><div class="timeline-year">2026</div><div class="timeline-dot"></div><div class="timeline-text">Expansão: Futuros Craques no Futebol (Atibaia) e Saque Certo (Tênis)</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--green-light)">
+    <div class="section-inner">
+      <div class="section-tag">Por que somos únicos</div>
+      <h2 class="section-title">Diferenciais do IFC</h2>
+      <div class="diferenciais-grid">
+        <div class="diferencial-card"><div class="icon">🥇</div><h3>Pioneiros no 3x3</h3><p>Primeira escolinha de Basquete 3x3 do Brasil — antes mesmo de virar modalidade olímpica.</p></div>
+        <div class="diferencial-card"><div class="icon">🚵</div><h3>Maior em Mountain Bike</h3><p>Bike — Conectando Histórias é o maior projeto de Mountain Bike do país.</p></div>
+        <div class="diferencial-card"><div class="icon">✈️</div><h3>Presença Internacional</h3><p>Único projeto que leva equipes de BASE ao exterior em competições de 3x3.</p></div>
+        <div class="diferencial-card"><div class="icon">🏛️</div><h3>Tripla Parceria Gov.</h3><p>SEME + SEESP + Ministério do Esporte. Nenhuma ONG do esporte social tem as três.</p></div>
+        <div class="diferencial-card"><div class="icon">📊</div><h3>Escala Comprovada</h3><p>4.000+ alunos gerenciados simultaneamente — operação de escala real.</p></div>
+        <div class="diferencial-card"><div class="icon">🌐</div><h3>Alcance Nacional</h3><p>5 modalidades com projetos formalmente aprovados em todo o Brasil.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PROJETOS -->
+<div id="page-projetos" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">10 projetos aprovados</div>
+    <h1>Nossos Projetos</h1>
+    <p>Municipal, estadual e federal. 5 modalidades. Resultados verificáveis em quase 20 anos de história.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <h3 style="font-size:0.9rem;font-weight:700;color:#C41E3A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.5rem">🏙️ SEME — Prefeitura de São Paulo</h3>
+      <div class="projects-grid" style="margin-bottom:3rem">
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&q=70" alt="Clube Escola"><div class="project-card-body"><span class="project-badge" style="background:#C41E3A18;color:#C41E3A;border:1.5px solid #C41E3A30">SEME</span><h3>Clube Escola</h3><p>16 escolinhas de futebol de campo em SP. Mais de 4.000 alunos matriculados.</p><div class="project-tags"><span class="project-tag">4.000+ alunos</span><span class="project-tag">16 escolinhas</span></div></div></div>
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=600&q=70" alt="Verão para Todos"><div class="project-card-body"><span class="project-badge" style="background:#C41E3A18;color:#C41E3A;border:1.5px solid #C41E3A30">SEME</span><h3>Verão para Todos</h3><p>Esporte e lazer no verão. Participação na Virada Esportiva — um dos maiores eventos esportivos do Brasil.</p><div class="project-tags"><span class="project-tag">Virada Esportiva</span><span class="project-tag">3x3</span></div></div></div>
+      </div>
+      <h3 style="font-size:0.9rem;font-weight:700;color:#0052a3;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.5rem">🏛️ SEESP — Estado de São Paulo (LPIE)</h3>
+      <div class="projects-grid" style="margin-bottom:3rem">
+        <div class="project-card"><img src="https://static.wixstatic.com/media/3db4e0_4cf34c41f2774e429703a7b5e9756124~mv2.jpg" onerror="this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70'" alt="Drible Certo"><div class="project-card-body"><span class="project-badge" style="background:#0052a318;color:#0052a3;border:1.5px solid #0052a330">SEESP · LPIE</span><h3>Drible Certo no Mundo</h3><p>8x Campeão Nacional (Superliga ANB), 7x Liga ANB, 2x Campeão Mundial FISU. Custeio de equipes para competições internacionais.</p><div class="project-tags"><span class="project-tag">8x Campeão Nacional</span><span class="project-tag">2x Campeão Mundial</span><span class="project-tag">7x Liga ANB</span></div></div></div>
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70" alt="CT3x3"><div class="project-card-body"><span class="project-badge" style="background:#0052a318;color:#0052a3;border:1.5px solid #0052a330">SEESP · LPIE</span><h3>Centro de Treinamento 3x3</h3><p>A primeira escolinha de Basquete 3x3 do país. Técnica específica do 3x3 olímpico.</p><div class="project-tags"><span class="project-tag">1ª escolinha 3x3 BR</span><span class="project-tag">Modalidade Olímpica</span></div></div></div>
+        <div class="project-card"><img src="https://static.wixstatic.com/media/3db4e0_4beea58f86504c6889e7cc86814b91da~mv2.jpg" onerror="this.src='https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=70'" alt="Neo Running"><div class="project-card-body"><span class="project-badge" style="background:#0052a318;color:#0052a3;border:1.5px solid #0052a330">SEESP · LPIE</span><h3>Circuito Neo Running (SEESP)</h3><p>Circuito de corridas de rua aprovado pela Lei Paulista de Incentivo ao Esporte.</p><div class="project-tags"><span class="project-tag">30+ etapas</span><span class="project-tag">@circuitos.ifc</span></div></div></div>
+      </div>
+      <h3 style="font-size:0.9rem;font-weight:700;color:#22a347;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.5rem">🇧🇷 Ministério do Esporte — LIE Federal</h3>
+      <div class="projects-grid">
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70" alt="Bike MTB"><div class="project-card-body"><span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal</span><h3>Bike — Conectando Histórias</h3><p>O maior projeto de Mountain Bike do país. Alcance Nacional. Comunidade, natureza e transformação.</p><div class="project-tags"><span class="project-tag">Maior MTB do Brasil</span><span class="project-tag">Nacional</span></div></div></div>
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70" alt="Capacitação 3x3"><div class="project-card-body"><span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal</span><h3>Programa de Capacitação 3x3</h3><p>Maior projeto de custeio de equipes de base e adultas no rendimento do Basquete 3x3 do Brasil.</p><div class="project-tags"><span class="project-tag">Base + Alto Rendimento</span><span class="project-tag">Nacional</span></div></div></div>
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&q=70" alt="Futebol"><div class="project-card-body"><span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal</span><h3>Futuros Craques no Futebol</h3><p>Formação esportiva em futebol baseada na expertise do Clube Escola. Localidade: Atibaia, SP.</p><div class="project-tags"><span class="project-tag">Atibaia, SP</span><span class="project-tag">Futebol de Campo</span></div></div></div>
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1542144582-1ba00456b5e3?w=600&q=70" alt="Tênis"><div class="project-card-body"><span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal</span><h3>Saque Certo — Tênis</h3><p>Formação de Tênis de Campo de Alto Rendimento. Abordagem profissional desde as categorias de base.</p><div class="project-tags"><span class="project-tag">Tênis de Campo</span><span class="project-tag">Alto Rendimento</span></div></div></div>
+        <div class="project-card"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=70" alt="Neo Running Federal"><div class="project-card-body"><span class="project-badge" style="background:#22a34718;color:#22a347;border:1.5px solid #22a34730">LIE Federal</span><h3>Circuito Neo Running (Federal)</h3><p>Versão federal do circuito de corridas de rua. Aprovado pelo Ministério do Esporte via LIE.</p><div class="project-tags"><span class="project-tag">Alcance Nacional</span><span class="project-tag">@circuitos.ifc</span></div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- IMPACTO -->
+<div id="page-impacto" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">Resultados Verificáveis</div>
+    <h1>Nosso Impacto</h1>
+    <p>Quase 20 anos de resultados reais, comprovados e verificáveis.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="achievements-grid">
+        <div class="achievement-card" style="border-top-color:var(--yellow)"><div class="achievement-icon">🏆</div><h3>8x Campeão Nacional</h3><p>Superliga ANB de Basquete 3x3</p></div>
+        <div class="achievement-card" style="border-top-color:var(--green)"><div class="achievement-icon">🌍</div><h3>2x Campeão Mundial FISU</h3><p>Chengdu 2019 e 2022</p></div>
+        <div class="achievement-card" style="border-top-color:var(--blue)"><div class="achievement-icon">✈️</div><h3>30+ Viagens Internacionais</h3><p>Europa, Américas e Ásia</p></div>
+        <div class="achievement-card" style="border-top-color:#C41E3A"><div class="achievement-icon">🏛️</div><h3>Tripla Parceria Gov.</h3><p>SEME + SEESP + Ministério do Esporte</p></div>
+        <div class="achievement-card" style="border-top-color:var(--green-olive)"><div class="achievement-icon">👥</div><h3>4.000+ Alunos Ativos</h3><p>16 escolinhas gerenciadas simultaneamente</p></div>
+        <div class="achievement-card" style="border-top-color:var(--yellow)"><div class="achievement-icon">🥈</div><h3>7x Liga ANB</h3><p>Campeonato Liga ANB de Basquete 3x3</p></div>
+        <div class="achievement-card" style="border-top-color:var(--green)"><div class="achievement-icon">🚵</div><h3>Maior MTB do Brasil</h3><p>Bike — Conectando Histórias</p></div>
+        <div class="achievement-card" style="border-top-color:var(--blue)"><div class="achievement-icon">🏃</div><h3>30+ Etapas de Corrida/Ano</h3><p>Circuito Neo Running</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- NOTÍCIAS -->
+<div id="page-noticias" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">Novidades do IFC</div>
+    <h1>Notícias</h1>
+    <p>Fique por dentro de tudo que acontece no Instituto Futuros Craques e nos nossos projetos.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="news-grid">
+        <div class="news-card"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70" alt=""><div class="news-card-body"><div class="news-date">Mar 2026 · Basquete 3x3</div><h3>Drible Certo 3x3 inicia temporada 2026 com novos atletas revelados</h3></div></div>
+        <div class="news-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70" alt=""><div class="news-card-body"><div class="news-date">Mar 2026 · Mountain Bike</div><h3>Bike — Conectando Histórias expande para mais 5 estados em 2026</h3></div></div>
+        <div class="news-card"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&q=70" alt=""><div class="news-card-body"><div class="news-date">Fev 2026 · Corrida de Rua</div><h3>Circuito Neo Running abre inscrições para a temporada 2026</h3></div></div>
+        <div class="news-card"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&q=70" alt=""><div class="news-card-body"><div class="news-date">Jan 2026 · Futebol</div><h3>Futuros Craques no Futebol inaugura polo em Atibaia</h3></div></div>
+        <div class="news-card"><img src="https://images.unsplash.com/photo-1542144582-1ba00456b5e3?w=600&q=70" alt=""><div class="news-card-body"><div class="news-date">Jan 2026 · Tênis</div><h3>Saque Certo inicia captação pela Lei de Incentivo ao Esporte</h3></div></div>
+        <div class="news-card"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=70" alt=""><div class="news-card-body"><div class="news-date">Dez 2025 · Institucional</div><h3>IFC completa 20 anos de transformação de vidas através do esporte</h3></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TRANSPARÊNCIA -->
+<div id="page-transparencia" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">Prestação de Contas</div>
+    <h1>Transparência</h1>
+    <p>CNPJ: 08.584.691/0001-20. Relatórios públicos, processos SEI abertos, balanços anuais disponíveis.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="gov-grid">
+        <div class="gov-card"><div class="gov-icon">📋</div><h3>Relatório Circunstanciado 2023</h3><p>Atividades, atletas atendidos e resultados de todos os projetos ativos em 2023.</p></div>
+        <div class="gov-card"><div class="gov-icon">📋</div><h3>Relatório Circunstanciado 2024</h3><p>Prestação de contas dos projetos LPIE: Neo Running (encerrado), CT3x3 e Drible Certo no Mundo.</p></div>
+        <div class="gov-card"><div class="gov-icon">🏛️</div><h3>Processos SEI</h3><p>CT3x3: SEI 016.00008833.2024-06 | Drible Certo: SEI 016.00008836.2024-31 — disponíveis para consulta.</p></div>
+        <div class="gov-card"><div class="gov-icon">💰</div><h3>Balanço Financeiro</h3><p>Demonstrações financeiras auditadas disponíveis anualmente conforme exigência das fontes de recurso.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTATO -->
+<div id="page-contato" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">Fale Conosco</div>
+    <h1>Contato</h1>
+    <p>Estamos em São Paulo, SP. Para projetos, parcerias ou para conhecer o IFC.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="gov-grid">
+        <div class="gov-card"><div class="gov-icon">✉️</div><h3>E-mail</h3><p><a href="mailto:contato@futuroscraques.org" style="color:var(--green);font-weight:600">contato@futuroscraques.org</a></p></div>
+        <div class="gov-card"><div class="gov-icon">💬</div><h3>WhatsApp</h3><p><a href="https://wa.me/5511939515008" style="color:var(--green);font-weight:600">(11) 93951-5008</a></p></div>
+        <div class="gov-card"><div class="gov-icon">📍</div><h3>Endereço</h3><p>Av. Tiradentes, 960 — Luz<br/>São Paulo, SP</p></div>
+        <div class="gov-card"><div class="gov-icon">📱</div><h3>Instagram</h3><p><a href="https://www.instagram.com/institutofuturoscraques/" target="_blank" style="color:var(--green);font-weight:600">@institutofuturoscraques</a></p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- COMO APOIAR -->
+<div id="page-apoiar" class="page">
+  <div class="page-hero">
+    <div class="page-pretitle">Faça a diferença</div>
+    <h1>Como Apoiar o IFC</h1>
+    <p>Empresas que investem no IFC investem em resultado comprovado, visibilidade de marca e responsabilidade social real.</p>
+  </div>
+  <section class="section">
+    <div class="section-inner">
+      <div class="gov-grid">
+        <div class="gov-card" style="border:2px solid var(--yellow)"><div class="gov-icon">💰</div><h3>Patrocínio via LIE</h3><p>Sua empresa pode destinar parte do Imposto de Renda para o IFC via Lei de Incentivo ao Esporte — sem custo adicional ao orçamento.</p></div>
+        <div class="gov-card" style="border:2px solid var(--green)"><div class="gov-icon">🤝</div><h3>Patrocínio Direto</h3><p>Associe sua marca a projetos vencedores com visibilidade em eventos nacionais e internacionais.</p></div>
+        <div class="gov-card" style="border:2px solid var(--blue)"><div class="gov-icon">❤️</div><h3>Doação Individual</h3><p>Qualquer valor faz diferença. Contribua diretamente para que mais jovens tenham acesso ao esporte de qualidade.</p></div>
+        <div class="gov-card" style="border:2px solid var(--green-olive)"><div class="gov-icon">📦</div><h3>Doação de Materiais</h3><p>Equipamentos esportivos, uniformes e materiais pedagógicos são sempre bem-vindos.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <a href="mailto:contato@futuroscraques.org" style="background:var(--green);color:white;padding:16px 36px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-block;box-shadow:0 8px 28px rgba(77,168,68,0.3)">
+          Entrar em Contato →
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Instituto</h4>
+      <a href="#" onclick="showPage('quemsomos');return false">Quem Somos</a>
+      <a href="#" onclick="showPage('transparencia');return false">Transparência</a>
+      <a href="#" onclick="showPage('impacto');return false">Impacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Programas</h4>
+      <a href="#" onclick="showPage('projetos');return false">Drible Certo 3x3</a>
+      <a href="#" onclick="showPage('projetos');return false">Circuito Neo Running</a>
+      <a href="#" onclick="showPage('projetos');return false">Bike MTB</a>
+      <a href="#" onclick="showPage('projetos');return false">Todos os Projetos</a>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+      <a href="https://www.instagram.com/institutofuturoscraques/" target="_blank">📷 @institutofuturoscraques</a>
+      <a href="https://www.instagram.com/driblecerto3x3/" target="_blank">🏀 @driblecerto3x3</a>
+      <a href="https://www.instagram.com/circuitos.ifc/" target="_blank">🏃 @circuitos.ifc</a>
+      <a href="https://www.facebook.com/futuroscraquesoficial" target="_blank">📘 Facebook</a>
+      <a href="https://www.youtube.com/@institutofuturoscraques" target="_blank">🎬 YouTube</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="mailto:contato@futuroscraques.org">✉️ contato@futuroscraques.org</a>
+      <a href="https://wa.me/5511939515008">💬 WhatsApp (11) 93951-5008</a>
+      <a href="#">📍 Av. Tiradentes, 960 — Luz, SP</a>
+      <a href="#">CNPJ: 08.584.691/0001-20</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Instituto Futuros Craques. Transformando vidas através do esporte desde 2005. 💚</p>
+  </div>
+</footer>
+
+<script>
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const el = document.getElementById('page-' + name);
+    if (el) { el.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  }
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+      const target = parseInt(el.getAttribute('data-count'));
+      const suffix = el.getAttribute('data-suffix') || '';
+      let current = 0;
+      const step = target / (2000 / 16);
+      const tick = () => {
+        current += step;
+        if (current >= target) { el.textContent = target.toLocaleString('pt-BR') + suffix; }
+        else { el.textContent = Math.floor(current).toLocaleString('pt-BR') + suffix; requestAnimationFrame(tick); }
+      };
+      requestAnimationFrame(tick);
+    });
+  }
+  setTimeout(animateCounters, 800);
+</script>
+</body>
+</html>

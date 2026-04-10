@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "titulo": "Instituto Futuros Craques consolida-se como referência em projetos esportivos",
+    "url": "https://www.futuroscraques.org/post/instituto-futuros-craques-consolida-se",
+    "descricao": "Com um portfólio de 27 projetos executados, o Instituto Futuros Craques reafirma seu compromisso",
+    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
+    "data": "26 de março de 2026",
+    "categoria": "Institucional",
+    "tags": [
+      "IFC",
+      "Educação",
+      "Basquete"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "IFC inicia temporada do basquete 3x3 com presença em todas as categorias",
+    "url": "https://www.futuroscraques.org/post/ifc-inicia-temporada-do-basquete",
+    "descricao": "O Instituto Futuros Craques inicia oficialmente a temporada 2026 do basquete 3x3",
+    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
+    "data": "9 de março de 2026",
+    "categoria": "Eventos",
+    "tags": [
+      "Basquete 3x3",
+      "Competição",
+      "2026"
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Instituto Futuros Craques retoma atividades de base com renovado vigor",
+    "url": "https://www.futuroscraques.org/post/ifc-retoma-atividades",
+    "descricao": "O Instituto Futuros Craques iniciou oficialmente mais uma temporada de atividades",
+    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
+    "data": "2 de fevereiro de 2026",
+    "categoria": "Programas",
+    "tags": [
+      "Base",
+      "Atletismo",
+      "Desenvolvimento"
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Instituto Futuros Craques amplia atuação esportiva e social",
+    "url": "https://www.futuroscraques.org/post/ifc-amplia-atuacao",
+    "descricao": "O Instituto Futuros Craques dá mais um passo importante em sua trajetória de crescimento",
+    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
+    "data": "29 de janeiro de 2026",
+    "categoria": "Institucional",
+    "tags": [
+      "Expansão",
+      "Impacto Social",
+      "Programas"
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Equipe brasileira Drible Certo encerra participação em campeonato internacional",
+    "url": "https://www.futuroscraques.org/post/drible-certo-internacional",
+    "descricao": "A equipe brasileira Drible Certo concluiu sua participação em competição internacional",
+    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
+    "data": "15 de dezembro de 2025",
+    "categoria": "Competições",
+    "tags": [
+      "Drible Certo",
+      "Internacional",
+      "Competição"
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Paulistano/IFC encerra temporada Sub-17 com títulos",
+    "url": "https://www.futuroscraques.org/post/paulistano-ifc-sub17",
+    "descricao": "Paulistano/IFC encerra temporada Sub-17 com sucesso na Liga ANB",
+    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
+    "data": "30 de setembro de 2025",
+    "categoria": "Competições",
+    "tags": [
+      "Paulistano",
+      "Sub-17",
+      "ANB"
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Virada Esportiva 2025: Diversão, Esporte e Inclusão",
+    "url": "https://www.futuroscraques.org/post/virada-esportiva-2025",
+    "descricao": "A Virada Esportiva 2025 traz atividades de esporte, cultura e inclusão para São Paulo",
+    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
+    "data": "22 de setembro de 2025",
+    "categoria": "Eventos",
+    "tags": [
+      "Virada",
+      "Esporte",
+      "Inclusão"
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Leandro Rubens assume liderança do ranking nacional de basquete 3x3",
+    "url": "https://www.futuroscraques.org/post/leandro-rubens-ranking",
+    "descricao": "Leandro Rubens assume a liderança do ranking nacional de basquete 3x3",
+    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
+    "data": "16 de setembro de 2025",
+    "categoria": "Destaques",
+    "tags": [
+      "Leandro Rubens",
+      "Basquete 3x3",
+      "Ranking"
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "São Paulo DC é a melhor equipe brasileira no Challenger Internacional de Brasília",
+    "url": "https://www.futuroscraques.org/post/sao-paulo-dc-challenger",
+    "descricao": "São Paulo DC conquista primeira colocação no Challenger Internacional",
+    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
+    "data": "16 de setembro de 2025",
+    "categoria": "Conquistas",
+    "tags": [
+      "São Paulo DC",
+      "Challenger",
+      "Brasília"
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "IFC Drible Certo se prepara para o Challenger Internacional de Brasília",
+    "url": "https://www.futuroscraques.org/post/drible-certo-challenger",
+    "descricao": "IFC Drible Certo intensifica preparação para o Challenger Internacional",
+    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
+    "data": "10 de setembro de 2025",
+    "categoria": "Preparação",
+    "tags": [
+      "Drible Certo",
+      "Challenger",
+      "Preparação"
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "Programa de Desenvolvimento de Atletas IFC atinge 500 participantes",
+    "url": "https://www.futuroscraques.org/post/programa-desenvolvimento-500",
+    "descricao": "O programa de desenvolvimento de atletas do IFC alcança marca histórica de 500 participantes",
+    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
+    "data": "5 de setembro de 2025",
+    "categoria": "Programas",
+    "tags": [
+      "Desenvolvimento",
+      "Atletas",
+      "Programas"
+    ]
+  },
+  {
+    "id": 12,
+    "titulo": "IFC lança novo programa de bolsas para comunidades carentes de São Paulo",
+    "url": "https://www.futuroscraques.org/post/ifc-bolsas-comunidades",
+    "descricao": "Instituto abre inscrições para 100 bolsas em comunidades carentes da capital",
+    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
+    "data": "28 de agosto de 2025",
+    "categoria": "Institucional",
+    "tags": [
+      "Bolsas",
+      "Comunidade",
+      "Inclusão Social"
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "Campeonato Paulista de Basquete 3x3 tem IFC como destaque",
+    "url": "https://www.futuroscraques.org/post/campeonato-paulista-3x3",
+    "descricao": "IFC domina categorias do Campeonato Paulista com vitórias consecutivas",
+    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
+    "data": "15 de agosto de 2025",
+    "categoria": "Competições",
+    "tags": [
+      "Campeonato Paulista",
+      "3x3",
+      "Destaque"
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "Parceria estratégica com Confederação Brasileira de Basquete",
+    "url": "https://www.futuroscraques.org/post/parceria-cbb",
+    "descricao": "IFC e CBB firmam acordo para desenvolvimento de jovens talentos do basquete",
+    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
+    "data": "1 de agosto de 2025",
+    "categoria": "Parcerias",
+    "tags": [
+      "CBB",
+      "Desenvolvimento",
+      "Parcerias Estratégicas"
+    ]
+  },
+  {
+    "id": 15,
+    "titulo": "Evento IFC: Encontro de Futuros Craques reúne 200 jovens em São Paulo",
+    "url": "https://www.futuroscraques.org/post/encontro-futuros-craques",
+    "descricao": "Grande encontro do IFC reúne centenas de jovens atletas para apresentações e workshops",
+    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
+    "data": "20 de julho de 2025",
+    "categoria": "Eventos",
+    "tags": [
+      "Evento",
+      "Encontro",
+      "Jovens"
+    ]
+  },
+  {
+    "id": 16,
+    "titulo": "IFC recebe prêmio de Melhor Instituto de Desenvolvimento Esportivo 2025",
+    "url": "https://www.futuroscraques.org/post/premio-melhor-instituto-2025",
+    "descricao": "Instituto Futuros Craques é reconhecido e premiado como melhor instituição de desenvolvimento",
+    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
+    "data": "10 de julho de 2025",
+    "categoria": "Conquistas",
+    "tags": [
+      "Prêmio",
+      "Reconhecimento",
+      "Desenvolvimento"
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "Atletas IFC conquistam medalhas em torneio estadual de basquete",
+    "url": "https://www.futuroscraques.org/post/medalhas-torneio-estadual",
+    "descricao": "Equipes do Instituto voltam de torneio estadual com várias medalhas e reconhecimento",
+    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
+    "data": "25 de junho de 2025",
+    "categoria": "Destaques",
+    "tags": [
+      "Medalhas",
+      "Torneio",
+      "Estadual"
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "IFC amplia infraestrutura com nova quadra poliesportiva em São Paulo",
+    "url": "https://www.futuroscraques.org/post/nova-quadra-poliesportiva",
+    "descricao": "Instituto inaugura moderna quadra poliesportiva para treinos e competições",
+    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
+    "data": "15 de junho de 2025",
+    "categoria": "Institucional",
+    "tags": [
+      "Infraestrutura",
+      "Quadra",
+      "Facilities"
+    ]
+  },
+  {
+    "id": 19,
+    "titulo": "Programa de Mentoria IFC: Profissionais da área esportiva guiam talentos",
+    "url": "https://www.futuroscraques.org/post/programa-mentoria-ifc",
+    "descricao": "Novo programa de mentoria conecta jovens atletas com profissionais experientes do basquete",
+    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
+    "data": "1 de junho de 2025",
+    "categoria": "Programas",
+    "tags": [
+      "Mentoria",
+      "Desenvolvimento",
+      "Educação"
+    ]
+  },
+  {
+    "id": 20,
+    "titulo": "IFC conquista 3 títulos em campeonato regional de basquete",
+    "url": "https://www.futuroscraques.org/post/3-titulos-regional",
+    "descricao": "Instituto levanta 3 troféus em competição regional, consolidando sua liderança no basquete",
+    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
+    "data": "20 de maio de 2025",
+    "categoria": "Conquistas",
+    "tags": [
+      "Títulos",
+      "Campeonato Regional",
+      "Liderança"
+    ]
+  }
+]
