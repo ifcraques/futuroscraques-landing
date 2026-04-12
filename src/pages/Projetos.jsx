@@ -120,8 +120,8 @@ function ProjetoCard({ projeto, index }) {
       exit={{ opacity: 0, y: 16, scale: 0.97 }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        background: '#0f0f0f',
-        border: '1px solid rgba(255,255,255,0.07)',
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
         borderRadius: '2px',
         padding: '2.5rem 2rem',
         display: 'flex',
@@ -166,7 +166,7 @@ function ProjetoCard({ projeto, index }) {
         <h3 style={{
           fontFamily: "'Instrument Serif', serif",
           fontSize: 'clamp(1.6rem, 2.5vw, 2rem)',
-          fontWeight: 400, color: '#fff',
+          fontWeight: 400, color: '#111827',
           lineHeight: 1.1, marginBottom: '0.3rem',
         }}>
           {projeto.titulo}
@@ -174,7 +174,7 @@ function ProjetoCard({ projeto, index }) {
         <p style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: '0.65rem', letterSpacing: '0.1em',
-          color: 'rgba(255,255,255,0.62)', textTransform: 'uppercase',
+          color: '#6b7280', textTransform: 'uppercase',
         }}>
           {projeto.subtitulo}
         </p>
@@ -183,7 +183,7 @@ function ProjetoCard({ projeto, index }) {
       {/* descrição */}
       <p style={{
         fontFamily: "'Outfit', sans-serif",
-        fontSize: '0.82rem', color: 'rgba(255,255,255,0.74)',
+        fontSize: '0.82rem', color: '#374151',
         lineHeight: 1.75, fontWeight: 300,
         flex: 1,
       }}>
@@ -195,14 +195,14 @@ function ProjetoCard({ projeto, index }) {
         display: 'grid', gridTemplateColumns: '1fr 1fr',
         gap: '1rem',
         paddingTop: '1.2rem',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '1px solid #e5e7eb',
       }}>
         <div>
-          <div style={{ fontSize: '0.55rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase', marginBottom: '4px', fontFamily: "'Outfit', sans-serif" }}>Público</div>
-          <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', fontFamily: "'Outfit', sans-serif", lineHeight: 1.5 }}>{projeto.publico}</div>
+          <div style={{ fontSize: '0.55rem', letterSpacing: '0.14em', color: '#6b7280', textTransform: 'uppercase', marginBottom: '4px', fontFamily: "'Outfit', sans-serif" }}>Público</div>
+          <div style={{ fontSize: '0.72rem', color: '#374151', fontFamily: "'Outfit', sans-serif", lineHeight: 1.5 }}>{projeto.publico}</div>
         </div>
         <div>
-          <div style={{ fontSize: '0.55rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase', marginBottom: '4px', fontFamily: "'Outfit', sans-serif" }}>Beneficiados</div>
+          <div style={{ fontSize: '0.55rem', letterSpacing: '0.14em', color: '#6b7280', textTransform: 'uppercase', marginBottom: '4px', fontFamily: "'Outfit', sans-serif" }}>Beneficiados</div>
           <div style={{ fontSize: '0.72rem', color: projeto.cor, fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}>{projeto.beneficiados}</div>
         </div>
       </div>
@@ -213,8 +213,8 @@ function ProjetoCard({ projeto, index }) {
           <button style={{
             width: '100%',
             background: 'transparent',
-            border: `1px solid rgba(255,255,255,0.1)`,
-            color: 'rgba(255,255,255,0.5)',
+            border: `1px solid #d1d5db`,
+            color: '#6b7280',
             padding: '10px',
             fontFamily: "'Outfit', sans-serif",
             fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -228,8 +228,8 @@ function ProjetoCard({ projeto, index }) {
           }}
           onMouseLeave={e => {
             e.currentTarget.style.background = 'transparent'
-            e.currentTarget.style.color = 'rgba(255,255,255,0.5)'
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+            e.currentTarget.style.color = '#6b7280'
+            e.currentTarget.style.borderColor = '#d1d5db'
           }}
           >
             Apoie →
@@ -238,8 +238,8 @@ function ProjetoCard({ projeto, index }) {
         <a href={projeto.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           <button style={{
             background: 'transparent',
-            border: `1px solid rgba(255,255,255,0.1)`,
-            color: 'rgba(255,255,255,0.62)',
+            border: `1px solid #d1d5db`,
+            color: '#6b7280',
             padding: '10px 14px',
             fontFamily: "'Outfit', sans-serif",
             fontSize: '0.7rem',
@@ -247,12 +247,12 @@ function ProjetoCard({ projeto, index }) {
             transition: 'color 0.2s, border-color 0.2s',
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.color = 'rgba(255,255,255,0.7)'
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'
+            e.currentTarget.style.color = '#374151'
+            e.currentTarget.style.borderColor = '#9ca3af'
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.color = 'rgba(255,255,255,0.62)'
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+            e.currentTarget.style.color = '#6b7280'
+            e.currentTarget.style.borderColor = '#d1d5db'
           }}
           title="Ver no site oficial"
           >
@@ -272,7 +272,7 @@ export default function Projetos() {
     : PROJETOS.filter(p => p.categoria === filtro)
 
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '100px' }}>
+    <div style={{ background: '#f8f9fa', minHeight: '100vh', paddingTop: '100px' }}>
 
       {/* Header da página */}
       <div style={{ padding: '4rem clamp(1.5rem, 6vw, 6rem) 0' }}>
@@ -286,15 +286,15 @@ export default function Projetos() {
         <h1 style={{
           fontFamily: "'Instrument Serif', serif",
           fontSize: 'clamp(2.8rem, 7vw, 6rem)',
-          fontWeight: 400, color: '#fff',
+          fontWeight: 400, color: '#111827',
           lineHeight: 1, marginBottom: '1.5rem',
         }}>
-          Nossos <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>projetos</em>
+          Nossos <em style={{ fontStyle: 'italic', color: '#4b5563' }}>projetos</em>
         </h1>
         <p style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: 'clamp(0.85rem, 1vw, 1rem)',
-          color: 'rgba(255,255,255,0.66)', maxWidth: '520px',
+          color: '#4b5563', maxWidth: '520px',
           lineHeight: 1.75, fontWeight: 300,
         }}>
           Programas socioeducativos que unem esporte, formação e cidadania para transformar a vida de jovens em todo o Brasil.
@@ -305,7 +305,7 @@ export default function Projetos() {
       <div style={{
         padding: '2.5rem clamp(1.5rem, 6vw, 6rem)',
         display: 'flex', gap: '0.5rem', flexWrap: 'wrap',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid #e5e7eb',
       }}>
         {CATEGORIAS.map(cat => (
           <button
@@ -315,9 +315,9 @@ export default function Projetos() {
               fontFamily: "'Outfit', sans-serif",
               fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
               padding: '7px 16px', borderRadius: '2px', cursor: 'pointer',
-              border: filtro === cat.id ? '1px solid #16a34a' : '1px solid rgba(255,255,255,0.1)',
+              border: filtro === cat.id ? '1px solid #16a34a' : '1px solid #d1d5db',
               background: filtro === cat.id ? 'rgba(22,163,74,0.1)' : 'transparent',
-              color: filtro === cat.id ? '#16a34a' : 'rgba(255,255,255,0.66)',
+              color: filtro === cat.id ? '#16a34a' : '#374151',
               transition: 'all 0.2s',
             }}
           >
@@ -334,7 +334,7 @@ export default function Projetos() {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
             gap: '1px',
-            background: 'rgba(255,255,255,0.05)',
+            background: '#e5e7eb',
           }}
         >
           <AnimatePresence mode="popLayout">
@@ -347,7 +347,7 @@ export default function Projetos() {
         {filtrados.length === 0 && (
           <div style={{
             textAlign: 'center', padding: '5rem',
-            color: 'rgba(255,255,255,0.52)',
+            color: '#9ca3af',
             fontFamily: "'Outfit', sans-serif", fontSize: '0.85rem',
           }}>
             Nenhum projeto nesta categoria.
@@ -357,7 +357,7 @@ export default function Projetos() {
 
       {/* CTA */}
       <div style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '1px solid #e5e7eb',
         padding: '5rem clamp(1.5rem, 6vw, 6rem)',
         textAlign: 'center',
       }}>
@@ -371,14 +371,14 @@ export default function Projetos() {
         <h2 style={{
           fontFamily: "'Instrument Serif', serif",
           fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-          fontWeight: 400, color: '#fff',
+          fontWeight: 400, color: '#111827',
           marginBottom: '1rem',
         }}>
-          Apoie um projeto <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>agora.</em>
+          Apoie um projeto <em style={{ fontStyle: 'italic', color: '#4b5563' }}>agora.</em>
         </h2>
         <p style={{
           fontFamily: "'Outfit', sans-serif",
-          fontSize: '0.85rem', color: 'rgba(255,255,255,0.62)',
+          fontSize: '0.85rem', color: '#6b7280',
           marginBottom: '2.5rem', lineHeight: 1.7,
         }}>
           Cada contribuição financia diretamente um jovem em situação de vulnerabilidade.
@@ -390,7 +390,7 @@ export default function Projetos() {
             fontSize: '0.8rem',
             fontFamily: "'Outfit', sans-serif",
             fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#fff', cursor: 'pointer',
+            color: '#111827', cursor: 'pointer',
             background: 'rgba(22,163,74,0.2)',
             transition: 'transform 0.2s',
           }}

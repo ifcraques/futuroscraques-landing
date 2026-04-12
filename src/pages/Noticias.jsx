@@ -29,8 +29,8 @@ function NewsCard({ noticia, index }) {
       transition={{ duration: 0.45, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       layout
       style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
         borderRadius: '16px',
         overflow: 'hidden',
         cursor: 'pointer',
@@ -39,8 +39,8 @@ function NewsCard({ noticia, index }) {
         flexDirection: 'column',
       }}
       whileHover={{
-        borderColor: `${cor}50`,
-        boxShadow: `0 0 0 1px ${cor}20, 0 8px 32px rgba(0,0,0,0.4)`,
+        borderColor: `${cor}60`,
+        boxShadow: `0 4px 24px rgba(0,0,0,0.1)`,
       }}
       onClick={() => navigate(`/noticias/${slug}`)}
     >
@@ -86,7 +86,7 @@ function NewsCard({ noticia, index }) {
         <p style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: '0.72rem',
-          color: 'rgba(255,255,255,0.62)',
+          color: '#6b7280',
           letterSpacing: '0.04em',
         }}>
           {noticia.data}
@@ -96,7 +96,7 @@ function NewsCard({ noticia, index }) {
           fontFamily: "'Outfit', sans-serif",
           fontSize: 'clamp(0.9rem, 1.2vw, 1rem)',
           fontWeight: 600,
-          color: '#fff',
+          color: '#111827',
           lineHeight: 1.45,
           margin: 0,
           flex: 1,
@@ -107,8 +107,8 @@ function NewsCard({ noticia, index }) {
         <p style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: '0.82rem',
-          fontWeight: 300,
-          color: 'rgba(255,255,255,0.74)',
+          fontWeight: 400,
+          color: '#4b5563',
           lineHeight: 1.6,
           margin: 0,
         }}>
@@ -122,9 +122,9 @@ function NewsCard({ noticia, index }) {
               fontFamily: "'Outfit', sans-serif",
               fontSize: '0.65rem',
               fontWeight: 400,
-              color: 'rgba(255,255,255,0.62)',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              color: '#6b7280',
+              background: '#f3f4f6',
+              border: '1px solid #e5e7eb',
               padding: '2px 8px',
               borderRadius: '20px',
               letterSpacing: '0.03em',
@@ -166,7 +166,7 @@ export default function Noticias() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#0a0a0a',
+      background: '#f8f9fa',
       paddingTop: '100px',
     }}>
 
@@ -186,7 +186,7 @@ export default function Noticias() {
             fontSize: '0.65rem',
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.58)',
+            color: '#6b7280',
             display: 'block',
             marginBottom: '1rem',
           }}>
@@ -197,7 +197,7 @@ export default function Noticias() {
             fontSize: 'clamp(3rem, 7vw, 6rem)',
             lineHeight: 0.92,
             letterSpacing: '0.015em',
-            color: '#fff',
+            color: '#111827',
             margin: '0 0 1.5rem',
           }}>
             Notícias
@@ -205,8 +205,8 @@ export default function Noticias() {
           <p style={{
             fontFamily: "'Outfit', sans-serif",
             fontSize: 'clamp(0.9rem, 1.4vw, 1rem)',
-            fontWeight: 300,
-            color: 'rgba(255,255,255,0.70)',
+            fontWeight: 400,
+            color: '#4b5563',
             lineHeight: 1.7,
             maxWidth: '520px',
             margin: 0,
@@ -218,7 +218,7 @@ export default function Noticias() {
         {/* linha decorativa */}
         <div style={{
           height: '1px',
-          background: 'linear-gradient(90deg, rgba(22,163,74,0.5) 0%, rgba(22,163,74,0.1) 50%, transparent 100%)',
+          background: 'linear-gradient(90deg, #16a34a 0%, rgba(22,163,74,0.3) 50%, transparent 100%)',
           margin: '2.5rem 0',
         }} />
 
@@ -237,9 +237,9 @@ export default function Noticias() {
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: '0.78rem',
                 fontWeight: categoriaAtiva === cat ? 600 : 400,
-                color: categoriaAtiva === cat ? '#fff' : 'rgba(255,255,255,0.70)',
-                background: categoriaAtiva === cat ? '#16a34a' : 'rgba(255,255,255,0.04)',
-                border: `1px solid ${categoriaAtiva === cat ? '#16a34a' : 'rgba(255,255,255,0.08)'}`,
+                color: categoriaAtiva === cat ? '#fff' : '#374151',
+                background: categoriaAtiva === cat ? '#16a34a' : '#ffffff',
+                border: `1px solid ${categoriaAtiva === cat ? '#16a34a' : '#d1d5db'}`,
                 borderRadius: '20px',
                 padding: '0.4rem 1rem',
                 cursor: 'pointer',
@@ -278,7 +278,7 @@ export default function Noticias() {
           <div style={{
             textAlign: 'center',
             padding: '4rem 0',
-            color: 'rgba(255,255,255,0.52)',
+            color: '#9ca3af',
             fontFamily: "'Outfit', sans-serif",
           }}>
             Nenhuma notícia nesta categoria.

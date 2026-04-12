@@ -71,16 +71,16 @@ export default function Header() {
           alignItems: 'center',
           justifyContent: 'space-between',
           background: scrolled
-            ? 'rgba(0,0,0,0.75)'
-            : 'rgba(0,0,0,0.28)',
+            ? 'rgba(255,255,255,0.96)'
+            : 'rgba(255,255,255,0.82)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          border: '1px solid rgba(255,255,255,0.1)',
+          border: '1px solid rgba(0,0,0,0.08)',
           borderRadius: '16px',
           padding: '0.75rem 1.2rem 0.75rem 1.4rem',
           boxShadow: scrolled
-            ? '0 8px 40px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.08)'
-            : 'inset 0 1px 1px rgba(255,255,255,0.06)',
+            ? '0 8px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.9)'
+            : '0 2px 12px rgba(0,0,0,0.06)',
           transition: 'background 0.35s, box-shadow 0.35s',
         }}>
 
@@ -118,7 +118,7 @@ export default function Header() {
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: '0.95rem',
                 fontWeight: 600,
-                color: '#fff',
+                color: '#111827',
                 letterSpacing: '-0.01em',
                 whiteSpace: 'nowrap',
               }}>
@@ -145,15 +145,15 @@ export default function Header() {
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: '0.88rem',
                   fontWeight: 500,
-                  color: 'rgba(255,255,255,0.72)',
+                  color: '#374151',
                   cursor: 'pointer',
                   padding: '0.5rem 0.9rem',
                   borderRadius: '8px',
                   letterSpacing: '0.01em',
                   transition: 'color 0.2s, background 0.2s',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'none' }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#111827' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#374151' }}
               >
                 {item.label}
               </motion.button>
@@ -190,8 +190,8 @@ export default function Header() {
               aria-label="Menu"
               className="mobile-menu-btn"
               style={{
-                background: 'rgba(255,255,255,0.08)',
-                border: '1px solid rgba(255,255,255,0.12)',
+                background: 'rgba(0,0,0,0.05)',
+                border: '1px solid rgba(0,0,0,0.1)',
                 borderRadius: '8px',
                 width: '36px',
                 height: '36px',
@@ -217,7 +217,7 @@ export default function Header() {
                     display: 'block',
                     width: '18px',
                     height: '1.5px',
-                    background: 'rgba(255,255,255,0.75)',
+                    background: '#374151',
                     borderRadius: '2px',
                     transformOrigin: 'center',
                   }}
@@ -242,15 +242,16 @@ export default function Header() {
               left: 'clamp(1.2rem, 4vw, 3rem)',
               right: 'clamp(1.2rem, 4vw, 3rem)',
               zIndex: 999,
-              background: 'rgba(0,0,0,0.88)',
+              background: 'rgba(255,255,255,0.97)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              border: '1px solid rgba(0,0,0,0.08)',
               borderRadius: '14px',
               padding: '1rem',
               display: 'flex',
               flexDirection: 'column',
               gap: '0.25rem',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
             }}
           >
             {navItems.map((item, i) => (
@@ -266,20 +267,20 @@ export default function Header() {
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: '1rem',
                   fontWeight: 400,
-                  color: 'rgba(255,255,255,0.75)',
+                  color: '#374151',
                   cursor: 'pointer',
                   padding: '0.75rem 1rem',
                   borderRadius: '8px',
                   textAlign: 'left',
                   letterSpacing: '0.01em',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.color = '#fff' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = 'rgba(255,255,255,0.75)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#111827' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#374151' }}
               >
                 {item.label}
               </motion.button>
             ))}
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '0.5rem', paddingTop: '0.75rem' }}>
+            <div style={{ borderTop: '1px solid rgba(0,0,0,0.07)', marginTop: '0.5rem', paddingTop: '0.75rem' }}>
               <Link to="/comoapoiar" style={{ textDecoration: 'none' }}>
                 <button style={{
                   width: '100%',

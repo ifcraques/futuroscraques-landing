@@ -46,7 +46,7 @@ const fadeUp = {
 
 export default function QuemSomos() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '100px' }}>
+    <div style={{ background: '#f8f9fa', minHeight: '100vh', paddingTop: '100px' }}>
 
       {/* ── Hero ── */}
       <div style={{ padding: '4rem clamp(1.5rem, 6vw, 6rem) 0' }}>
@@ -65,16 +65,16 @@ export default function QuemSomos() {
           <h1 style={{
             fontFamily: "'Instrument Serif', serif",
             fontSize: 'clamp(2.8rem, 7vw, 6rem)',
-            fontWeight: 400, color: '#fff',
+            fontWeight: 400, color: '#111827',
             lineHeight: 1, marginBottom: '1.5rem',
           }}>
             Quem{' '}
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>somos</em>
+            <em style={{ fontStyle: 'italic', color: '#4b5563' }}>somos</em>
           </h1>
           <p style={{
             fontFamily: "'Outfit', sans-serif",
             fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
-            color: 'rgba(255,255,255,0.66)', maxWidth: '560px',
+            color: '#4b5563', maxWidth: '560px',
             lineHeight: 1.8, fontWeight: 300,
           }}>
             Uma organização sem fins lucrativos que, desde 2005, usa o esporte
@@ -88,7 +88,7 @@ export default function QuemSomos() {
       <div style={{
         margin: '4rem clamp(1.5rem, 6vw, 6rem) 0',
         height: '1px',
-        background: 'rgba(255,255,255,0.06)',
+        background: '#e5e7eb',
       }} />
 
       {/* ── Missão, Visão, Valores ── */}
@@ -96,7 +96,7 @@ export default function QuemSomos() {
         <p style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: '0.75rem', letterSpacing: '0.22em',
-          color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase',
+          color: '#6b7280', textTransform: 'uppercase',
           marginBottom: '3rem',
         }}>
           Princípios
@@ -106,7 +106,7 @@ export default function QuemSomos() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
           gap: '1px',
-          background: 'rgba(255,255,255,0.05)',
+          background: '#e5e7eb',
         }}>
           {MVV.map((item, i) => (
             <motion.div
@@ -117,7 +117,7 @@ export default function QuemSomos() {
               whileInView="visible"
               viewport={{ once: true }}
               style={{
-                background: '#0f0f0f',
+                background: '#ffffff',
                 padding: '2.5rem 2rem',
                 display: 'flex',
                 flexDirection: 'column',
@@ -135,14 +135,14 @@ export default function QuemSomos() {
               <h3 style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontSize: 'clamp(1.8rem, 2.5vw, 2.4rem)',
-                fontWeight: 400, color: '#fff',
+                fontWeight: 400, color: '#111827',
                 lineHeight: 1,
               }}>
                 {item.titulo}
               </h3>
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
-                fontSize: '1rem', color: 'rgba(255,255,255,0.74)',
+                fontSize: '1rem', color: '#374151',
                 lineHeight: 1.8, fontWeight: 300,
               }}>
                 {item.corpo}
@@ -156,7 +156,7 @@ export default function QuemSomos() {
       <div style={{
         margin: '5rem clamp(1.5rem, 6vw, 6rem) 0',
         height: '1px',
-        background: 'rgba(255,255,255,0.06)',
+        background: '#e5e7eb',
       }} />
 
       {/* ── Linha do tempo ── */}
@@ -164,7 +164,7 @@ export default function QuemSomos() {
         <p style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: '0.75rem', letterSpacing: '0.22em',
-          color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase',
+          color: '#6b7280', textTransform: 'uppercase',
           marginBottom: '3rem',
         }}>
           Nossa história
@@ -185,7 +185,7 @@ export default function QuemSomos() {
                 gap: '2rem',
                 alignItems: 'start',
                 padding: '1.8rem 0',
-                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                borderBottom: '1px solid #e5e7eb',
               }}
             >
               <span style={{
@@ -200,7 +200,7 @@ export default function QuemSomos() {
               <p style={{
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: '1rem',
-                color: 'rgba(255,255,255,0.74)',
+                color: '#374151',
                 lineHeight: 1.8,
                 fontWeight: 300,
                 paddingTop: '2px',
@@ -216,7 +216,7 @@ export default function QuemSomos() {
       <div style={{
         margin: '5rem clamp(1.5rem, 6vw, 6rem) 0',
         height: '1px',
-        background: 'rgba(255,255,255,0.06)',
+        background: '#e5e7eb',
       }} />
 
       {/* ── Equipe ── */}
@@ -233,7 +233,7 @@ export default function QuemSomos() {
             <p style={{
               fontFamily: "'Outfit', sans-serif",
               fontSize: '0.75rem', letterSpacing: '0.22em',
-              color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase',
+              color: '#6b7280', textTransform: 'uppercase',
               marginBottom: '1.2rem',
             }}>
               Time
@@ -241,11 +241,11 @@ export default function QuemSomos() {
             <h2 style={{
               fontFamily: "'Instrument Serif', serif",
               fontSize: 'clamp(1.8rem, 3vw, 2.8rem)',
-              fontWeight: 400, color: '#fff',
+              fontWeight: 400, color: '#111827',
               lineHeight: 1.1,
             }}>
               Uma equipe{' '}
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>
+              <em style={{ fontStyle: 'italic', color: '#4b5563' }}>
                 multidisciplinar
               </em>
             </h2>
@@ -262,7 +262,7 @@ export default function QuemSomos() {
                 viewport={{ once: true }}
                 style={{
                   padding: '1.2rem 0',
-                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  borderBottom: '1px solid #e5e7eb',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -271,7 +271,7 @@ export default function QuemSomos() {
                 <span style={{
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: 'clamp(1rem, 1.2vw, 1.1rem)',
-                  color: 'rgba(255,255,255,0.55)',
+                  color: '#374151',
                   fontWeight: 300,
                 }}>
                   {role}
@@ -279,7 +279,7 @@ export default function QuemSomos() {
                 <span style={{
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: '0.7rem', letterSpacing: '0.16em',
-                  color: 'rgba(255,255,255,0.48)',
+                  color: '#9ca3af',
                   textTransform: 'uppercase',
                 }}>
                   {String(i + 1).padStart(2, '0')}
@@ -293,7 +293,7 @@ export default function QuemSomos() {
       {/* ── CTA ── */}
       <div style={{
         marginTop: '6rem',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '1px solid #e5e7eb',
         padding: '5rem clamp(1.5rem, 6vw, 6rem)',
         textAlign: 'center',
       }}>
@@ -307,14 +307,14 @@ export default function QuemSomos() {
         <h2 style={{
           fontFamily: "'Instrument Serif', serif",
           fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-          fontWeight: 400, color: '#fff', marginBottom: '1rem',
+          fontWeight: 400, color: '#111827', marginBottom: '1rem',
         }}>
           Apoie quem transforma{' '}
-          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>vidas.</em>
+          <em style={{ fontStyle: 'italic', color: '#4b5563' }}>vidas.</em>
         </h2>
         <p style={{
           fontFamily: "'Outfit', sans-serif",
-          fontSize: '1rem', color: 'rgba(255,255,255,0.62)',
+          fontSize: '1rem', color: '#6b7280',
           marginBottom: '2.5rem', lineHeight: 1.7,
         }}>
           Cada contribuição chega diretamente a um jovem em situação de vulnerabilidade.
@@ -329,7 +329,7 @@ export default function QuemSomos() {
               fontFamily: "'Outfit', sans-serif",
               fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
               color: '#fff', cursor: 'pointer',
-              background: 'rgba(22,163,74,0.2)',
+              background: 'rgba(22,163,74,0.9)',
               transition: 'transform 0.2s',
             }}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
