@@ -54,7 +54,7 @@ function FloatingInput({ label, type, value, onChange, error }) {
           left: '16px',
           top: active ? '6px' : '18px',
           fontSize: active ? '0.68rem' : '0.95rem',
-          color: focused ? '#00c6ff' : 'rgba(255,255,255,0.45)',
+          color: focused ? '#00c6ff' : 'rgba(255,255,255,0.74)',
           transition: 'all 0.22s cubic-bezier(0.22,1,0.36,1)',
           pointerEvents: 'none',
           letterSpacing: active ? '0.08em' : '0',
@@ -293,7 +293,7 @@ export default function Login() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.7 }}
             style={{
-              color: 'rgba(255,255,255,0.45)',
+              color: 'rgba(255,255,255,0.74)',
               fontSize: '0.95rem',
               lineHeight: 1.7,
               maxWidth: '300px',
@@ -336,7 +336,7 @@ export default function Login() {
                 <div
                   style={{
                     fontSize: '0.7rem',
-                    color: 'rgba(255,255,255,0.3)',
+                    color: 'rgba(255,255,255,0.62)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
                     marginTop: '2px',
@@ -395,7 +395,7 @@ export default function Login() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: 'rgba(255,255,255,0.35)',
+                color: 'rgba(255,255,255,0.66)',
                 textDecoration: 'none',
                 fontSize: '0.8rem',
                 letterSpacing: '0.08em',
@@ -404,7 +404,7 @@ export default function Login() {
                 transition: 'color 0.2s',
               }}
               onMouseEnter={(e) => (e.target.style.color = '#00c6ff')}
-              onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.35)')}
+              onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.66)')}
             >
               ← Voltar ao site
             </Link>
@@ -514,13 +514,13 @@ export default function Login() {
                   <a
                     href="#"
                     style={{
-                      color: 'rgba(255,255,255,0.3)',
+                      color: 'rgba(255,255,255,0.62)',
                       fontSize: '0.8rem',
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
                     onMouseEnter={(e) => (e.target.style.color = '#00c6ff')}
-                    onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.3)')}
+                    onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.62)')}
                   >
                     Esqueci minha senha
                   </a>
@@ -572,7 +572,7 @@ export default function Login() {
                   style={{
                     textAlign: 'center',
                     marginTop: '1.5rem',
-                    color: 'rgba(255,255,255,0.3)',
+                    color: 'rgba(255,255,255,0.62)',
                     fontSize: '0.82rem',
                   }}
                 >

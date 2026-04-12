@@ -1,0 +1,128 @@
+.sm-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: clamp(280px, 38vw, 440px);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5.5rem 2.5rem 3rem;
+  overflow-y: auto;
+  z-index: 42;
+}
+
+.sm-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: clamp(280px, 38vw, 440px);
+}
+
+.sm-toggle {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sm-list {
+  counter-reset: menu-counter;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sm-list li {
+  overflow: hidden;
+}
+
+.sm-item-wrap {
+  display: block;
+  cursor: pointer;
+  padding: 0.1rem 0;
+  text-decoration: none;
+  color: black;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.sm-item-wrap::before {
+  counter-increment: menu-counter;
+  content: counter(menu-counter, decimal-leading-zero);
+  display: block;
+  font-size: 0.58rem;
+  color: #16a34a;
+  letter-spacing: 0.1em;
+  margin-bottom: -2px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.sm-item-wrap:hover .sm-item-text {
+  color: #16a34a;
+}
+
+.sm-item-text {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  will-change: transform;
+  transition: color 0.2s;
+}
+
+.sm-socials-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  color: #16a34a;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.sm-social-link {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.sm-social-link:hover {
+  color: #000;
+}
+
+@media (max-width: 1024px) {
+  .sm-panel,
+  .sm-layer {
+    width: 100%;
+  }
+}

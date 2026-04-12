@@ -1,126 +1,270 @@
+import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.18 } },
-}
+const VIDEO_URL =
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] } },
-}
-
-const zoomIn = {
-  hidden: { opacity: 0, scale: 0.85 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 } },
-}
-
-function useCounter(target, duration = 2500, active = false) {
-  const [value, setValue] = useState(0)
+/* ── contador animado ── */
+function useCounter(target, duration = 1800, started = false) {
+  const [count, setCount] = useState(0)
   useEffect(() => {
-    if (!active) return
-    const increment = target / (duration / 16)
-    let current = 0
-    const tick = () => {
-      current += increment
-      if (current >= target) {
-        setValue(target)
-      } else {
-        setValue(Math.floor(current))
-        requestAnimationFrame(tick)
-      }
+    if (!started) return
+    let start = null
+    const step = (ts) => {
+      if (!start) start = ts
+      const progress = Math.min((ts - start) / duration, 1)
+      // easeOutExpo
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
+      setCount(Math.floor(ease * target))
+      if (progress < 1) requestAnimationFrame(step)
+      else setCount(target)
     }
-    requestAnimationFrame(tick)
-  }, [active, target, duration])
-  return value
+    requestAnimationFrame(step)
+  }, [started, target, duration])
+  return count
 }
 
-const stats = [
-  { count: 1200, label: 'Jovens Impactados', suffix: '' },
-  { count: 48, label: 'Projetos Entregues', suffix: '' },
-  { count: 30, label: 'Cidades Alcançadas', suffix: '+' },
-]
+function StatCounter({ value, label, suffix = '' }) {
+  const ref = useRef(null)
+  const [started, setStarted] = useState(false)
+  const count = useCounter(value, 1800, started)
 
-function StatItem({ count, label, suffix, active }) {
-  const val = useCounter(count, 2500, active)
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); io.disconnect() } },
+      { threshold: 0.5 }
+    )
+    if (ref.current) io.observe(ref.current)
+    return () => io.disconnect()
+  }, [])
+
+  const display = value >= 1000
+    ? count.toLocaleString('pt-BR')
+    : count.toString()
+
   return (
-    <motion.div
-      className="stat-item"
-      whileHover={{ y: -5, borderColor: 'var(--primary)', boxShadow: '0 15px 40px rgba(22,163,74,0.15)' }}
-      transition={{ duration: 0.3 }}
-    >
-      <div className="stat-number">
-        {val.toLocaleString('pt-BR')}{suffix}
+    <div ref={ref} style={{ textAlign: 'center' }}>
+      <div style={{
+        fontFamily: "'Instrument Serif', serif",
+        fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
+        fontStyle: 'italic',
+        color: 'rgba(255,255,255,0.9)',
+        lineHeight: 1, marginBottom: '4px',
+      }}>
+        {display}{suffix}
       </div>
-      <div className="stat-label">{label}</div>
-    </motion.div>
+      <div style={{
+        fontFamily: "'Outfit', sans-serif",
+        fontSize: '0.6rem', letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        color: 'rgba(255,255,255,0.58)',
+      }}>
+        {label}
+      </div>
+    </div>
   )
 }
 
 export default function Hero() {
-  const ref = useRef(null)
-  const [counterActive, setCounterActive] = useState(false)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
-
-  useEffect(() => {
-    const timer = setTimeout(() => setCounterActive(true), 800)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
-    <>
-      <section className="hero" ref={ref} id="hero">
-        <motion.div
-          className="hero-container"
-          style={{ y: bgY }}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="hero-content">
-            <motion.span className="hero-pretitle" variants={fadeUp}>
-              Conheça o Instituto
-            </motion.span>
-            <motion.h1 variants={fadeUp}>
-              Transformando<br/>Vidas Através<br/>do Esporte e da<br/>Educação
-            </motion.h1>
-            <motion.p variants={fadeUp}>
-              Inspiramos e preparamos jovens talentos. Muito mais que projetos sociais, construímos caminhos sólidos para o futuro, levando esportes e cidadania a quem mais precisa.
-            </motion.p>
-            <motion.div className="hero-actions" variants={fadeUp}>
-              <motion.button
-                className="cta-btn"
-                whileHover={{ y: -3, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
-                whileTap={{ scale: 0.96 }}
-              >
-                Faça uma Doação
-              </motion.button>
-              <motion.a
-                href="#projects"
-                className="btn-secondary"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.querySelector('#projects-section')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                whileHover={{ x: 4 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Nossos Projetos
-              </motion.a>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
+    <section style={{
+      position: 'relative',
+      width: '100%',
+      height: '100vh',
+      minHeight: '640px',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
 
-      <section className="stats-bar">
-        <div className="stats-row">
-          {stats.map((s) => (
-            <StatItem key={s.label} {...s} active={counterActive} />
-          ))}
+      {/* ── Vídeo fullscreen ── */}
+      <video
+        src={VIDEO_URL}
+        autoPlay loop muted playsInline
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+        }}
+      />
+
+      {/* ── Overlay escuro suave ── */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(135deg, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.2) 50%, rgba(8,8,8,0.55) 100%)',
+        zIndex: 1,
+      }} />
+
+      {/* ── Conteúdo centrado ── */}
+      <div style={{
+        position: 'relative',
+        zIndex: 2,
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: 'clamp(3rem,8vw,8rem) clamp(1.5rem,5vw,5rem)',
+        paddingTop: '90px',
+        paddingBottom: '90px',
+      }}>
+
+        {/* eyebrow */}
+        <p
+          className="animate-fade-rise"
+          style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: 'clamp(0.55rem,0.75vw,0.7rem)',
+            letterSpacing: '0.26em',
+            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.70)',
+            marginBottom: '1.8rem',
+          }}
+        >
+          Instituto Futuros Craques — Brasil, 2026
+        </p>
+
+        {/* heading principal */}
+        <h1
+          className="animate-fade-rise"
+          style={{
+            fontFamily: "'Instrument Serif', serif",
+            fontSize: 'clamp(2.8rem,7.5vw,7.4rem)',
+            lineHeight: 1,
+            fontWeight: 400,
+            letterSpacing: '-0.02em',
+            color: '#ffffff',
+            maxWidth: '900px',
+            marginBottom: '2rem',
+          }}
+        >
+          Formando{' '}
+          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>futuros</em>
+          <br />
+          craques{' '}
+          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>do Brasil.</em>
+        </h1>
+
+        {/* subtexto */}
+        <p
+          className="animate-fade-rise-delay"
+          style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: 'clamp(0.85rem,1.1vw,1rem)',
+            fontWeight: 300,
+            color: 'rgba(255,255,255,0.42)',
+            lineHeight: 1.8,
+            maxWidth: '520px',
+            marginBottom: '3rem',
+          }}
+        >
+          Esporte e educação como ferramentas de transformação social.
+          Mais de 1.200 jovens impactados em 30+ cidades do Brasil.
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="animate-fade-rise-delay-2"
+          style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}
+        >
+          <Link to="/comoapoiar" style={{ textDecoration: 'none' }}>
+            <button
+              className="liquid-glass"
+              style={{
+                borderRadius: '9999px',
+                padding: '14px 48px',
+                fontSize: '0.8rem',
+                fontFamily: "'Outfit', sans-serif",
+                fontWeight: 600,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: '#fff',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease',
+                background: 'rgba(22,163,74,0.25)',
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              Apoie Agora
+            </button>
+          </Link>
+
+          <Link to="/projetos" style={{ textDecoration: 'none' }}>
+            <button
+              className="liquid-glass"
+              style={{
+                borderRadius: '9999px',
+                padding: '14px 36px',
+                fontSize: '0.8rem',
+                fontFamily: "'Outfit', sans-serif",
+                fontWeight: 400,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.75)',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              Ver Projetos
+            </button>
+          </Link>
         </div>
-      </section>
-    </>
+
+        {/* stats row */}
+        <div
+          className="animate-fade-rise-delay-3"
+          style={{
+            marginTop: '4rem',
+            display: 'flex',
+            gap: 'clamp(2rem,5vw,4rem)',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
+          <StatCounter value={40000} suffix="+" label="jovens impactados" />
+          <StatCounter value={30}    suffix="+" label="cidades alcançadas" />
+          <StatCounter value={10}    suffix="+" label="anos de atuação" />
+        </div>
+
+      </div>
+
+      {/* ── Indicador de scroll ── */}
+      <div style={{
+        position: 'absolute',
+        bottom: '2.5rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 3,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '8px',
+      }}>
+        <div style={{
+          width: '1px',
+          height: '44px',
+          background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.25))',
+          animation: 'fade-rise 2s ease-in-out infinite alternate',
+        }} />
+        <span style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: '0.5rem',
+          letterSpacing: '0.2em',
+          color: 'rgba(255,255,255,0.48)',
+          textTransform: 'uppercase',
+        }}>
+          Scroll
+        </span>
+      </div>
+
+    </section>
   )
 }

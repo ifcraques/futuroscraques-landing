@@ -15,7 +15,25 @@
       "Bash(cmd:*)",
       "Bash(uipro init:*)",
       "Bash(bash:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(node scripts/scrape-wix.js)",
+      "Bash(node -e \"const j = require\\('./noticias.json'\\); console.log\\('entries:', j.length, '| first slug:', j[0]?.slug\\)\")",
+      "Bash(node -e ':*)",
+      "Bash(node -e \"const j = JSON.parse\\(require\\('fs'\\).readFileSync\\('noticias.json','utf8'\\)\\); j.slice\\(0,3\\).forEach\\(n => console.log\\(n.slug.substring\\(0,40\\), '|', n.foto\\)\\)\")",
+      "Bash(node -e \"const j = JSON.parse\\(require\\('fs'\\).readFileSync\\('noticias.json','utf8'\\)\\); j.slice\\(0,3\\).forEach\\(n => console.log\\(n.foto\\)\\)\")",
+      "Bash(ls:*)",
+      "Bash(node -e \"const j = JSON.parse\\(require\\('fs'\\).readFileSync\\('noticias.json','utf8'\\)\\); j.slice\\(0,3\\).forEach\\(n => console.log\\(n.slug, '\\\\n foto:', n.foto\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:5173/fotos/basquete-3x3-drible-certo-no-mundo-projeta-temporada-2026-com-reforcos-de-peso-e-ambicao-renovada/foto-1.jpg\")",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(./node_modules/.bin/vite build:*)",
+      "Bash(powershell -Command \"Compress-Archive -Path dist\\\\* -DestinationPath deploy.zip -Force\")",
+      "Bash(npx:*)",
+      "Bash(netstat -ano)",
+      "Bash(node:*)",
+      "Bash(start:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:5173/fotos/basquete-3x3-drible-certo-no-mundo-projeta-temporada-2026-com-reforcos-de-peso-e-ambicao-renovada/foto-2.jpeg\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

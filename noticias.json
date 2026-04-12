@@ -1,282 +1,222 @@
 [
   {
     "id": 1,
-    "titulo": "Instituto Futuros Craques consolida-se como referência em projetos esportivos",
-    "url": "https://www.futuroscraques.org/post/instituto-futuros-craques-consolida-se",
-    "descricao": "Com um portfólio de 27 projetos executados, o Instituto Futuros Craques reafirma seu compromisso",
-    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
-    "data": "26 de março de 2026",
-    "categoria": "Institucional",
-    "tags": [
-      "IFC",
-      "Educação",
-      "Basquete"
-    ]
+    "slug": "basquete-3x3-drible-certo-no-mundo-projeta-temporada-2026-com-reforcos-de-peso-e-ambicao-renovada",
+    "titulo": "BASQUETE 3X3: DRIBLE CERTO NO MUNDO PROJETA TEMPORADA 2026 COM REFORÇOS DE PESO E AMBIÇÃO RENOVADA",
+    "url": "https://www.futuroscraques.org/post/basquete-3x3-drible-certo-no-mundo-projeta-temporada-2026-com-refor%C3%A7os-de-peso-e-ambi%C3%A7%C3%A3o-renovada",
+    "descricao": "O Drible Certo no Mundo, maior detentor de títulos do basquete 3×3 brasileiro, já está em quadra para a temporada 2026. Com o calendário competitivo em ritmo ac…",
+    "foto": "/fotos/basquete-3x3-drible-certo-no-mundo-projeta-temporada-2026-com-reforcos-de-peso-e-ambicao-renovada/foto-2.jpeg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 2,
-    "titulo": "IFC inicia temporada do basquete 3x3 com presença em todas as categorias",
-    "url": "https://www.futuroscraques.org/post/ifc-inicia-temporada-do-basquete",
-    "descricao": "O Instituto Futuros Craques inicia oficialmente a temporada 2026 do basquete 3x3",
-    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
-    "data": "9 de março de 2026",
-    "categoria": "Eventos",
-    "tags": [
-      "Basquete 3x3",
-      "Competição",
-      "2026"
-    ]
+    "slug": "instituto-futuros-craques-consolida-se-como-referencia-em-projetos-esportivos-com-impacto-social-e-o",
+    "titulo": "INSTITUTO FUTUROS CRAQUES CONSOLIDA-SE COMO REFERÊNCIA EM PROJETOS ESPORTIVOS COM IMPACTO SOCIAL E OPORTUNIDADE DE APORTE VIA RENÚNCIA FISCAL",
+    "url": "https://www.futuroscraques.org/post/instituto-futuros-craques-consolida-se-como-refer%C3%AAncia-em-projetos-esportivos-com-impacto-social-e-o",
+    "descricao": "Com um portfólio de 27 projetos executados e em desenvolvimento nos últimos cinco anos, o Instituto Futuros Craques (IFC) consolidou-se como uma das grandes pro…",
+    "foto": "/fotos/instituto-futuros-craques-consolida-se-como-referencia-em-projetos-esportivos-com-impacto-social-e-o/foto-2.jpeg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 3,
-    "titulo": "Instituto Futuros Craques retoma atividades de base com renovado vigor",
-    "url": "https://www.futuroscraques.org/post/ifc-retoma-atividades",
-    "descricao": "O Instituto Futuros Craques iniciou oficialmente mais uma temporada de atividades",
-    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
-    "data": "2 de fevereiro de 2026",
-    "categoria": "Programas",
-    "tags": [
-      "Base",
-      "Atletismo",
-      "Desenvolvimento"
-    ]
+    "slug": "ifc-inicia-temporada-do-basquete-3x3-com-presenca-em-todas-as-categorias-na-abertura-do-calendario-n",
+    "titulo": "IFC inicia temporada do basquete 3x3 com presença em todas as categorias na abertura do calendário nacional",
+    "url": "https://www.futuroscraques.org/post/ifc-inicia-temporada-do-basquete-3x3-com-presen%C3%A7a-em-todas-as-categorias-na-abertura-do-calend%C3%A1rio-n",
+    "descricao": "O Instituto Futuros Craques inicia oficialmente a temporada 2026 do basquete 3x3 neste fim de semana, com a participação de suas equipes na primeira etapa do ca…",
+    "foto": "/fotos/ifc-inicia-temporada-do-basquete-3x3-com-presenca-em-todas-as-categorias-na-abertura-do-calendario-n/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 4,
-    "titulo": "Instituto Futuros Craques amplia atuação esportiva e social",
-    "url": "https://www.futuroscraques.org/post/ifc-amplia-atuacao",
-    "descricao": "O Instituto Futuros Craques dá mais um passo importante em sua trajetória de crescimento",
-    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
-    "data": "29 de janeiro de 2026",
-    "categoria": "Institucional",
-    "tags": [
-      "Expansão",
-      "Impacto Social",
-      "Programas"
-    ]
+    "slug": "instituto-futuros-craques-retoma-atividades-de-base-e-alto-rendimento-no-basquete-3x3-com-foco-em-pe",
+    "titulo": "Instituto Futuros Craques retoma atividades de base e alto rendimento no basquete 3x3 com foco em performance e formação",
+    "url": "https://www.futuroscraques.org/post/instituto-futuros-craques-retoma-atividades-de-base-e-alto-rendimento-no-basquete-3x3-com-foco-em-pe",
+    "descricao": "O Instituto Futuros Craques iniciou oficialmente mais uma temporada de atividades no basquete 3x3, marcando a retomada simultânea das categorias de base e do al…",
+    "foto": "/fotos/instituto-futuros-craques-retoma-atividades-de-base-e-alto-rendimento-no-basquete-3x3-com-foco-em-pe/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 5,
-    "titulo": "Equipe brasileira Drible Certo encerra participação em campeonato internacional",
-    "url": "https://www.futuroscraques.org/post/drible-certo-internacional",
-    "descricao": "A equipe brasileira Drible Certo concluiu sua participação em competição internacional",
-    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
-    "data": "15 de dezembro de 2025",
-    "categoria": "Competições",
-    "tags": [
-      "Drible Certo",
-      "Internacional",
-      "Competição"
-    ]
+    "slug": "instituto-futuros-craques-amplia-atuacao-esportiva-e-estreia-no-volei-de-praia-em-etapa-do-circuito",
+    "titulo": "Instituto Futuros Craques amplia atuação esportiva e estreia no vôlei de praia em etapa do Circuito Brasileiro",
+    "url": "https://www.futuroscraques.org/post/instituto-futuros-craques-amplia-atua%C3%A7%C3%A3o-esportiva-e-estreia-no-v%C3%B4lei-de-praia-em-etapa-do-circuito",
+    "descricao": "O Instituto Futuros Craques dá mais um passo importante em sua trajetória de crescimento e diversificação esportiva. Reconhecido nacionalmente pelo trabalho des…",
+    "foto": "/fotos/instituto-futuros-craques-amplia-atuacao-esportiva-e-estreia-no-volei-de-praia-em-etapa-do-circuito/foto-2.jpeg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 6,
-    "titulo": "Paulistano/IFC encerra temporada Sub-17 com títulos",
-    "url": "https://www.futuroscraques.org/post/paulistano-ifc-sub17",
-    "descricao": "Paulistano/IFC encerra temporada Sub-17 com sucesso na Liga ANB",
-    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
-    "data": "30 de setembro de 2025",
-    "categoria": "Competições",
-    "tags": [
-      "Paulistano",
-      "Sub-17",
-      "ANB"
-    ]
+    "slug": "equipe-brasileira-drible-certo-encerra-participacao-na-superfinal-da-ucl-3x3-com-campanha-competitiv",
+    "titulo": "Equipe brasileira Drible Certo encerra participação na Superfinal da UCL 3x3 com campanha competitiva na Rússia",
+    "url": "https://www.futuroscraques.org/post/equipe-brasileira-drible-certo-encerra-participa%C3%A7%C3%A3o-na-superfinal-da-ucl-3x3-com-campanha-competitiv",
+    "descricao": "A equipe brasileira Drible Certo concluiu sua participação na Superfinal da United Continental League (UCL) 3x3, disputada entre os dias 12 e 13 de dezembro, na…",
+    "foto": "/fotos/equipe-brasileira-drible-certo-encerra-participacao-na-superfinal-da-ucl-3x3-com-campanha-competitiv/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 7,
-    "titulo": "Virada Esportiva 2025: Diversão, Esporte e Inclusão",
-    "url": "https://www.futuroscraques.org/post/virada-esportiva-2025",
-    "descricao": "A Virada Esportiva 2025 traz atividades de esporte, cultura e inclusão para São Paulo",
-    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
-    "data": "22 de setembro de 2025",
-    "categoria": "Eventos",
-    "tags": [
-      "Virada",
-      "Esporte",
-      "Inclusão"
-    ]
+    "slug": "ifc-drible-certo-estreia-neste-domingo-na-superfinal-da-ucl-3x3-na-russia-em-busca-de-vaga-no-world",
+    "titulo": "IFC/Drible Certo estreia neste domingo na Superfinal da Ucl 3x3 na Rússia em busca de vaga no World Tour 2026 FIBA 3x3",
+    "url": "https://www.futuroscraques.org/post/ifc-drible-certo-estreia-neste-domingo-na-superfinal-da-ucl-3x3-na-r%C3%BAssia-em-busca-de-vaga-no-world",
+    "descricao": "A equipe IFC Drible Certo inicia neste domingo, 14 de dezembro, sua participação na Superfinal da UCL 3x3, em Kalanga, na Rússia. O torneio reúne clubes e seleç…",
+    "foto": "/fotos/ifc-drible-certo-estreia-neste-domingo-na-superfinal-da-ucl-3x3-na-russia-em-busca-de-vaga-no-world/foto-2.png",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 8,
-    "titulo": "Leandro Rubens assume liderança do ranking nacional de basquete 3x3",
-    "url": "https://www.futuroscraques.org/post/leandro-rubens-ranking",
-    "descricao": "Leandro Rubens assume a liderança do ranking nacional de basquete 3x3",
-    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
-    "data": "16 de setembro de 2025",
-    "categoria": "Destaques",
-    "tags": [
-      "Leandro Rubens",
-      "Basquete 3x3",
-      "Ranking"
-    ]
+    "slug": "paulistano-ifc-e-campeao-no-adulto-e-vice-no-sub-23-no-brasileiro-de-basquete-3x3-da-cbb",
+    "titulo": "Paulistano/IFC é campeão no Adulto e vice no Sub-23 no Brasileiro de Basquete 3x3 da CBB",
+    "url": "https://www.futuroscraques.org/post/paulistano-ifc-%C3%A9-campe%C3%A3o-no-adulto-e-vice-no-sub-23-no-brasileiro-de-basquete-3x3-da-cbb",
+    "descricao": "O Paulistano/IFC encerrou o Campeonato Brasileiro de Basquete 3x3 da CBB, realizado nos dias 6 e 7 de dezembro, com uma campanha de destaque nacional. O projeto…",
+    "foto": "/fotos/paulistano-ifc-e-campeao-no-adulto-e-vice-no-sub-23-no-brasileiro-de-basquete-3x3-da-cbb/foto-2.jpg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 9,
-    "titulo": "São Paulo DC é a melhor equipe brasileira no Challenger Internacional de Brasília",
-    "url": "https://www.futuroscraques.org/post/sao-paulo-dc-challenger",
-    "descricao": "São Paulo DC conquista primeira colocação no Challenger Internacional",
-    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
-    "data": "16 de setembro de 2025",
-    "categoria": "Conquistas",
-    "tags": [
-      "São Paulo DC",
-      "Challenger",
-      "Brasília"
-    ]
+    "slug": "atletas-do-ifc-brilham-na-premiacao-da-anb-e-celebram-destaques-da-temporada-2025",
+    "titulo": "Atletas do IFC brilham na premiação da ANB e celebram destaques da temporada 2025",
+    "url": "https://www.futuroscraques.org/post/atletas-do-ifc-brilham-na-premia%C3%A7%C3%A3o-da-anb-e-celebram-destaques-da-temporada-2025",
+    "descricao": "A Associação Nacional de Basquete 3x3 (ANB) divulgou os vencedores da premiação anual que reconhece os melhores atletas, equipes e desempenhos da temporada. O r…",
+    "foto": "/fotos/atletas-do-ifc-brilham-na-premiacao-da-anb-e-celebram-destaques-da-temporada-2025/foto-2.jpg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 10,
-    "titulo": "IFC Drible Certo se prepara para o Challenger Internacional de Brasília",
-    "url": "https://www.futuroscraques.org/post/drible-certo-challenger",
-    "descricao": "IFC Drible Certo intensifica preparação para o Challenger Internacional",
-    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
-    "data": "10 de setembro de 2025",
-    "categoria": "Preparação",
-    "tags": [
-      "Drible Certo",
-      "Challenger",
-      "Preparação"
-    ]
+    "slug": "atleta-do-sao-paulo-dc-conquista-medalha-de-bronze-com-a-selecao-brasileira-na-americup-3x3-2025",
+    "titulo": "Atleta do São Paulo DC conquista medalha de bronze com a Seleção Brasileira na AmeriCup 3x3 2025",
+    "url": "https://www.futuroscraques.org/post/atleta-do-s%C3%A3o-paulo-dc-conquista-medalha-de-bronze-com-a-sele%C3%A7%C3%A3o-brasileira-na-americup-3x3-2025",
+    "descricao": "A Seleção Brasileira voltou ao pódio continental ao garantir a medalha de bronze na FIBA 3x3 AmeriCup 2025, realizada em León, México. O torneio envolveu as pri…",
+    "foto": "/fotos/atleta-do-sao-paulo-dc-conquista-medalha-de-bronze-com-a-selecao-brasileira-na-americup-3x3-2025/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 11,
-    "titulo": "Programa de Desenvolvimento de Atletas IFC atinge 500 participantes",
-    "url": "https://www.futuroscraques.org/post/programa-desenvolvimento-500",
-    "descricao": "O programa de desenvolvimento de atletas do IFC alcança marca histórica de 500 participantes",
-    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
-    "data": "5 de setembro de 2025",
-    "categoria": "Programas",
-    "tags": [
-      "Desenvolvimento",
-      "Atletas",
-      "Programas"
-    ]
+    "slug": "prata-no-mundial-fisu-geracao-formada-no-instituto-futuros-craques-coloca-o-brasil-entre-os-melhore",
+    "titulo": "Prata no Mundial FISU: geração formada no Instituto Futuros Craques coloca o Brasil entre os melhores do planeta",
+    "url": "https://www.futuroscraques.org/post/prata-no-mundial-fisu-gera%C3%A7%C3%A3o-formada-no-instituto-futuros-craques-coloca-o-brasil-entre-os-melhore",
+    "descricao": "O Brasil encerrou sua participação no Mundial Universitário FISU 2025 de Basquete 3x3, em Brasília, com um resultado histórico. A equipe masculina da Universida…",
+    "foto": "/fotos/prata-no-mundial-fisu-geracao-formada-no-instituto-futuros-craques-coloca-o-brasil-entre-os-melhore/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 12,
-    "titulo": "IFC lança novo programa de bolsas para comunidades carentes de São Paulo",
-    "url": "https://www.futuroscraques.org/post/ifc-bolsas-comunidades",
-    "descricao": "Instituto abre inscrições para 100 bolsas em comunidades carentes da capital",
-    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
-    "data": "28 de agosto de 2025",
-    "categoria": "Institucional",
-    "tags": [
-      "Bolsas",
-      "Comunidade",
-      "Inclusão Social"
-    ]
+    "slug": "ifc-participa-do-mundial-universitario-fisu-2025-com-quatro-atletas-formados-em-seus-projetos",
+    "titulo": "IFC participa do Mundial Universitário FISU 2025 com quatro atletas formados em seus projetos",
+    "url": "https://www.futuroscraques.org/post/ifc-participa-do-mundial-universit%C3%A1rio-fisu-2025-com-quatro-atletas-formados-em-seus-projetos",
+    "descricao": "Brasília recebe nesta semana o Campeonato Mundial Universitário FISU 2025 de Basquete 3x3, um dos principais eventos universitários do calendário internacional.…",
+    "foto": "/fotos/ifc-participa-do-mundial-universitario-fisu-2025-com-quatro-atletas-formados-em-seus-projetos/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 13,
-    "titulo": "Campeonato Paulista de Basquete 3x3 tem IFC como destaque",
-    "url": "https://www.futuroscraques.org/post/campeonato-paulista-3x3",
-    "descricao": "IFC domina categorias do Campeonato Paulista com vitórias consecutivas",
-    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
-    "data": "15 de agosto de 2025",
-    "categoria": "Competições",
-    "tags": [
-      "Campeonato Paulista",
-      "3x3",
-      "Destaque"
-    ]
+    "slug": "paulistano-ifc-encerra-temporada-com-titulo-em-juiz-de-fora-e-mira-o-brasileiro-cbb-como-ultimo-desa",
+    "titulo": "Paulistano IFC encerra temporada com título em Juiz de Fora e mira o Brasileiro CBB como último desafio do ano",
+    "url": "https://www.futuroscraques.org/post/paulistano-ifc-encerra-temporada-com-t%C3%ADtulo-em-juiz-de-fora-e-mira-o-brasileiro-cbb-como-%C3%BAltimo-desa",
+    "descricao": "O basquete 3x3 brasileiro viveu um fim de semana marcante com a conquista do Paulistano IFC, campeão do primeiro Campeonato Interclubes de Basquete 3x3, realiza…",
+    "foto": "/fotos/paulistano-ifc-encerra-temporada-com-titulo-em-juiz-de-fora-e-mira-o-brasileiro-cbb-como-ultimo-desa/foto-2.jpg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 14,
-    "titulo": "Parceria estratégica com Confederação Brasileira de Basquete",
-    "url": "https://www.futuroscraques.org/post/parceria-cbb",
-    "descricao": "IFC e CBB firmam acordo para desenvolvimento de jovens talentos do basquete",
-    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
-    "data": "1 de agosto de 2025",
-    "categoria": "Parcerias",
-    "tags": [
-      "CBB",
-      "Desenvolvimento",
-      "Parcerias Estratégicas"
-    ]
+    "slug": "paulistano-ifc-e-campeao-paulista-nas-categorias-adulta-e-sub-23-de-basquete-3x3-e-classifica-as-dua",
+    "titulo": "PAULISTANO IFC É CAMPEÃO PAULISTA NAS CATEGORIAS ADULTA E SUB-23 DE BASQUETE 3X3 E CLASSIFICA AS DUAS EQUIPES PARA A ETAPA FINAL DO BRASILEIRO CBB",
+    "url": "https://www.futuroscraques.org/post/paulistano-ifc-%C3%A9-campe%C3%A3o-paulista-nas-categorias-adulta-e-sub-23-de-basquete-3x3-e-classifica-as-dua",
+    "descricao": "O Paulistano IFC vive um momento histórico no Basquete 3x3. No mesmo fim de semana, as equipes Adulta e Sub-23 Masculina conquistaram o título do Campeonato Pau…",
+    "foto": "/fotos/paulistano-ifc-e-campeao-paulista-nas-categorias-adulta-e-sub-23-de-basquete-3x3-e-classifica-as-dua/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 15,
-    "titulo": "Evento IFC: Encontro de Futuros Craques reúne 200 jovens em São Paulo",
-    "url": "https://www.futuroscraques.org/post/encontro-futuros-craques",
-    "descricao": "Grande encontro do IFC reúne centenas de jovens atletas para apresentações e workshops",
-    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
-    "data": "20 de julho de 2025",
-    "categoria": "Eventos",
-    "tags": [
-      "Evento",
-      "Encontro",
-      "Jovens"
-    ]
+    "slug": "equipe-ifc-drible-certo-realiza-amistoso-internacional-contra-lausanne-uma-das-10-melhores-equipes",
+    "titulo": "Equipe IFC Drible Certo realiza amistoso internacional contra Lausanne, uma das 10 melhores equipes do mundo no basquete 3x3",
+    "url": "https://www.futuroscraques.org/post/equipe-ifc-drible-certo-realiza-amistoso-internacional-contra-lausanne-uma-das-10-melhores-equipes",
+    "descricao": "A equipe IFC Drible Certo realiza nesta quarta-feira (data de hoje), ao meio-dia, um amistoso internacional de basquete 3x3 contra o Lausanne 3x3, da Suíça — at…",
+    "foto": "/fotos/equipe-ifc-drible-certo-realiza-amistoso-internacional-contra-lausanne-uma-das-10-melhores-equipes/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 16,
-    "titulo": "IFC recebe prêmio de Melhor Instituto de Desenvolvimento Esportivo 2025",
-    "url": "https://www.futuroscraques.org/post/premio-melhor-instituto-2025",
-    "descricao": "Instituto Futuros Craques é reconhecido e premiado como melhor instituição de desenvolvimento",
-    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
-    "data": "10 de julho de 2025",
-    "categoria": "Conquistas",
-    "tags": [
-      "Prêmio",
-      "Reconhecimento",
-      "Desenvolvimento"
-    ]
+    "slug": "paulistano-ifc-conquista-titulos-e-podios-na-copa-cob-expo-de-basquete-3x3-em-sao-paulo",
+    "titulo": "Paulistano/IFC conquista títulos e pódios na Copa COB Expo de Basquete 3x3 em São Paulo",
+    "url": "https://www.futuroscraques.org/post/paulistano-ifc-conquista-t%C3%ADtulos-e-p%C3%B3dios-na-copa-cob-expo-de-basquete-3x3-em-s%C3%A3o-paulo",
+    "descricao": "São Paulo, 28 de setembro de 2025 – O Clube Athletico Paulistano, em parceria com o Instituto Futuros Craques (IFC), brilhou mais uma vez no cenário nacional do…",
+    "foto": "/fotos/paulistano-ifc-conquista-titulos-e-podios-na-copa-cob-expo-de-basquete-3x3-em-sao-paulo/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 17,
-    "titulo": "Atletas IFC conquistam medalhas em torneio estadual de basquete",
-    "url": "https://www.futuroscraques.org/post/medalhas-torneio-estadual",
-    "descricao": "Equipes do Instituto voltam de torneio estadual com várias medalhas e reconhecimento",
-    "foto": "https://images.unsplash.com/photo-1546519638-68711109d298?w=800&h=500&fit=crop",
-    "data": "25 de junho de 2025",
-    "categoria": "Destaques",
-    "tags": [
-      "Medalhas",
-      "Torneio",
-      "Estadual"
-    ]
+    "slug": "paulistano-ifc-encerra-temporada-sub-17-com-titulos-na-liga-anb-e-inauguracao-de-quadra-oficial-de-3",
+    "titulo": "Paulistano/IFC encerra temporada Sub-17 com títulos na Liga ANB e inauguração de quadra oficial de 3x3 em São Paulo",
+    "url": "https://www.futuroscraques.org/post/paulistano-ifc-encerra-temporada-sub-17-com-t%C3%ADtulos-na-liga-anb-e-inaugura%C3%A7%C3%A3o-de-quadra-oficial-de-3",
+    "descricao": "São Paulo, 29 de setembro de 2025 – O último fim de semana foi marcante para o basquete 3x3 nacional. Além de decidir a última etapa da Liga ANB Sub-17, o event…",
+    "foto": "/fotos/paulistano-ifc-encerra-temporada-sub-17-com-titulos-na-liga-anb-e-inauguracao-de-quadra-oficial-de-3/foto-2.jpg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 18,
-    "titulo": "IFC amplia infraestrutura com nova quadra poliesportiva em São Paulo",
-    "url": "https://www.futuroscraques.org/post/nova-quadra-poliesportiva",
-    "descricao": "Instituto inaugura moderna quadra poliesportiva para treinos e competições",
-    "foto": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=500&fit=crop",
-    "data": "15 de junho de 2025",
-    "categoria": "Institucional",
-    "tags": [
-      "Infraestrutura",
-      "Quadra",
-      "Facilities"
-    ]
+    "slug": "virada-esportiva-2025-diversao-esporte-e-inclusao-juntos",
+    "titulo": "VIRADA ESPORTIVA 2025: DIVERSÃO, ESPORTE E INCLUSÃO JUNTOS",
+    "url": "https://www.futuroscraques.org/post/virada-esportiva-2025-divers%C3%A3o-esporte-e-inclus%C3%A3o-juntos",
+    "descricao": "A cidade de São Paulo se prepara para viver mais uma edição da Virada Esportiva, que acontece nos dias 20 e 21 de setembro,&nbsp;reunindo esporte, lazer e diver…",
+    "foto": "/fotos/virada-esportiva-2025-diversao-esporte-e-inclusao-juntos/foto-2.jpg",
+    "data": "",
+    "categoria": "Principais Notícias",
+    "tags": []
   },
   {
     "id": 19,
-    "titulo": "Programa de Mentoria IFC: Profissionais da área esportiva guiam talentos",
-    "url": "https://www.futuroscraques.org/post/programa-mentoria-ifc",
-    "descricao": "Novo programa de mentoria conecta jovens atletas com profissionais experientes do basquete",
-    "foto": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=500&fit=crop",
-    "data": "1 de junho de 2025",
-    "categoria": "Programas",
-    "tags": [
-      "Mentoria",
-      "Desenvolvimento",
-      "Educação"
-    ]
+    "slug": "leandro-rubens-assume-lideranca-do-ranking-nacional-de-basquete-3x3-sao-paulo-dc-emplaca-quatro-atl",
+    "titulo": "Leandro Rubens assume liderança do ranking nacional de basquete 3x3; São Paulo DC emplaca quatro atletas entre os seis melhores do Brasil",
+    "url": "https://www.futuroscraques.org/post/leandro-rubens-assume-lideran%C3%A7a-do-ranking-nacional-de-basquete-3x3-s%C3%A3o-paulo-dc-emplaca-quatro-atl",
+    "descricao": "O basquete 3x3 brasileiro tem um novo número 1. Após mais de dois anos de domínio de Leonardo Branquinho, a liderança nacional passou para Leandro Rubens da Sil…",
+    "foto": "/fotos/leandro-rubens-assume-lideranca-do-ranking-nacional-de-basquete-3x3-sao-paulo-dc-emplaca-quatro-atl/foto-2.jpg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   },
   {
     "id": 20,
-    "titulo": "IFC conquista 3 títulos em campeonato regional de basquete",
-    "url": "https://www.futuroscraques.org/post/3-titulos-regional",
-    "descricao": "Instituto levanta 3 troféus em competição regional, consolidando sua liderança no basquete",
-    "foto": "https://images.unsplash.com/photo-1549577613-c7bf3c7cc7ba?w=800&h=500&fit=crop",
-    "data": "20 de maio de 2025",
-    "categoria": "Conquistas",
-    "tags": [
-      "Títulos",
-      "Campeonato Regional",
-      "Liderança"
-    ]
+    "slug": "sao-paulo-dc-e-a-melhor-equipe-brasileira-no-challenger-internacional-de-brasilia",
+    "titulo": "São Paulo DC é a melhor equipe brasileira no Challenger Internacional de Brasília",
+    "url": "https://www.futuroscraques.org/post/s%C3%A3o-paulo-dc-%C3%A9-a-melhor-equipe-brasileira-no-challenger-internacional-de-bras%C3%ADlia",
+    "descricao": "Brasília foi palco de um dos torneios mais importantes do calendário do basquete 3x3, e o São Paulo DC/IFC Drible Certo mostrou mais uma vez porque é referência…",
+    "foto": "/fotos/sao-paulo-dc-e-a-melhor-equipe-brasileira-no-challenger-internacional-de-brasilia/foto-2.jpg",
+    "data": "",
+    "categoria": "Geral",
+    "tags": []
   }
 ]

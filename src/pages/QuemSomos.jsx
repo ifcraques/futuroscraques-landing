@@ -1,107 +1,355 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
-const values = [
+const MVV = [
   {
-    icon: '🎯',
-    title: 'Missão',
-    desc: 'Transformar vidas de jovens em situação de vulnerabilidade social por meio do esporte, da educação e da cultura, promovendo inclusão, cidadania e desenvolvimento humano integral.',
+    num: '01',
+    titulo: 'Missão',
+    corpo: 'Transformar vidas de jovens em situação de vulnerabilidade social por meio do esporte, da educação e da cultura — promovendo inclusão, cidadania e desenvolvimento humano integral.',
   },
   {
-    icon: '🔭',
-    title: 'Visão',
-    desc: 'Ser referência nacional e internacional em projetos sociais que utilizam o esporte como ferramenta de transformação social, formando cidadãos preparados para o futuro.',
+    num: '02',
+    titulo: 'Visão',
+    corpo: 'Ser referência nacional e internacional em projetos sociais que utilizam o esporte como ferramenta de transformação, formando cidadãos preparados para o futuro.',
   },
   {
-    icon: '💎',
-    title: 'Valores',
-    desc: 'Ética, transparência, inclusão, excelência, comprometimento social, respeito à diversidade e valorização do potencial humano em cada jovem que atendemos.',
+    num: '03',
+    titulo: 'Valores',
+    corpo: 'Ética e transparência. Inclusão radical. Excelência na execução. Comprometimento social. Respeito à diversidade. Fé no potencial de cada jovem que atendemos.',
   },
 ]
 
-const team = [
-  { role: 'Professores de Educação Física', icon: '🏃' },
-  { role: 'Advogados', icon: '⚖️' },
-  { role: 'Médicos e Nutricionistas', icon: '🩺' },
-  { role: 'Engenheiros e Administradores', icon: '📐' },
-  { role: 'Psicólogos', icon: '🧠' },
-  { role: 'Comunicadores e Designers', icon: '🎨' },
+const EQUIPE = [
+  'Professores de Educação Física',
+  'Advogados',
+  'Médicos e Nutricionistas',
+  'Engenheiros e Administradores',
+  'Psicólogos',
+  'Comunicadores e Designers',
+]
+
+const MARCOS = [
+  { ano: '2005', desc: 'Fundação do Instituto em Brasília com foco em basquete de base.' },
+  { ano: '2010', desc: 'Expansão para 10 cidades. Primeiros atletas revelados para seleções estaduais.' },
+  { ano: '2015', desc: 'Lançamento do programa Drible Certo 3×3, precursor do basquete olímpico no Brasil.' },
+  { ano: '2020', desc: 'Adaptação digital durante a pandemia. Atendimento continuado para mais de 800 famílias.' },
+  { ano: '2026', desc: 'Presença em 30+ cidades. Mais de 40.000 jovens impactados em duas décadas.' },
 ]
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+  hidden: { opacity: 0, y: 32 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
   }),
 }
 
 export default function QuemSomos() {
   return (
-    <div className="page-wrapper">
-      <section className="page-hero">
+    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '100px' }}>
+
+      {/* ── Hero ── */}
+      <div style={{ padding: '4rem clamp(1.5rem, 6vw, 6rem) 0' }}>
         <motion.div
-          className="page-hero-content"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="page-pretitle">Conheça o Instituto</span>
-          <h1>Quem Somos</h1>
-          <p>
-            O Instituto Futuros Craques é uma organização sem fins lucrativos que atua
-            na transformação de vidas através do esporte e da educação desde 2005.
-            Com uma equipe multidisciplinar de especialistas, levamos oportunidades
-            reais a jovens em situação de vulnerabilidade social.
+          <p style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: '0.75rem', letterSpacing: '0.22em',
+            color: '#16a34a', textTransform: 'uppercase', marginBottom: '1.2rem',
+          }}>
+            Conheça o Instituto
+          </p>
+          <h1 style={{
+            fontFamily: "'Instrument Serif', serif",
+            fontSize: 'clamp(2.8rem, 7vw, 6rem)',
+            fontWeight: 400, color: '#fff',
+            lineHeight: 1, marginBottom: '1.5rem',
+          }}>
+            Quem{' '}
+            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>somos</em>
+          </h1>
+          <p style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
+            color: 'rgba(255,255,255,0.66)', maxWidth: '560px',
+            lineHeight: 1.8, fontWeight: 300,
+          }}>
+            Uma organização sem fins lucrativos que, desde 2005, usa o esporte
+            como ferramenta real de transformação social — com metodologia,
+            rigor e presença em todo o Brasil.
           </p>
         </motion.div>
-      </section>
+      </div>
 
-      <section className="section">
-        <h2 className="section-title">Missão, Visão e Valores</h2>
-        <div className="values-grid">
-          {values.map((v, i) => (
-            <motion.div
-              key={v.title}
-              className="value-card"
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}
-            >
-              <span className="value-icon">{v.icon}</span>
-              <h3>{v.title}</h3>
-              <p>{v.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* ── Divisor ── */}
+      <div style={{
+        margin: '4rem clamp(1.5rem, 6vw, 6rem) 0',
+        height: '1px',
+        background: 'rgba(255,255,255,0.06)',
+      }} />
 
-      <section className="section">
-        <h2 className="section-title">Nossa Equipe</h2>
-        <p className="section-subtitle">
-          Uma equipe multidisciplinar de profissionais comprometidos com a transformação social.
+      {/* ── Missão, Visão, Valores ── */}
+      <div style={{ padding: '0 clamp(1.5rem, 6vw, 6rem)' }}>
+        <p style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: '0.75rem', letterSpacing: '0.22em',
+          color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase',
+          marginBottom: '3rem',
+        }}>
+          Princípios
         </p>
-        <div className="team-grid">
-          {team.map((t, i) => (
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+          gap: '1px',
+          background: 'rgba(255,255,255,0.05)',
+        }}>
+          {MVV.map((item, i) => (
             <motion.div
-              key={t.role}
-              className="team-card"
+              key={item.num}
               custom={i}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              whileHover={{ y: -4 }}
+              style={{
+                background: '#0f0f0f',
+                padding: '2.5rem 2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.2rem',
+                borderLeft: '2px solid #16a34a',
+              }}
             >
-              <span className="team-icon">{t.icon}</span>
-              <span className="team-role">{t.role}</span>
+              <span style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: '0.75rem', letterSpacing: '0.16em',
+                color: '#16a34a', fontWeight: 500,
+              }}>
+                {item.num}
+              </span>
+              <h3 style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontSize: 'clamp(1.8rem, 2.5vw, 2.4rem)',
+                fontWeight: 400, color: '#fff',
+                lineHeight: 1,
+              }}>
+                {item.titulo}
+              </h3>
+              <p style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: '1rem', color: 'rgba(255,255,255,0.74)',
+                lineHeight: 1.8, fontWeight: 300,
+              }}>
+                {item.corpo}
+              </p>
             </motion.div>
           ))}
         </div>
-      </section>
+      </div>
+
+      {/* ── Divisor ── */}
+      <div style={{
+        margin: '5rem clamp(1.5rem, 6vw, 6rem) 0',
+        height: '1px',
+        background: 'rgba(255,255,255,0.06)',
+      }} />
+
+      {/* ── Linha do tempo ── */}
+      <div style={{ padding: '0 clamp(1.5rem, 6vw, 6rem)' }}>
+        <p style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: '0.75rem', letterSpacing: '0.22em',
+          color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase',
+          marginBottom: '3rem',
+        }}>
+          Nossa história
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+          {MARCOS.map((marco, i) => (
+            <motion.div
+              key={marco.ano}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'clamp(3rem, 8vw, 6rem) 1fr',
+                gap: '2rem',
+                alignItems: 'start',
+                padding: '1.8rem 0',
+                borderBottom: '1px solid rgba(255,255,255,0.05)',
+              }}
+            >
+              <span style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontSize: 'clamp(1.1rem, 1.8vw, 1.5rem)',
+                fontStyle: 'italic',
+                color: '#16a34a',
+                lineHeight: 1.4,
+              }}>
+                {marco.ano}
+              </span>
+              <p style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: '1rem',
+                color: 'rgba(255,255,255,0.74)',
+                lineHeight: 1.8,
+                fontWeight: 300,
+                paddingTop: '2px',
+              }}>
+                {marco.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Divisor ── */}
+      <div style={{
+        margin: '5rem clamp(1.5rem, 6vw, 6rem) 0',
+        height: '1px',
+        background: 'rgba(255,255,255,0.06)',
+      }} />
+
+      {/* ── Equipe ── */}
+      <div style={{ padding: '0 clamp(1.5rem, 6vw, 6rem)' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 2fr',
+          gap: '4rem',
+          alignItems: 'start',
+        }}
+          className="quem-equipe-grid"
+        >
+          <div>
+            <p style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: '0.75rem', letterSpacing: '0.22em',
+              color: 'rgba(255,255,255,0.54)', textTransform: 'uppercase',
+              marginBottom: '1.2rem',
+            }}>
+              Time
+            </p>
+            <h2 style={{
+              fontFamily: "'Instrument Serif', serif",
+              fontSize: 'clamp(1.8rem, 3vw, 2.8rem)',
+              fontWeight: 400, color: '#fff',
+              lineHeight: 1.1,
+            }}>
+              Uma equipe{' '}
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>
+                multidisciplinar
+              </em>
+            </h2>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            {EQUIPE.map((role, i) => (
+              <motion.div
+                key={role}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                style={{
+                  padding: '1.2rem 0',
+                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: 'clamp(1rem, 1.2vw, 1.1rem)',
+                  color: 'rgba(255,255,255,0.55)',
+                  fontWeight: 300,
+                }}>
+                  {role}
+                </span>
+                <span style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: '0.7rem', letterSpacing: '0.16em',
+                  color: 'rgba(255,255,255,0.48)',
+                  textTransform: 'uppercase',
+                }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── CTA ── */}
+      <div style={{
+        marginTop: '6rem',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+        padding: '5rem clamp(1.5rem, 6vw, 6rem)',
+        textAlign: 'center',
+      }}>
+        <p style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: '0.75rem', letterSpacing: '0.22em',
+          color: '#16a34a', textTransform: 'uppercase', marginBottom: '1.5rem',
+        }}>
+          Faça parte
+        </p>
+        <h2 style={{
+          fontFamily: "'Instrument Serif', serif",
+          fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+          fontWeight: 400, color: '#fff', marginBottom: '1rem',
+        }}>
+          Apoie quem transforma{' '}
+          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.70)' }}>vidas.</em>
+        </h2>
+        <p style={{
+          fontFamily: "'Outfit', sans-serif",
+          fontSize: '1rem', color: 'rgba(255,255,255,0.62)',
+          marginBottom: '2.5rem', lineHeight: 1.7,
+        }}>
+          Cada contribuição chega diretamente a um jovem em situação de vulnerabilidade.
+        </p>
+        <Link to="/comoapoiar" style={{ textDecoration: 'none' }}>
+          <button
+            className="liquid-glass"
+            style={{
+              borderRadius: '9999px',
+              padding: '14px 48px',
+              fontSize: '0.8rem',
+              fontFamily: "'Outfit', sans-serif",
+              fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: '#fff', cursor: 'pointer',
+              background: 'rgba(22,163,74,0.2)',
+              transition: 'transform 0.2s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            Apoie Agora
+          </button>
+        </Link>
+      </div>
+
+      {/* responsive: colapsa grid da equipe no mobile */}
+      <style>{`
+        @media (max-width: 768px) {
+          .quem-equipe-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
+      `}</style>
+
     </div>
   )
 }
