@@ -1,74 +1,30 @@
 import { motion } from 'framer-motion'
 
-// Duas fileiras com fotos temáticas: esporte, jovens, comunidade, basquete, corrida, impacto social
+// Fotos reais do Instituto Futuros Craques
 const row1 = [
-  {
-    src: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&h=400&fit=crop',
-    alt: 'Jovens jogando basquete',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop',
-    alt: 'Grupo de jovens unidos',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop',
-    alt: 'Atleta em corrida',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=400&fit=crop',
-    alt: 'Basquete em quadra',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=600&h=400&fit=crop',
-    alt: 'Jovem atleta',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?w=600&h=400&fit=crop',
-    alt: 'Crianças em atividade esportiva',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=600&h=400&fit=crop',
-    alt: 'Treinamento esportivo',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1543357480-c60d40d6b772?w=600&h=400&fit=crop',
-    alt: 'Celebração em equipe',
-  },
+  { src: '/gallery/Escola de Basquete CT3x3.jpeg', alt: 'Escola de Basquete CT3x3 — IFC' },
+  { src: '/gallery/_DSC2820.jpg', alt: 'Atletas IFC em ação' },
+  { src: '/gallery/Time Drible Certo 3x3.jpg', alt: 'Time Drible Certo 3x3' },
+  { src: '/gallery/_DSC3045.jpg', alt: 'Treinamento IFC' },
+  { src: '/gallery/GALERA CT.jpg', alt: 'Galera do Centro de Treinamento' },
+  { src: '/gallery/_DSC3418.jpg', alt: 'Competição IFC' },
+  { src: '/gallery/IFC_CraquesdoFutebol.jpg', alt: 'IFC — Craques do Futebol' },
+  { src: '/gallery/_DSC3569.jpg', alt: 'Jovens atletas IFC' },
+  { src: '/gallery/nico-guga-011-cropped.jpeg', alt: 'Atletas de destaque IFC' },
+  { src: '/gallery/_DSC3690.jpg', alt: 'Evento esportivo IFC' },
 ]
 
 const row2 = [
-  {
-    src: 'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=600&h=400&fit=crop',
-    alt: 'Corrida de rua',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop',
-    alt: 'Corrida e atletismo',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&h=400&fit=crop',
-    alt: 'Ciclismo e esporte',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?w=600&h=400&fit=crop',
-    alt: 'Jovens em comunidade',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=400&fit=crop',
-    alt: 'Evento esportivo com público',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop',
-    alt: 'Educação e esporte',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&h=400&fit=crop',
-    alt: 'Skate e esporte urbano',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?w=600&h=400&fit=crop',
-    alt: 'Jovens em ação',
-  },
+  { src: '/gallery/Corrida Neo Running.jpg', alt: 'Corrida Neo Running — IFC' },
+  { src: '/gallery/_DSC2947.jpg', alt: 'Basquete 3x3 IFC' },
+  { src: '/gallery/GALERA CT (1).jpg', alt: 'Turma do CT — IFC' },
+  { src: '/gallery/_DSC3057.jpg', alt: 'Atletas em quadra' },
+  { src: '/gallery/240305_se_49erworlds_0569_3611.jpg', alt: 'IFC no campeonato mundial' },
+  { src: '/gallery/_DSC3496.jpg', alt: 'Jogo oficial IFC' },
+  { src: '/gallery/20240428_claudiocapucho_neo_running_10625_1144601_95879.jpg', alt: 'Neo Running IFC' },
+  { src: '/gallery/_DSC3691.jpg', alt: 'Celebração IFC' },
+  { src: '/gallery/183-IMG_3024.jpg', alt: 'Jovens IFC' },
+  { src: '/gallery/_DSC2972.jpg', alt: 'Treino coletivo IFC' },
 ]
 
 function MarqueeRow({ items, reverse = false, speed = 35 }) {
