@@ -33,7 +33,9 @@
       "Bash(start:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:5173/fotos/basquete-3x3-drible-certo-no-mundo-projeta-temporada-2026-com-reforcos-de-peso-e-ambicao-renovada/foto-2.jpeg\")",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "mcp__plugin_claude-mem_mcp-search__get_observations",
+      "Bash(claude install-skill:*)"
     ]
   }
 }

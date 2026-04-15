@@ -25,7 +25,7 @@ function AppShell() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0a0a0a', position: 'relative' }}>
+    <div style={{ minHeight: '100vh', background: '#ffffff', position: 'relative' }}>
 
       {/* Menu GSAP */}
       <StaggeredMenu
@@ -41,45 +41,29 @@ function AppShell() {
         zIndex: 45,
         pointerEvents: 'none',
       }}>
-        <AnimatePresence>
-          <motion.div
-            key="cta"
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-            className={isMenuOpen ? 'hidden-mobile' : ''}
-            style={{
-              transform: isMenuOpen
-                ? 'translateX(calc(-1 * clamp(280px, 38vw, 440px)))'
-                : 'translateX(0)',
-              transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-            }}
+        <Link to="/comoapoiar" style={{ textDecoration: 'none', pointerEvents: 'auto' }}>
+          <button style={{
+            background: '#16a34a',
+            color: '#fff',
+            border: 'none',
+            padding: 'clamp(10px, 1.1vw, 16px) clamp(20px, 2.5vw, 40px)',
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: 'clamp(11px, 0.9vw, 15px)',
+            fontWeight: 600,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            pointerEvents: 'auto',
+            transition: 'background 0.25s, transform 0.2s',
+            borderRadius: '4px',
+            boxShadow: '0 4px 20px rgba(22,163,74,0.35)',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#15803d'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#16a34a'; e.currentTarget.style.transform = 'translateY(0)' }}
           >
-            <Link to="/comoapoiar" style={{ textDecoration: 'none' }}>
-              <button style={{
-                background: isMenuOpen ? '#16a34a' : '#fff',
-                color: '#000',
-                border: 'none',
-                padding: 'clamp(10px, 1.1vw, 16px) clamp(20px, 2.5vw, 40px)',
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 'clamp(11px, 0.9vw, 15px)',
-                fontWeight: 600,
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                backdropFilter: 'blur(12px)',
-                pointerEvents: 'auto',
-                transition: 'background 0.25s, color 0.25s',
-                borderRadius: '4px',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#16a34a'; e.currentTarget.style.color = '#fff' }}
-              onMouseLeave={e => { e.currentTarget.style.background = isMenuOpen ? '#16a34a' : '#fff'; e.currentTarget.style.color = '#000' }}
-              >
-                APOIE AGORA
-              </button>
-            </Link>
-          </motion.div>
-        </AnimatePresence>
+            APOIE AGORA
+          </button>
+        </Link>
       </div>
 
       {/* Páginas */}

@@ -64,7 +64,7 @@ export default function Sponsors() {
     <section id="sponsors-section" className="section" style={{ padding: '4rem 2rem' }}>
       <motion.h2
         className="section-title"
-        style={{ textAlign: 'center' }}
+        style={{ textAlign: 'center', color: '#0d1f2d' }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -73,7 +73,7 @@ export default function Sponsors() {
       </motion.h2>
       <motion.p
         className="section-subtitle"
-        style={{ textAlign: 'center', margin: '0 auto 3rem' }}
+        style={{ textAlign: 'center', margin: '0 auto 3rem', color: '#5a6a75' }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

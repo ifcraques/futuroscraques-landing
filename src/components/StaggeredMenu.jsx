@@ -8,6 +8,7 @@ const MENU_ITEMS = [
   { label: 'Projetos',      href: '/projetos' },
   { label: 'Notícias',      href: '/noticias' },
   { label: 'Quem Somos',    href: '/quemsomos' },
+  { label: 'Como Apoiar',   href: '/comoapoiar' },
   { label: 'Transparência', href: '/transparencia' },
   { label: 'Contato',       href: '/contato' },
 ]
@@ -176,7 +177,6 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
       {/* Botão toggle MENU / CLOSE */}
       <button
         className="sm-toggle"
-        style={{ transform: toggleTransform }}
         onClick={onToggle}
       >
         <div style={{ overflow: 'hidden', height: '1.1em', position: 'relative', minWidth: '3.4rem' }}>

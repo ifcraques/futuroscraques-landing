@@ -143,11 +143,11 @@ export default function Hero() {
             marginBottom: '2rem',
           }}
         >
-          Formando{' '}
-          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>futuros</em>
+          <span style={{ color: 'rgba(255,255,255,0.35)' }}>Formando </span>
+          <span style={{ color: '#ffffff' }}>futuros</span>
           <br />
-          craques{' '}
-          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>do Brasil.</em>
+          <span style={{ color: '#ffffff' }}>craques </span>
+          <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.35)' }}>do Brasil.</em>
         </h1>
 
         {/* subtexto */}
@@ -163,8 +163,10 @@ export default function Hero() {
             marginBottom: '3rem',
           }}
         >
-          Esporte e educação como ferramentas de transformação social.
-          Mais de 1.200 jovens impactados em 30+ cidades do Brasil.
+          <strong style={{ fontWeight: 700, color: 'rgba(255,255,255,0.75)', textTransform: 'uppercase' }}>Esporte</strong>
+          {' e '}
+          <strong style={{ fontWeight: 700, color: 'rgba(255,255,255,0.75)', textTransform: 'uppercase' }}>Educação</strong>
+          {' como ferramentas de transformação social. Mais de 40.000 crianças e jovens impactados em 30+ cidades do Brasil.'}
         </p>
 
         {/* CTAs */}

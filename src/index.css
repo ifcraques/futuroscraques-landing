@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* ── Marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - var(--gap, 1.5rem))); }
+}
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
 /* ── Liquid Glass ── */
 .liquid-glass {
   background: rgba(255,255,255,0.15);
@@ -413,7 +422,7 @@
     .section {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 6rem 2rem;
+      padding: 0 2rem;
     }
 
     .section-title {

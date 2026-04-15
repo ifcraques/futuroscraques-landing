@@ -40,7 +40,7 @@ export default function VideoSection() {
   const current = videos[active]
 
   return (
-    <section id="video-section" style={{ background: 'var(--primary-dark)', padding: '6rem 0' }}>
+    <section id="video-section" style={{ padding: '6rem 0' }}>
       <div className="section" style={{ padding: '0 2rem' }}>
 
         <motion.h2
@@ -49,7 +49,7 @@ export default function VideoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ color: '#ffffff' }}
+          style={{ color: '#0d1f2d' }}
         >
           Nosso Trabalho em Ação
         </motion.h2>
@@ -59,7 +59,7 @@ export default function VideoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '3rem' }}
+          style={{ color: '#5a6a75', marginBottom: '3rem' }}
         >
           Acompanhe a energia e a transformação que levamos para as quadras e pistas do Brasil.
         </motion.p>
@@ -86,8 +86,8 @@ export default function VideoSection() {
                   height: 0,
                   borderRadius: '20px',
                   overflow: 'hidden',
-                  boxShadow: '0 40px 100px rgba(0,0,0,0.5)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+                  border: '1px solid rgba(0,0,0,0.08)',
                   background: '#000',
                 }}
               >
@@ -121,7 +121,7 @@ export default function VideoSection() {
               }}>
                 {current.tag}
               </span>
-              <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.95rem', fontWeight: 500 }}>
+              <span style={{ color: '#3a4a55', fontSize: '0.95rem', fontWeight: 500 }}>
                 {current.title}
               </span>
             </motion.div>
@@ -139,8 +139,8 @@ export default function VideoSection() {
                   display: 'flex',
                   gap: '0.9rem',
                   alignItems: 'center',
-                  background: active === i ? 'rgba(0,162,232,0.15)' : 'rgba(255,255,255,0.04)',
-                  border: active === i ? '1px solid rgba(0,162,232,0.5)' : '1px solid rgba(255,255,255,0.07)',
+                  background: active === i ? 'rgba(0,162,232,0.08)' : '#ffffff',
+                  border: active === i ? '1px solid rgba(0,162,232,0.4)' : '1px solid rgba(0,0,0,0.07)',
                   borderRadius: '12px',
                   padding: '0.75rem',
                   cursor: 'pointer',
@@ -179,7 +179,7 @@ export default function VideoSection() {
                     {v.tag}
                   </span>
                   <span style={{
-                    fontSize: '0.8rem', color: active === i ? '#fff' : 'rgba(255,255,255,0.65)',
+                    fontSize: '0.8rem', color: active === i ? '#0d1f2d' : '#5a6a75',
                     fontWeight: active === i ? 600 : 400,
                     display: '-webkit-box', WebkitLineClamp: 2,
                     WebkitBoxOrient: 'vertical', overflow: 'hidden',
@@ -199,13 +199,13 @@ export default function VideoSection() {
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                 marginTop: '0.5rem', padding: '0.75rem',
-                color: 'rgba(255,255,255,0.74)', fontSize: '0.82rem', fontWeight: 600,
+                color: '#5a6a75', fontSize: '0.82rem', fontWeight: 600,
                 textDecoration: 'none', borderRadius: '10px',
-                border: '1px dashed rgba(255,255,255,0.12)',
+                border: '1px dashed rgba(0,0,0,0.15)',
                 transition: 'color 0.2s ease',
               }}
               onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.74)'}
+              onMouseLeave={e => e.currentTarget.style.color = '#5a6a75'}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
