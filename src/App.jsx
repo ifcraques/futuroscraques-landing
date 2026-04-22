@@ -15,6 +15,7 @@ import Noticias from './pages/Noticias'
 import Post from './pages/Post'
 import Login from './pages/Login'
 import ScrollToTop from './components/ScrollToTop'
+import AccessibilityWidget from './components/AccessibilityWidget'
 
 const textVariants = {
   hidden: { opacity: 0, y: 16, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
@@ -67,7 +68,10 @@ function AppShell() {
       </div>
 
       {/* Páginas */}
-      <main>
+      <AccessibilityWidget />
+
+      {/* Páginas */}
+      <main id="main-content">
         <Routes>
           <Route path="/"             element={<Home />} />
           <Route path="/transparencia" element={<Transparencia />} />
