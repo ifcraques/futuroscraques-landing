@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import { Globe } from '../components/ui/Globe'
 import { motion } from 'framer-motion'
 
 /* ─────────────────────────────────────────────
@@ -359,6 +360,51 @@ const fadeUp = {
 /* ─────────────────────────────────────────────
    PÁGINA INDIVIDUAL DO PROJETO
 ───────────────────────────────────────────── */
+
+const DC3X3_CIDADES = [
+  { id: 'saopaulo', location: [-23.55, -46.63], label: 'São Paulo' },
+  { id: 'rio', location: [-22.90, -43.17], label: 'Rio de Janeiro' },
+  { id: 'salvador', location: [-12.97, -38.50], label: 'Salvador' },
+  { id: 'uberlandia', location: [-18.92, -48.28], label: 'Uberlândia' },
+  { id: 'floripa', location: [-27.60, -48.55], label: 'Florianópolis' },
+  { id: 'belohorizonte', location: [-19.92, -43.94], label: 'Belo Horizonte' },
+  { id: 'brasilia', location: [-15.78, -47.93], label: 'Brasília' },
+  { id: 'maceio', location: [-9.67, -35.74], label: 'Maceió' },
+  { id: 'buenosaires', location: [-34.60, -58.38], label: 'Buenos Aires' },
+  { id: 'santiago', location: [-33.46, -70.65], label: 'Santiago' },
+  { id: 'montevideo', location: [-34.90, -56.19], label: 'Montevideo' },
+  { id: 'neuquen', location: [-38.95, -68.06], label: 'Neuquén' },
+  { id: 'cidademex', location: [19.43, -99.13], label: 'Cidade do México' },
+  { id: 'miami', location: [25.77, -80.19], label: 'Miami' },
+  { id: 'losangeles', location: [34.05, -118.24], label: 'Los Angeles' },
+  { id: 'novayork', location: [40.71, -74.01], label: 'Nova Iorque' },
+  { id: 'sanjuan', location: [18.47, -66.12], label: 'San Juan' },
+  { id: 'lausanne', location: [46.52, 6.63], label: 'Lausanne' },
+  { id: 'ruth', location: [47.37, 8.54], label: 'Ruth (Suíça)' },
+  { id: 'zurich', location: [47.38, 8.54], label: 'Zurique' },
+  { id: 'berlim', location: [52.52, 13.40], label: 'Berlim' },
+  { id: 'roma', location: [41.90, 12.50], label: 'Roma' },
+  { id: 'novisad', location: [45.25, 19.83], label: 'Novi Sad' },
+  { id: 'belgrado', location: [44.82, 20.46], label: 'Belgrado' },
+  { id: 'barcelona', location: [41.39, 2.15], label: 'Barcelona' },
+  { id: 'moscou', location: [55.75, 37.62], label: 'Moscou' },
+  { id: 'stpete', location: [59.93, 30.32], label: 'St. Petersburgo' },
+  { id: 'bucareste', location: [44.43, 26.10], label: 'Bucareste' },
+  { id: 'haya', location: [52.08, 4.31], label: 'A Haya' },
+  { id: 'limassol', location: [34.68, 33.04], label: 'Limassol' },
+  { id: 'xangai', location: [31.23, 121.47], label: 'Xangai' },
+  { id: 'novadeli', location: [28.61, 77.23], label: 'Nova Déli' },
+  { id: 'ulanbator', location: [47.90, 106.91], label: 'Ulan Bator' },
+]
+
+const DC3X3_ARCS = [
+  { id: 'sp-lausanne', from: [-23.55, -46.63], to: [46.52, 6.63] },
+  { id: 'sp-berlim', from: [-23.55, -46.63], to: [52.52, 13.40] },
+  { id: 'sp-xangai', from: [-23.55, -46.63], to: [31.23, 121.47] },
+  { id: 'sp-novayork', from: [-23.55, -46.63], to: [40.71, -74.01] },
+  { id: 'sp-belgrado', from: [-23.55, -46.63], to: [44.82, 20.46] },
+]
+
 export default function ProjetoDet() {
   const { slug } = useParams()
   const navigate = useNavigate()
@@ -663,6 +709,105 @@ export default function ProjetoDet() {
           </div>
         ))}
       </div>
+
+
+      {/* ── Presença Global (apenas Drible Certo 3x3) ── */}
+      {projeto.slug === 'drible-certo-3x3' && (
+        <div style={{
+          margin: '5rem 0 0',
+          padding: '5rem clamp(1.5rem, 6vw, 6rem)',
+          background: '#f8faf9',
+          borderTop: '1px solid #e5e7eb',
+          borderBottom: '1px solid #e5e7eb',
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.62rem', letterSpacing: '0.22em', color: '#16a34a', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+              Alcance Internacional
+            </p>
+            <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 400, color: '#111827', marginBottom: '1rem' }}>
+              Presença <em style={{ fontStyle: 'italic', color: '#16a34a' }}>Global</em>
+            </h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.9rem', color: '#6b7280', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
+              O DC3×3 já marcou presença em mais de 30 cidades ao redor do mundo, levando atletas brasileiros a competições em 5 continentes.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{ width: 'min(480px, 90vw)', flexShrink: 0 }}>
+              <Globe
+                markers={DC3X3_CIDADES}
+                arcs={DC3X3_ARCS}
+                markerColor={[0.09, 0.64, 0.29]}
+                baseColor={[1, 1, 1]}
+                arcColor={[0.09, 0.64, 0.29]}
+                glowColor={[0.94, 0.97, 0.95]}
+                dark={0}
+                mapBrightness={8}
+                markerSize={0.03}
+                speed={0.0025}
+              />
+            </div>
+
+            <div style={{ flex: 1, minWidth: '260px' }}>
+              <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.62rem', letterSpacing: '0.18em', color: '#9ca3af', textTransform: 'uppercase', marginBottom: '1rem' }}>
+                Cidades visitadas
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {DC3X3_CIDADES.map((c) => (
+                  <span key={c.id} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
+                    padding: '0.3rem 0.7rem',
+                    background: '#fff',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '4px',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.72rem',
+                    color: '#374151',
+                  }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#16a34a', flexShrink: 0 }} />
+                    {c.label}
+                  </span>
+                ))}
+              </div>
+
+              <div style={{ marginTop: '2.5rem' }}>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.62rem', letterSpacing: '0.18em', color: '#9ca3af', textTransform: 'uppercase', marginBottom: '1rem' }}>
+                  Documentos oficiais
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {[
+                    { label: 'Projeto Técnico IFC 2024', href: '#' },
+                    { label: 'Publicação D.O. Federal', href: '#' },
+                    { label: 'Aprovação Estadual (PDF)', href: '#' },
+                    { label: 'Edital LIE', href: '#' },
+                  ].map((doc) => (
+                    <a key={doc.label} href={doc.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                      <div style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                        padding: '0.55rem 1rem',
+                        border: '1px solid #d1d5db',
+                        borderRadius: '4px',
+                        background: '#fff',
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: '0.78rem',
+                        color: '#374151',
+                        cursor: 'pointer',
+                        transition: 'border-color 0.2s',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.borderColor = '#16a34a'}
+                      onMouseLeave={e => e.currentTarget.style.borderColor = '#d1d5db'}
+                      >
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        {doc.label}
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Navegação entre projetos ── */}
       <div style={{
