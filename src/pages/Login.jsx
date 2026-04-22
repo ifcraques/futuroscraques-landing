@@ -251,7 +251,7 @@ export default function Login() {
             style={{ marginBottom: '2.5rem' }}
           >
             <img
-              src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png"
+              src="/ifc-logo.jpeg"
               alt="Instituto Futuros Craques"
               style={{
                 height: '80px',

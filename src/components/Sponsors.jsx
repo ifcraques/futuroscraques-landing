@@ -1,67 +1,131 @@
 import { motion } from 'framer-motion'
 
 export default function Sponsors() {
-  const patrocinadores = [
-    { src: 'https://static.wixstatic.com/media/3db4e0_86d9fd9c0a11465185aeafc0f45a065d~mv2.png', alt: 'UOL', h: 40, url: 'https://www.uol.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_67795eb103bc476394c574d9730d8927~mv2.png', alt: 'Ecolab', h: 35, url: 'https://www.ecolab.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_e8d60162782e4761b0fac759cba92253~mv2.png', alt: 'Unipar', h: 40, url: 'https://www.unipar.com' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_3ecf2be0005b42d4bb3085936c38642d~mv2.png', alt: 'NTS', h: 45, url: 'https://www.nts-br.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_7b7cc8a1c643471e99efd1b64566530d~mv2.png', alt: 'Havan', h: 50, url: 'https://www.havan.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_b10051667bf1426e8719343ac4077425~mv2.png', alt: 'B3', h: 55, url: 'https://www.b3.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_74d9990a96f44997bf1f425127a6903a~mv2.png', alt: 'Caixa Residencial', h: 40, url: 'https://www.caixaresidencial.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_d60554e671f549cbb6a4923c1340f36a~mv2.png', alt: 'Sanko Fort', h: 30, url: 'https://www.sankofort.com.br' },
+
+  /* ── TIER 1 — 4 principais ───────────────────────────────── */
+  const tier1 = [
+    { src: '/logos/uol_logo.png',    alt: 'UOL',    url: 'https://www.uol.com.br' },
+    { src: '/logos/ecolab_logo.png', alt: 'Ecolab', url: 'https://www.ecolab.com.br' },
+    { src: '/logos/havan_logo.png',  alt: 'Havan',  url: 'https://www.havan.com.br' },
+    { src: '/logos/unipar_logo.png', alt: 'Unipar', url: 'https://www.unipar.com' },
   ]
 
+  /* ── TIER 2 ──────────────────────────────────────────────── */
+  const tier2 = [
+    { src: '/logos/NTS_logo.png',       alt: 'NTS',              url: 'https://www.nts-br.com.br' },
+    { src: '/logos/B3_Logo.png',        alt: 'B3',               url: 'https://www.b3.com.br' },
+    { src: '/logos/caixa_logo.png',     alt: 'Caixa Residencial',url: 'https://www.caixaresidencial.com.br' },
+    { src: '/logos/sankofort_logo.png', alt: 'Sankonfort', url: 'https://www.sankonfort.com.br/' },
+    { src: '/logos/estácio_logo.png',   alt: 'Estácio',    url: 'https://www.estacio.br' },
+    { src: '/logos/engemet_logo.png',   alt: 'Engemet',    url: 'https://www.engemet.com.br/' },
+    { src: '/logos/freixenet_logo.png', alt: 'Freixenet',  url: 'https://www.freixenet.com.br/' },
+    { src: '/logos/metalinox_logo.png', alt: 'Metalinox',        url: 'https://www.metalinox.com.br' },
+  ]
+
+  /* ── TIER 3 ──────────────────────────────────────────────── */
+  const tier3 = [
+    { src: '/logos/cocacola_logo.png',  alt: 'Coca-Cola',       url: 'https://www.coca-cola.com.br' },
+    { src: '/logos/caedu_logo.png',     alt: 'Caedu',           url: 'https://www.caedu.com.br' },
+    { src: '/logos/citrosuco_logo.png', alt: 'Citrosuco',       url: 'https://www.citrosuco.com.br' },
+    { src: '/logos/gtech_logo.png',     alt: 'GTech',           url: 'https://accumed.com.br/' },
+    { src: '/logos/panco_logo.png',     alt: 'Panco',           url: 'https://www.panco.com.br' },
+    { src: '/logos/SABESP_logo.png',    alt: 'Sabesp',          url: 'https://www.sabesp.com.br' },
+    { src: '/logos/stella_logo.png',    alt: 'Stella Artois',   url: null },
+    { src: '/logos/tirol_logo.png',     alt: 'Tirol',           url: 'https://www.tirol.com.br' },
+    { src: '/logos/aes_logo.png',       alt: 'AES Eletropaulo', url: 'https://www.aesbrasil.com.br' },
+    { src: '/logos/decathlon_logo.png', alt: 'Decathlon',       url: 'https://www.decathlon.com.br' },
+    { src: '/logos/guarani_logo.png',   alt: 'Guarani',         url: 'https://guaranimaisqueacucar.com.br/' },
+  ]
+
+  /* ── APOIO ───────────────────────────────────────────────── */
   const apoio = [
-    { src: 'https://static.wixstatic.com/media/3db4e0_ea833626b9fe46dcb0563d75c1c6b4ae~mv2.png', alt: 'Engemet', h: 30, url: 'https://www.engemet.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_d6335b16580843d18500e8c273798df6~mv2.png', alt: 'Estácio', h: 35, url: 'https://estacio.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_50fe5c87999f44b6b1a91f5b40542c83~mv2.png', alt: 'Freixenet', h: 40, url: 'https://www.freixenet.com.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_0e9a97c6636045e8be8691a391cfa800~mv2.png', alt: 'Metalinox', h: 30, url: 'https://www.metalinox.com.br' },
+    { src: '/logos/unip_logo.png',     alt: 'UNIP', url: 'https://www.unip.br/' },
+    { src: '/logos/NAR_logo_dark.png', alt: 'NAR',  url: 'https://www.narsp.com.br/', noGrayscale: true },
   ]
 
+  /* ── REALIZAÇÃO ──────────────────────────────────────────── */
   const realizacao = [
-    { src: 'https://static.wixstatic.com/media/3db4e0_d578d1f74d7a4359b0538b7f39675ff9~mv2.png', alt: 'UNIP', h: 55, url: 'https://www.unip.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_5fe5770dcad441b68737d1965df7103f~mv2.png', alt: 'NAR', h: 60, url: null },
-    { src: 'https://static.wixstatic.com/media/3db4e0_dde79d0977e74950ab62f5cb548afff6~mv2.png', alt: 'Lei de Incentivo ao Esporte SP', h: 55, url: 'https://www.esporte.sp.gov.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_856fd146bbb34d86bd1d96f7c6c857fd~mv2.png', alt: 'Governo do Estado de São Paulo', h: 55, url: 'https://www.saopaulo.sp.gov.br' },
-    { src: 'https://static.wixstatic.com/media/3db4e0_92507f369a564c27a6c93e2c199dbd4b~mv2.jpg', alt: 'Ministério do Esporte', h: 40, url: 'https://www.gov.br/esporte' },
+    { src: '/logos/realizacao/sec-esporte-lazer.png', alt: 'SEME — Secretaria de Esportes e Lazer de SP', url: 'https://www.capital.sp.gov.br/esportes' },
+    { src: '/logos/realizacao/SEESP.png',             alt: 'Governo do Estado de São Paulo',              url: 'https://www.saopaulo.sp.gov.br' },
+    { src: '/logos/realizacao/seesp-lei.png',         alt: 'Secretaria de Esportes + Lei',                url: 'https://www.gov.br/esporte' },
+    { src: '/logos/realizacao/CBC.png',               alt: 'CBC — Comitê Brasileiro de Clubes',           url: 'https://www.cbb.com.br' },
   ]
 
-  const LogoRow = ({ items }) => (
-    <div style={{
-      display: 'flex', flexWrap: 'wrap', gap: '2.5rem', justifyContent: 'center', alignItems: 'center',
-    }}>
-      {items.map((l) => {
-        const logo = (
-          <motion.img
-            key={l.alt}
-            src={l.src}
-            alt={l.alt}
-            loading="lazy"
-            style={{ height: l.h + 'px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.7, display: 'block' }}
-            whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.08 }}
-            transition={{ duration: 0.3 }}
-          />
-        )
+  /* ── MINISTÉRIO (destaque rodapé) ───────────────────────── */
+  const ministerio = { src: '/logos/realizacao/mesp-e-lei.png', alt: 'Ministério do Esporte + Lei de Incentivo', url: 'https://www.gov.br/esporte' }
 
-        return l.url ? (
-          <a
-            key={l.alt}
-            href={l.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={l.alt}
-            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-          >
-            {logo}
-          </a>
-        ) : logo
-      })}
+  /* ── Componente de logo ──────────────────────────────────── */
+  const LogoItem = ({ src, alt, url, h = 70, noGrayscale = false }) => {
+    const img = (
+      <motion.img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        style={{
+          height: h + 'px',
+          width: 'auto',
+          maxWidth: '100%',
+          objectFit: 'contain',
+          display: 'block',
+          filter: noGrayscale ? 'none' : 'grayscale(100%)',
+          opacity: noGrayscale ? 1 : 0.65,
+        }}
+        whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      />
+    )
+    const wrapper = (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '28px 42px',
+      }}>
+        {img}
+      </div>
+    )
+    return url
+      ? <a href={url} target="_blank" rel="noopener noreferrer" title={alt} style={{ display: 'flex' }}>{wrapper}</a>
+      : wrapper
+  }
+
+  /* ── Linha de logos sem linhas ──────────────────────────── */
+  const LogoRow = ({ items, h = 70, cols }) => (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: cols
+        ? `repeat(${cols}, 1fr)`
+        : `repeat(${items.length}, 1fr)`,
+    }}>
+      {items.map((l) => (
+        <div key={l.alt} style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minWidth: 0,
+          overflow: 'hidden',
+        }}>
+          <LogoItem {...l} h={h} />
+        </div>
+      ))}
     </div>
   )
 
+  const SectionLabel = ({ label }) => (
+    <p style={{
+      textAlign: 'center',
+      color: 'var(--accent)',
+      fontFamily: "'Outfit', sans-serif",
+      fontWeight: 700,
+      fontSize: '0.7rem',
+      letterSpacing: '3px',
+      textTransform: 'uppercase',
+      margin: '2.5rem 0 0',
+    }}>{label}</p>
+  )
+
   return (
-    <section id="sponsors-section" className="section" style={{ padding: '4rem 2rem' }}>
+    <section id="sponsors-section" className="section" style={{ padding: '7rem 0' }}>
       <motion.h2
         className="section-title"
         style={{ textAlign: 'center', color: '#0d1f2d' }}
@@ -69,47 +133,83 @@ export default function Sponsors() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        Patrocinadores & Apoio
+        Patrocinadores
       </motion.h2>
       <motion.p
         className="section-subtitle"
-        style={{ textAlign: 'center', margin: '0 auto 3rem', color: '#5a6a75' }}
+        style={{ textAlign: 'center', margin: '0 auto 3.5rem', color: '#5a6a75' }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        Empresas e instituições que acreditam e investem na transformação através do esporte
+        Empresas e instituições que acreditam e investem na transformação através do esporte.
       </motion.p>
 
       <motion.div
         style={{
-          background: 'white', padding: '3rem 2rem', borderRadius: '25px',
-          boxShadow: '0 15px 40px rgba(0,0,0,0.05)', border: '1px solid var(--border)',
-          display: 'flex', flexDirection: 'column', gap: '2.5rem',
+          background: 'white',
+          borderRadius: '20px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.07)',
+          border: '1px solid var(--border)',
+          maxWidth: '1400px',
+          width: 'calc(100% - 4rem)',
+          margin: '0 auto',
+          overflow: 'hidden',
+          paddingBottom: '3rem',
         }}
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div>
-          <h4 style={{ textAlign: 'center', color: 'var(--accent)', fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1.5rem' }}>PATROCINADORES</h4>
-          <LogoRow items={patrocinadores} />
+
+        {/* ── PATROCINADORES ── */}
+        <SectionLabel label="Patrocinadores" />
+        <LogoRow items={tier1}             h={110} />
+        <LogoRow items={tier2.slice(0, 4)} h={88} />
+        <LogoRow items={tier2.slice(4, 8)} h={88} />
+        <LogoRow items={tier3.slice(0, 4)} h={75} />
+        <LogoRow items={tier3.slice(4, 8)} h={90} />
+        <LogoRow items={tier3.slice(8)}    h={75} />
+
+        {/* ── APOIO — centralizado ── */}
+        <SectionLabel label="Apoio" />
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0', flexWrap: 'wrap', padding: '0 2rem' }}>
+          {apoio.map((l) => (
+            <div key={l.alt} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <LogoItem {...l} h={70} />
+            </div>
+          ))}
         </div>
 
-        <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '0' }} />
+        {/* ── REALIZAÇÃO — 4 logos ── */}
+        <SectionLabel label="Realização" />
+        <LogoRow items={realizacao} cols={4} h={210} />
 
-        <div>
-          <h4 style={{ textAlign: 'center', color: 'var(--accent)', fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1.5rem' }}>APOIO</h4>
-          <LogoRow items={apoio} />
+        {/* ── MINISTÉRIO — destaque ── */}
+        <div style={{ display: 'flex', justifyContent: 'center', padding: '1rem 4rem 2rem' }}>
+          {ministerio.url
+            ? <a href={ministerio.url} target="_blank" rel="noopener noreferrer" title={ministerio.alt}>
+                <motion.img
+                  src={ministerio.src}
+                  alt={ministerio.alt}
+                  loading="lazy"
+                  style={{ height: '140px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
+                  whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.03 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </a>
+            : <motion.img
+                src={ministerio.src}
+                alt={ministerio.alt}
+                loading="lazy"
+                style={{ height: '140px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
+                whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              />
+          }
         </div>
 
-        <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '0' }} />
-
-        <div>
-          <h4 style={{ textAlign: 'center', color: 'var(--accent)', fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: '0.85rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1.5rem' }}>REALIZAÇÃO</h4>
-          <LogoRow items={realizacao} />
-        </div>
       </motion.div>
     </section>
   )

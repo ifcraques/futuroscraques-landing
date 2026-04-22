@@ -29,24 +29,27 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 11px 18px;
-  background: #0d1f2d;
+  padding: clamp(10px, 1.1vw, 16px) clamp(20px, 2.5vw, 40px);
+  background: #16a34a;
   border: none;
   color: #ffffff;
   cursor: pointer;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: background 0.25s ease, opacity 0.25s ease;
+  font-size: clamp(11px, 0.9vw, 15px);
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(22, 163, 74, 0.35);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
   transform: none !important;
 }
 
 .sm-toggle:hover {
-  background: #16a34a;
+  background: #15803d;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.45);
 }
 
 .sm-list {

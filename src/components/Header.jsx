@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import SearchOverlay from './SearchOverlay'
 
 const navItems = [
   { label: 'Quem Somos',   href: '/quemsomos', type: 'page' },
@@ -12,9 +13,10 @@ const navItems = [
 ]
 
 export default function Header() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
+  const [scrolled, setScrolled]       = useState(false)
+  const [menuOpen, setMenuOpen]       = useState(false)
   const [logoExpanded, setLogoExpanded] = useState(false)
+  const [searchOpen, setSearchOpen]   = useState(false)
   const location  = useLocation()
   const navigate  = useNavigate()
 
@@ -85,7 +87,7 @@ export default function Header() {
         }}>
 
           {/* logo — clique para expandir */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0, flexShrink: 0 }}>
             <motion.button
               onClick={() => setLogoExpanded(true)}
               whileHover={{ scale: 1.08 }}
@@ -99,6 +101,7 @@ export default function Header() {
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
+                flexShrink: 0,
               }}
             >
               <img
@@ -113,7 +116,7 @@ export default function Header() {
                 }}
               />
             </motion.button>
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to="/" style={{ textDecoration: 'none' }} className="header-brand-name">
               <span style={{
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: '0.95rem',
@@ -160,8 +163,32 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA + hamburger */}
+          {/* CTA + search + hamburger */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            {/* Search icon */}
+            <motion.button
+              onClick={() => setSearchOpen(true)}
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.94 }}
+              aria-label="Buscar"
+              title="Buscar no site"
+              style={{
+                background: 'none',
+                border: '1px solid rgba(0,0,0,0.1)',
+                borderRadius: '8px',
+                width: '38px', height: '38px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', color: '#374151',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#111827' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#374151' }}
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+              </svg>
+            </motion.button>
+
             <Link to="/comoapoiar" style={{ textDecoration: 'none' }} className="desktop-nav">
               <motion.button
                 whileHover={{ scale: 1.04, boxShadow: '0 8px 24px rgba(22,163,74,0.4)' }}
@@ -190,18 +217,19 @@ export default function Header() {
               aria-label="Menu"
               className="mobile-menu-btn"
               style={{
-                background: 'rgba(0,0,0,0.05)',
-                border: '1px solid rgba(0,0,0,0.1)',
+                background: '#111827',
+                border: 'none',
                 borderRadius: '8px',
-                width: '36px',
-                height: '36px',
+                minWidth: '44px',
+                height: '44px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '5px',
                 cursor: 'pointer',
-                padding: 0,
+                padding: '0 10px',
+                flexShrink: 0,
               }}
             >
               {[0, 1, 2].map((i) => (
@@ -215,9 +243,9 @@ export default function Header() {
                   transition={{ duration: 0.25 }}
                   style={{
                     display: 'block',
-                    width: '18px',
-                    height: '1.5px',
-                    background: '#374151',
+                    width: '20px',
+                    height: '2px',
+                    background: '#ffffff',
                     borderRadius: '2px',
                     transformOrigin: 'center',
                   }}
@@ -265,17 +293,18 @@ export default function Header() {
                   background: 'none',
                   border: 'none',
                   fontFamily: "'Outfit', sans-serif",
-                  fontSize: '1rem',
-                  fontWeight: 400,
-                  color: '#374151',
+                  fontSize: '1.15rem',
+                  fontWeight: 500,
+                  color: '#111827',
                   cursor: 'pointer',
-                  padding: '0.75rem 1rem',
+                  padding: '0.85rem 1rem',
                   borderRadius: '8px',
                   textAlign: 'left',
                   letterSpacing: '0.01em',
+                  width: '100%',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; e.currentTarget.style.color = '#111827' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = '#374151' }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.05)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'none' }}
               >
                 {item.label}
               </motion.button>
@@ -360,14 +389,22 @@ export default function Header() {
         )}
       </AnimatePresence>
 
+      {/* Search Overlay */}
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+
       {/* responsive rules */}
       <style>{`
         .desktop-nav { display: flex !important; }
         .mobile-menu-btn { display: none !important; }
+        .header-brand-name { display: inline !important; }
 
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
+        }
+
+        @media (max-width: 400px) {
+          .header-brand-name { display: none !important; }
         }
       `}</style>
     </>

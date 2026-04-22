@@ -218,14 +218,25 @@ export default function Contato() {
               </motion.a>
             ))}
 
-            <div className="contact-social">
-              <h3>Redes Sociais</h3>
-              <div className="social-links">
-                <a href="https://www.facebook.com/futuroscraquesoficial" target="_blank" rel="noreferrer">📘 Facebook</a>
-                <a href="https://www.instagram.com/institutofuturoscraques/" target="_blank" rel="noreferrer">📷 Instagram</a>
-                <a href="https://www.youtube.com/@institutofuturoscraques" target="_blank" rel="noreferrer">🎬 YouTube</a>
+            <motion.a
+              className="contact-info-card"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              style={{ cursor: 'default', textDecoration: 'none' }}
+            >
+              <span className="contact-icon">🕐</span>
+              <div>
+                <div className="contact-label">Horários de Funcionamento</div>
+                <div className="contact-value" style={{ lineHeight: 1.9 }}>
+                  Seg: fechado<br />
+                  Ter, qui e sex: 10h às 16h<br />
+                  Qua: 14h às 16h<br />
+                  Sáb: fechado<br />
+                  Dom e feriados: fechado
+                </div>
               </div>
-            </div>
+            </motion.a>
           </motion.div>
 
           <motion.form

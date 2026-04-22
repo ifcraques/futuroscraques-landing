@@ -48,34 +48,49 @@ const STYLES = `
 
 const programs = [
   {
-    img: 'https://static.wixstatic.com/media/3db4e0_4cf34c41f2774e429703a7b5e9756124~mv2.jpg',
-    emoji: '🏀',
-    badge: 'Reconhecido pela FIBA',
-    title: 'Drible Certo 3x3',
-    desc: 'Reconhecido internacionalmente pela FIBA. O maior projeto de basquete 3x3 do Brasil com vitórias em torneios nacionais e internacionais, levando esperança e disciplina a milhares de jovens nas comunidades.',
-    metric: '40.000+',
-    metricLabel: 'Jovens Impactados',
+    img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&q=80',
+    emoji: '🏅',
+    badge: 'Crianças & Adolescentes',
+    title: 'Formação Esportiva',
+    desc: 'Garantimos acesso à prática esportiva por meio de ações inclusivas, educativas e lúdicas. O objetivo é o desenvolvimento integral do indivíduo e sua formação para o exercício da cidadania — sem seletividade, sem hipercompetitividade.',
+    pillars: [
+      { label: 'Público-alvo', text: 'Crianças e adolescentes' },
+      { label: 'Objetivo', text: 'Desenvolvimento integral do indivíduo e formação para o exercício da cidadania.' },
+      { label: 'Característica', text: 'Praticado preferencialmente no contraturno escolar, sem seletividade ou hipercompetitividade.' },
+    ],
+    metric: '10.000+',
+    metricLabel: 'Crianças Atendidas',
     accent: '#3B82F6',
   },
   {
-    img: 'https://static.wixstatic.com/media/3db4e0_4beea58f86504c6889e7cc86814b91da~mv2.jpg',
-    emoji: '🏃',
-    badge: '+30 etapas por ano',
-    title: 'Os Circuitos IFC',
-    desc: 'Mais de 30 etapas anuais de corridas de rua em todo o Brasil. Eventos massivos e inclusivos com área kids, shows ao vivo e premiações, promovendo saúde preventiva para todas as idades.',
-    metric: '30+',
-    metricLabel: 'Etapas Anuais',
+    img: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80',
+    emoji: '🌿',
+    badge: 'Jovens, Adultos & Idosos',
+    title: 'Esporte para Toda a Vida',
+    desc: 'Promovemos saúde, lazer e integração social por meio da prática esportiva voluntária. Abrange todas as idades — do jovem ao idoso — com foco no bem-estar, nos hábitos saudáveis e na preservação do meio ambiente.',
+    pillars: [
+      { label: 'Público-alvo', text: 'Jovens, adultos e pessoas idosas' },
+      { label: 'Objetivo', text: 'Integrar os praticantes à vida social e preservar o meio ambiente pela prática voluntária.' },
+      { label: 'Característica', text: 'Modalidades como lazer ou atividade física. Permite esporte competitivo para adultos sem foco em rendimento profissional.' },
+    ],
+    metric: '5.000+',
+    metricLabel: 'Participantes Ativos',
     accent: '#10B981',
   },
   {
-    img: 'https://static.wixstatic.com/media/3db4e0_7d1d002f79f049658ddf41cff2a01a02~mv2.jpg',
-    emoji: '🌱',
-    badge: 'Formação de líderes',
-    title: 'Trilhas de Cidadania',
-    desc: 'Workshops em colaboração, comunicação e liderança ética comunitária, preparando jovens talentos para o mercado de trabalho moderno e formando verdadeiros cidadãos multiplicadores.',
-    metric: '500+',
-    metricLabel: 'Líderes Formados',
-    accent: '#8B5CF6',
+    img: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=900&q=80',
+    emoji: '🏆',
+    badge: 'Atletas de Alto Rendimento',
+    title: 'Excelência Esportiva',
+    desc: 'Voltado para atletas em processo de formação técnica ou já em alto rendimento. Seguimos regras nacionais e internacionais, buscando resultados expressivos em competições e a integração entre nações pelo esporte de performance.',
+    pillars: [
+      { label: 'Público-alvo', text: 'Atletas em formação técnica ou de alto rendimento' },
+      { label: 'Objetivo', text: 'Obter resultados expressivos e promover a integração entre nações pelo esporte de performance.' },
+      { label: 'Característica', text: 'Seguindo regras nacionais e internacionais. Foco no aperfeiçoamento qualitativo e quantitativo da prática desportiva.' },
+    ],
+    metric: '25+',
+    metricLabel: 'Títulos Conquistados',
+    accent: '#F59E0B',
   },
 ]
 
@@ -181,10 +196,10 @@ export default function Projects() {
         <p className="text-sm font-bold tracking-[0.25em] uppercase text-blue-600 mb-4">
           O Que Fazemos
         </p>
-        <h2 className="proj-outer-title text-5xl md:text-7xl font-black tracking-tight leading-[0.9] mb-5">
+        <h2 className="proj-outer-title text-5xl md:text-7xl font-black tracking-tight leading-[0.9] mb-10">
           Nossos<br />Programas
         </h2>
-        <p className="text-neutral-500 text-lg max-w-md leading-relaxed">
+        <p className="text-neutral-500 text-lg max-w-md leading-relaxed mt-6">
           Iniciativas que impactam de verdade, com resultados comprovados e histórias que mudam vidas.
         </p>
       </div>
@@ -222,65 +237,102 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* RIGHT: Text content */}
-              <div className="flex-1 flex flex-col justify-center px-6 py-4 lg:py-0 lg:pr-14 lg:pl-8 z-10">
-                {/* Program counter */}
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-3xl" aria-hidden="true">{prog.emoji}</span>
-                  <div className="h-px flex-1 bg-white/10" />
-                  <span
-                    className="text-[11px] font-black tracking-[0.2em] uppercase"
-                    style={{ color: prog.accent }}
+              {/* RIGHT: Text content — 3 zonas: topo / meio / base */}
+              <div className="flex-1 flex flex-col px-10 py-12 lg:py-16 lg:pr-20 lg:pl-14 z-10 gap-0">
+
+                {/* ── TOPO: counter + badge + título ── */}
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-3 mb-8">
+                    <span className="text-3xl" aria-hidden="true">{prog.emoji}</span>
+                    <div className="h-px flex-1 bg-white/10" />
+                    <span
+                      className="text-xs font-black tracking-[0.2em] uppercase"
+                      style={{ color: prog.accent }}
+                    >
+                      {String(i + 1).padStart(2, '0')} / {programs.length}
+                    </span>
+                  </div>
+
+                  <div
+                    className="self-start px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-7"
+                    style={{ background: `${prog.accent}20`, color: prog.accent }}
                   >
-                    {String(i + 1).padStart(2, '0')} / {programs.length}
-                  </span>
+                    {prog.badge}
+                  </div>
+
+                  <h3 className="proj-silver-text text-4xl md:text-5xl lg:text-[4.2rem] font-black tracking-tight leading-none">
+                    {prog.title}
+                  </h3>
                 </div>
 
-                {/* Title */}
-                <h3 className="proj-silver-text text-3xl md:text-4xl lg:text-[3.2rem] font-black tracking-tight leading-none mb-4">
-                  {prog.title}
-                </h3>
+                {/* ── MEIO: descrição + tópicos — cresce e centraliza ── */}
+                <div className="flex-1 flex flex-col justify-center py-10 lg:py-14">
+                  <p className="text-blue-100/65 text-base md:text-lg leading-relaxed mb-16 max-w-xl">
+                    {prog.desc}
+                  </p>
 
-                {/* Description */}
-                <p className="text-blue-100/60 text-sm md:text-base leading-relaxed mb-6 max-w-lg">
-                  {prog.desc}
-                </p>
-
-                {/* Impact metric */}
-                <div className="flex items-baseline gap-3 mb-7">
-                  <span className="text-5xl lg:text-6xl font-black text-white tracking-tighter leading-none">
-                    {prog.metric}
-                  </span>
-                  <span className="text-blue-200/50 text-[11px] font-black uppercase tracking-[0.15em]">
-                    {prog.metricLabel}
-                  </span>
+                  <div className="flex flex-col gap-5">
+                    {prog.pillars.map((pillar, pi) => (
+                      <div key={pi} className="flex items-start gap-4">
+                        <div
+                          className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                          style={{ background: prog.accent }}
+                        />
+                        <div>
+                          <span
+                            className="text-xs font-black uppercase tracking-widest block mb-1"
+                            style={{ color: prog.accent }}
+                          >
+                            {pillar.label}
+                          </span>
+                          <span className="text-blue-100/65 text-sm md:text-base leading-snug">
+                            {pillar.text}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Progress dots */}
-                <div className="flex gap-2 mb-7">
-                  {programs.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className="h-[3px] rounded-full transition-all duration-300"
+                {/* ── BASE: métrica + dots + CTA ── */}
+                <div className="flex flex-col gap-6">
+                  <div className="h-px bg-white/10" />
+
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-6xl lg:text-7xl font-black text-white tracking-tighter leading-none">
+                      {prog.metric}
+                    </span>
+                    <span className="text-blue-200/50 text-sm font-black uppercase tracking-[0.15em]">
+                      {prog.metricLabel}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-2">
+                      {programs.map((_, idx) => (
+                        <div
+                          key={idx}
+                          className="h-[3px] rounded-full transition-all duration-300"
+                          style={{
+                            width: idx === i ? '2.5rem' : '0.6rem',
+                            background: idx === i ? prog.accent : 'rgba(255,255,255,0.15)',
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                    <button
+                      className="flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-white/30"
                       style={{
-                        width: idx === i ? '2rem' : '0.5rem',
-                        background: idx === i ? prog.accent : 'rgba(255,255,255,0.15)',
+                        background: `linear-gradient(135deg, ${prog.accent}30, ${prog.accent}10)`,
+                        border: `1px solid ${prog.accent}44`,
                       }}
-                    />
-                  ))}
+                    >
+                      Conheça o Programa
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
                 </div>
-
-                {/* CTA button */}
-                <button
-                  className="self-start flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold text-white transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-white/30"
-                  style={{
-                    background: `linear-gradient(135deg, ${prog.accent}30, ${prog.accent}10)`,
-                    border: `1px solid ${prog.accent}44`,
-                  }}
-                >
-                  Conheça o Programa
-                  <span aria-hidden="true">→</span>
-                </button>
               </div>
             </div>
           ))}

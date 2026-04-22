@@ -35,7 +35,9 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "mcp__plugin_claude-mem_mcp-search__get_observations",
-      "Bash(claude install-skill:*)"
+      "Bash(claude install-skill:*)",
+      "Skill(gsd:verify-work)",
+      "Skill(gsd:verify-work:*)"
     ]
   }
 }

@@ -1,6 +1,178 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+// ── FAQ data (from futuroscraques.org/perguntasrespostas) ──────────────────────
+const FAQ_ITEMS = [
+  {
+    id: 'faq-1',
+    question: 'O IFC cobra alguma taxa de seus participantes?',
+    answer: 'Não cobramos absolutamente nada dos participantes! Todos os nossos projetos são gratuitos, garantindo que crianças e jovens em situação de vulnerabilidade possam participar sem qualquer custo. Acreditamos que o esporte deve ser acessível a todos.',
+  },
+  {
+    id: 'faq-2',
+    question: 'Como posso me inscrever em um projeto do IFC?',
+    answer: 'Qualquer interessado pode se inscrever, desde que atenda aos critérios do projeto. A inscrição é feita online, por meio do preenchimento de um formulário disponível em nosso site ou em nossos canais de atendimento.',
+  },
+  {
+    id: 'faq-3',
+    question: 'O que preciso apresentar para participar de um projeto?',
+    answer: 'Os documentos necessários incluem: formulário de inscrição preenchido, foto 3×4, concordância com as normas e regulamentos do IFC. Para atletas: seguro contra acidentes pessoais, atestado médico de aptidão para prática esportiva e inscrição no sistema da Confederação correspondente, caso o projeto exija.',
+  },
+  {
+    id: 'faq-4',
+    question: 'O IFC organiza eventos de corrida de rua?',
+    answer: 'Sim! O IFC também realiza corridas de rua, como parte de nossos projetos voltados à promoção de hábitos saudáveis e à inclusão social. As corridas são gratuitas e abertas a todos, com o objetivo de incentivar a prática de atividades físicas e oferecer uma experiência esportiva inclusiva para diferentes idades e capacidades.',
+  },
+  {
+    id: 'faq-5',
+    question: 'Como posso me tornar um doador do IFC?',
+    answer: 'Se você acredita no impacto transformador do esporte e deseja contribuir com nossos projetos, pode se tornar um doador do IFC. Todas as doações são utilizadas para manter nossos programas gratuitos e ampliar o atendimento a mais crianças e jovens. Para mais informações, entre em contato pelo e-mail contato@futuroscraques.org ou visite nosso site.',
+  },
+  {
+    id: 'faq-6',
+    question: 'Quais são as categorias oferecidas pelo IFC?',
+    answer: 'O IFC oferece categorias para diferentes faixas etárias e níveis: Infantil (Sub-10) para iniciação esportiva a partir de 6 anos; Juvenil (Sub-15 e Sub-18) para desenvolvimento técnico e físico; e Adulto (Sub-23 e Adulto) para preparação de competições de alto rendimento.',
+  },
+  {
+    id: 'faq-7',
+    question: 'Preciso ser atleta para participar?',
+    answer: 'Não. O IFC é aberto a todos que desejam participar, sejam atletas ou pessoas interessadas em contribuir com os projetos. Oferecemos programas tanto para iniciantes quanto para atletas de alto rendimento.',
+  },
+  {
+    id: 'faq-8',
+    question: 'Onde ficam os polos de atendimento do IFC?',
+    answer: 'Atualmente, o IFC possui dois polos de atendimento em Santo André e um em São Paulo (Zona Sul), onde são realizadas as atividades e treinamentos. A sede administrativa está localizada em São Paulo.',
+  },
+  {
+    id: 'faq-9',
+    question: 'Existe atendimento presencial?',
+    answer: 'Sim, mas o atendimento presencial ocorre nos polos de atendimento durante os horários de treino. Para questões administrativas, recomendamos o contato via e-mail ou formulário disponível em nosso site.',
+  },
+  {
+    id: 'faq-10',
+    question: 'Com que idade posso começar a participar dos projetos?',
+    answer: 'Os projetos de iniciação esportiva do IFC começam a partir dos 6 anos de idade. Tanto meninos quanto meninas podem participar.',
+  },
+  {
+    id: 'faq-11',
+    question: 'O IFC trabalha apenas com futebol?',
+    answer: 'Não. Embora o futebol seja uma das modalidades mais praticadas no IFC, também oferecemos projetos em outras modalidades, como basquete 3x3, iatismo e corridas de rua, sempre com foco na inclusão social e no desenvolvimento esportivo.',
+  },
+  {
+    id: 'faq-12',
+    question: 'O IFC organiza competições ou apenas treinamentos?',
+    answer: 'O IFC organiza e participa de competições nacionais e internacionais, além de promover torneios internos e eventos esportivos para que os atletas possam aplicar o que aprendem nos treinamentos em um ambiente competitivo.',
+  },
+  {
+    id: 'faq-13',
+    question: 'O IFC aceita voluntários?',
+    answer: 'Sim, o IFC conta com voluntários em diversas áreas, como treinadores, educadores e profissionais de saúde. Interessados em contribuir podem se inscrever através de nosso site.',
+  },
+  {
+    id: 'faq-14',
+    question: 'Como posso obter mais informações?',
+    answer: 'Se você ainda tem dúvidas ou deseja mais informações, entre em contato conosco por meio do formulário de contato em nosso site ou pelo e-mail: contato@futuroscraques.org.',
+  },
+]
+
+function FAQAccordion() {
+  const [openId, setOpenId] = useState(null)
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      {FAQ_ITEMS.map((item) => {
+        const isOpen = openId === item.id
+        return (
+          <div
+            key={item.id}
+            style={{
+              background: '#fff',
+              border: '1px solid #e5e7eb',
+              borderRadius: '10px',
+              overflow: 'hidden',
+              boxShadow: isOpen ? '0 4px 16px rgba(0,0,0,0.06)' : 'none',
+              transition: 'box-shadow 0.25s',
+            }}
+          >
+            <button
+              onClick={() => setOpenId(isOpen ? null : item.id)}
+              style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '1.1rem 1.5rem',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                textAlign: 'left',
+                gap: '1rem',
+              }}
+            >
+              <span style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: '0.95rem',
+                fontWeight: 600,
+                color: '#111827',
+                lineHeight: 1.4,
+              }}>
+                {item.question}
+              </span>
+              <motion.span
+                animate={{ rotate: isOpen ? 45 : 0 }}
+                transition={{ duration: 0.25 }}
+                style={{
+                  flexShrink: 0,
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  background: isOpen ? '#16a34a' : '#f3f4f6',
+                  color: isOpen ? '#fff' : '#6b7280',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.1rem',
+                  fontWeight: 300,
+                  transition: 'background 0.25s',
+                }}
+              >
+                +
+              </motion.span>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div style={{
+                    padding: '0 1.5rem 1.25rem 1.5rem',
+                    borderTop: '1px solid #f3f4f6',
+                  }}>
+                    <p style={{
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: '0.9rem',
+                      color: '#6b7280',
+                      lineHeight: 1.75,
+                      margin: '0.85rem 0 0',
+                    }}>
+                      {item.answer}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 const tabs = [
   {
     id: 'docs',
@@ -233,6 +405,13 @@ const tabs = [
     ],
   },
   {
+    id: 'faq',
+    label: 'Perguntas e Respostas',
+    icon: '❓',
+    description: 'Dúvidas frequentes sobre o Instituto Futuros Craques e seus projetos',
+    isFaq: true,
+  },
+  {
     id: 'projetos',
     label: 'Projetos (Documentação)',
     icon: '📁',
@@ -278,6 +457,7 @@ const itemVariants = {
 }
 
 function getItemCount(tab) {
+  if (tab.isFaq) return FAQ_ITEMS.length
   if (tab.items) return tab.items.length
   if (tab.subsections) return tab.subsections.reduce((sum, s) => sum + s.items.length, 0)
   return 0
@@ -382,7 +562,15 @@ export default function Transparencia() {
               </span>
             </div>
 
-            {activeData.subsections ? (
+            {activeData.isFaq ? (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35 }}
+              >
+                <FAQAccordion />
+              </motion.div>
+            ) : activeData.subsections ? (
               activeData.subsections.map((section) => (
                 <div key={section.title} className="transp-subsection">
                   <h3 className="transp-subsection-title">{section.title}</h3>

@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ── Dark mode via classe .dark no <html> ── */
+@variant dark (&:where(.dark, .dark *));
+
 /* ── Marquee ── */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -35,6 +38,13 @@
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* ── Fade-in (timeline component) ── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.5s ease-out both; }
 
 /* ── Fade-rise animations ── */
 @keyframes fade-rise {
@@ -274,7 +284,7 @@
       justify-content: flex-start;
       margin-top: 80px;
       position: relative;
-      background-image: url('https://static.wixstatic.com/media/3db4e0_4cf34c41f2774e429703a7b5e9756124~mv2.jpg');
+      /* background-image: removido — imagem era do Wix (site encerrado) */
       background-size: cover;
       background-position: center 20%;
       background-attachment: scroll;
@@ -426,13 +436,13 @@
     }
 
     .section-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 900;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 400;
       margin-bottom: 1.2rem;
       color: var(--bg-dark);
       animation: slideInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      letter-spacing: -1px;
+      letter-spacing: 0.02em;
     }
 
     .section-subtitle {

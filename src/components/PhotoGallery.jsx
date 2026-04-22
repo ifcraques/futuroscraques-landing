@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { HandWrittenTitle } from './ui/hand-writing-text'
 
 // Fotos reais do Instituto Futuros Craques
 const row1 = [
@@ -93,41 +94,12 @@ export default function PhotoGallery() {
     <section id="gallery-section" style={{ padding: '6rem 0', overflow: 'hidden' }}>
 
       {/* Cabeçalho */}
-      <div style={{ padding: '0 clamp(1.5rem, 4vw, 4rem)', marginBottom: '3rem' }}>
-        <motion.p
-          style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: '#1a7a5e',
-            marginBottom: '0.75rem',
-          }}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Momentos que transformam
-        </motion.p>
-
-        <motion.h2
-          style={{
-            fontFamily: "'Instrument Serif', serif",
-            fontSize: 'clamp(2rem, 4vw, 3.2rem)',
-            fontWeight: 400,
-            color: '#0d1f2d',
-            lineHeight: 1.1,
-            maxWidth: '540px',
-          }}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Fotos que contam <em style={{ fontStyle: 'italic', color: '#4b5563' }}>histórias reais</em>
-        </motion.h2>
+      <div style={{ marginBottom: '3rem' }}>
+        <HandWrittenTitle
+          eyebrow="Momentos que transformam"
+          title="Fotos que contam"
+          subtitle="histórias reais"
+        />
       </div>
 
       {/* Fileira 1 — esquerda para direita */}

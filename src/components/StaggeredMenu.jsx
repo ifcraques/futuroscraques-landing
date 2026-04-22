@@ -11,12 +11,7 @@ const MENU_ITEMS = [
   { label: 'Como Apoiar',   href: '/comoapoiar' },
   { label: 'Transparência', href: '/transparencia' },
   { label: 'Contato',       href: '/contato' },
-]
-
-const SOCIAL_ITEMS = [
-  { label: 'Instagram', url: 'https://instagram.com/futuroscraques' },
-  { label: 'Facebook',  url: 'https://facebook.com/futuroscraques' },
-  { label: 'YouTube',   url: 'https://youtube.com/@futuroscraques' },
+  { label: 'FAQ',           href: '/faq' },
 ]
 
 const PRE_LAYERS = [
@@ -128,7 +123,7 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         {/* Logo do IFC */}
         <div style={{ position: 'absolute', top: '1.8rem', left: '2.5rem' }}>
           <img
-            src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png"
+            src="/ifc-logo.jpeg"
             alt="IFC"
             style={{ height: '40px', objectFit: 'contain' }}
           />
@@ -155,23 +150,8 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
           </ul>
         </nav>
 
-        {/* Redes sociais */}
-        <div>
-          <p className="sm-socials-label">Redes Sociais</p>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            {SOCIAL_ITEMS.map(s => (
-              <a
-                key={s.label}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="sm-social-link"
-              >
-                {s.label}
-              </a>
-            ))}
-          </div>
-        </div>
+        {/* Rodapé do menu — vazio para espaçamento */}
+        <div />
       </div>
 
       {/* Botão toggle MENU / CLOSE */}
@@ -179,7 +159,7 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         className="sm-toggle"
         onClick={onToggle}
       >
-        <div style={{ overflow: 'hidden', height: '1.1em', position: 'relative', minWidth: '3.4rem' }}>
+        <div style={{ overflow: 'hidden', height: '1.4em', position: 'relative', minWidth: '3.4rem' }}>
           <span ref={menuLabelRef} style={{ display: 'block', position: 'absolute', inset: 0 }}>
             MENU
           </span>
