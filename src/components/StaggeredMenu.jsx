@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import SearchOverlay from './SearchOverlay'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
 import './StaggeredMenu.css'
@@ -21,6 +22,7 @@ const PRE_LAYERS = [
 ]
 
 export default function StaggeredMenu({ isOpen, onToggle }) {
+  const [searchOpen, setSearchOpen] = useState(false)
   const navigate  = useNavigate()
   const location  = useLocation()
   const itemSpansRef  = useRef([])
@@ -153,6 +155,35 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         {/* Rodapé do menu — vazio para espaçamento */}
         <div />
       </div>
+
+      {/* Botão busca */}
+      <button
+        onClick={() => setSearchOpen(true)}
+        aria-label="Buscar no site"
+        title="Buscar (Ctrl+K)"
+        style={{
+          position: 'fixed',
+          top: '24px',
+          right: '130px',
+          zIndex: 55,
+          background: 'rgba(255,255,255,0.12)',
+          border: '1px solid rgba(255,255,255,0.18)',
+          borderRadius: '8px',
+          width: '40px', height: '40px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', color: '#fff',
+          backdropFilter: 'blur(8px)',
+          transition: 'background 0.2s, transform 0.15s',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; e.currentTarget.style.transform = 'scale(1.06)' }}
+        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.transform = 'scale(1)' }}
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </button>
+
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Botão toggle MENU / CLOSE */}
       <button
