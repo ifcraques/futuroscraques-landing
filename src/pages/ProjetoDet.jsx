@@ -35,6 +35,12 @@ export const PROJETOS_DB = [
       'Aprovado pelo Ministério do Esporte via Lei de Incentivo ao Esporte',
       'Atletas com passagem por competições em múltiplos continentes',
     ],
+    comoFunciona: [
+      { titulo: 'Seleção e perfil dos atletas', texto: 'Os atletas são selecionados com base em critérios técnicos e ranking da modalidade, integrando um ambiente profissional com suporte completo de comissão técnica multidisciplinar — treinadores, preparadores físicos, fisioterapeutas, nutricionistas e equipe de gestão.' },
+      { titulo: 'Estrutura de preparação', texto: 'O programa prepara atletas adultos e sub-23 em todas as etapas do alto rendimento: treinamento técnico e físico intensivo, competições nacionais e etapas internacionais da modalidade olímpica.' },
+      { titulo: 'Suporte e manutenção', texto: 'Ao longo de um ciclo contínuo, os atletas recebem bolsas auxílio, participam de competições estratégicas no Brasil e no exterior, acumulando experiência e pontuação no ranking internacional.' },
+      { titulo: 'Resultados e legado', texto: 'O modelo permite formação de equipes altamente competitivas que representam o Brasil no mundo. Com histórico consolidado, o programa revelou dezenas de atletas com passagem por seleções brasileiras.' },
+    ],
   },
   {
     id: 2,
@@ -710,6 +716,55 @@ export default function ProjetoDet() {
         ))}
       </div>
 
+
+
+      {/* ── Como Funciona (se tiver dados) ── */}
+      {projeto.comoFunciona && (
+        <div style={{
+          padding: '5rem clamp(1.5rem, 6vw, 6rem)',
+          borderTop: '1px solid #e5e7eb',
+        }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.62rem', letterSpacing: '0.22em', color: '#16a34a', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+            Estrutura do programa
+          </p>
+          <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 400, color: '#111827', marginBottom: '0.75rem' }}>
+            Como Funciona
+          </h2>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.9rem', color: '#6b7280', maxWidth: '680px', lineHeight: 1.8, marginBottom: '3.5rem' }}>
+            O programa de Basquete 3×3 do Instituto Futuros Craques reúne projetos de alto rendimento que atuam de forma integrada na formação, desenvolvimento e manutenção de equipes competitivas no cenário nacional e internacional.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: '1.5rem' }}>
+            {projeto.comoFunciona.map((item, i) => (
+              <div key={i} style={{
+                padding: '2rem',
+                border: '1px solid #e5e7eb',
+                borderRadius: '2px',
+                background: '#fff',
+                display: 'flex', flexDirection: 'column', gap: '0.75rem',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{
+                    width: '28px', height: '28px', borderRadius: '50%',
+                    background: projeto.cor + '18',
+                    color: projeto.cor,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.7rem', fontWeight: 700, flexShrink: 0,
+                  }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.82rem', fontWeight: 600, color: '#111827', letterSpacing: '0.01em' }}>
+                    {item.titulo}
+                  </h3>
+                </div>
+                <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.82rem', color: '#6b7280', lineHeight: 1.75, margin: 0 }}>
+                  {item.texto}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ── Presença Global (apenas Drible Certo 3x3) ── */}
       {projeto.slug === 'drible-certo-3x3' && (
