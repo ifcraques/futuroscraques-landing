@@ -14,6 +14,7 @@ import Projetos from './pages/Projetos'
 import Noticias from './pages/Noticias'
 import Post from './pages/Post'
 import Login from './pages/Login'
+import ProjetoDet from './pages/ProjetoDet'
 import ScrollToTop from './components/ScrollToTop'
 import AccessibilityWidget from './components/AccessibilityWidget'
 
@@ -78,7 +79,8 @@ function AppShell() {
           <Route path="/quemsomos"    element={<QuemSomos />} />
           <Route path="/contato"      element={<Contato />} />
           <Route path="/comoapoiar"   element={<ComoApoiar />} />
-          <Route path="/projetos"     element={<Projetos />} />
+          <Route path="/projetos"          element={<Projetos />} />
+          <Route path="/projetos/:slug"    element={<ProjetoDet />} />
           <Route path="/noticias"          element={<Noticias />} />
           <Route path="/noticias/:slug"    element={<Post />} />
           <Route path="/login"             element={<Login />} />

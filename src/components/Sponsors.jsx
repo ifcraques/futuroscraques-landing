@@ -133,7 +133,7 @@ export default function Sponsors() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        Patrocinadores
+        Nossos Parceiros
       </motion.h2>
       <motion.p
         className="section-subtitle"

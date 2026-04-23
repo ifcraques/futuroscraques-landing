@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { IFCTimeline } from '@/components/ui/timeline-component'
 import TeamShowcase from '@/components/ui/team-showcase'
 import { ContainerScroll, CardSticky } from '@/components/ui/cards-stack'
-import Organograma from '@/components/ui/Organograma'
 
 const MVV = [
   {
@@ -280,16 +279,26 @@ export default function QuemSomos() {
           background: '#ffffff',
           border: '1px solid #e5e7eb',
           borderRadius: '16px',
-          padding: '2rem 1rem',
+          padding: '2.5rem 2rem',
           boxShadow: '0 4px 24px rgba(17,24,39,0.05)',
+          overflowX: 'auto',
         }}>
-          <Organograma />
+          <img
+            src="/organograma_completo.svg"
+            alt="Organograma do Instituto Futuros Craques"
+            style={{
+              width: '100%',
+              maxWidth: '680px',
+              display: 'block',
+              margin: '0 auto',
+            }}
+          />
         </div>
       </motion.div>
 
       {/* ── Divisor ── */}
       <div style={{
-        margin: '5rem clamp(1.5rem, 6vw, 6rem) 0',
+        margin: '2rem clamp(1.5rem, 6vw, 6rem) 0',
         height: '1px',
         background: '#e5e7eb',
       }} />

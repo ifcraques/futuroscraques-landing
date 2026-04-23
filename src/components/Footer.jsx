@@ -35,6 +35,17 @@ const PinIcon = () => (
     <circle cx="12" cy="10" r="3"/>
   </svg>
 )
+const PhoneIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .93h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+  </svg>
+)
+const ClockIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="12 6 12 12 16 14"/>
+  </svg>
+)
 const HeartIcon = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="#16a34a" stroke="none" style={{ display: 'inline', verticalAlign: 'middle', marginBottom: '1px' }}>
     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
@@ -348,6 +359,15 @@ export default function Footer() {
               contato@futuroscraques.org
             </a>
             <a
+              href="tel:+551125325697"
+              style={S.contactItem}
+              onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+            >
+              <span style={S.contactIcon}><PhoneIcon /></span>
+              +55 11 2532-5697
+            </a>
+            <a
               href="https://wa.me/5511939515008"
               target="_blank"
               rel="noreferrer"
@@ -369,6 +389,38 @@ export default function Footer() {
               <span style={S.contactIcon}><PinIcon /></span>
               Av. Tiradentes, 960 – Luz, São Paulo/SP
             </a>
+
+            {/* Horários */}
+            <div style={{ marginTop: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.6rem' }}>
+                <span style={{ ...S.contactIcon, opacity: 0.7 }}><ClockIcon /></span>
+                <span style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: '0.7rem', fontWeight: 700,
+                  letterSpacing: '0.12em', textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.35)',
+                }}>Horários</span>
+              </div>
+              {[
+                { dia: 'Seg', hora: 'Fechado' },
+                { dia: 'Ter, Qui e Sex', hora: '10h–16h' },
+                { dia: 'Qua', hora: '14h–16h' },
+                { dia: 'Sáb, Dom e feriados', hora: 'Fechado' },
+              ].map(({ dia, hora }) => (
+                <div key={dia} style={{
+                  display: 'flex', justifyContent: 'space-between',
+                  gap: '0.5rem', paddingLeft: '1.4rem',
+                  marginBottom: '0.3rem',
+                }}>
+                  <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', fontFamily: "'Outfit', sans-serif" }}>{dia}</span>
+                  <span style={{
+                    fontSize: '0.78rem', fontFamily: "'Outfit', sans-serif",
+                    color: hora === 'Fechado' ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.7)',
+                    fontWeight: hora === 'Fechado' ? 400 : 500,
+                  }}>{hora}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 

@@ -126,6 +126,66 @@
   color: #000;
 }
 
+.sm-search-wrapper {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  opacity: 0;
+}
+
+.sm-search-input {
+  width: 100%;
+  padding: 0.65rem 2.8rem 0.65rem 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: #111827;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sm-search-input::placeholder {
+  color: #9ca3af;
+}
+
+.sm-search-input:focus {
+  border-color: #16a34a;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+.sm-search-input::-webkit-search-cancel-button,
+.sm-search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sm-search-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  border-radius: 0 8px 8px 0;
+  transition: color 0.2s;
+}
+
+.sm-search-btn:hover {
+  color: #16a34a;
+}
+
 @media (max-width: 1024px) {
   .sm-panel,
   .sm-layer {

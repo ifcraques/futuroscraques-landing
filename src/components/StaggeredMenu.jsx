@@ -23,6 +23,7 @@ const PRE_LAYERS = [
 
 export default function StaggeredMenu({ isOpen, onToggle }) {
   const [searchOpen, setSearchOpen] = useState(false)
+  const [inlineQuery, setInlineQuery] = useState('')
   const navigate  = useNavigate()
   const location  = useLocation()
   const itemSpansRef  = useRef([])
@@ -30,6 +31,7 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
   const closeLabelRef = useRef(null)
   const iconRef       = useRef(null)
   const itemsTl       = useRef(null)
+  const searchBarRef  = useRef(null)
 
   const [panelWidth, setPanelWidth] = useState(() =>
     window.innerWidth <= 1024 ? '100vw' : 'clamp(280px, 38vw, 440px)'
@@ -63,6 +65,7 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
       if (itemsTl.current) itemsTl.current.kill()
       const spans = itemSpansRef.current.filter(Boolean)
       gsap.set(spans, { yPercent: 140, rotation: 10 })
+      if (searchBarRef.current) gsap.set(searchBarRef.current, { opacity: 0, y: 18 })
       itemsTl.current = gsap.timeline({ delay: 0.25 })
       itemsTl.current.to(spans, {
         yPercent: 0,
@@ -71,6 +74,13 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         stagger: 0.07,
         ease: 'power4.out',
       })
+      if (searchBarRef.current) {
+        gsap.to(searchBarRef.current, {
+          opacity: 1, y: 0,
+          duration: 0.6, ease: 'power3.out',
+          delay: 0.25 + spans.length * 0.07 + 0.1,
+        })
+      }
     } else {
       gsap.to(menuLabelRef.current,  { y: '0%',    duration: 0.38, ease: 'power3.out', delay: 0.06 })
       gsap.to(closeLabelRef.current, { y: '100%',  duration: 0.32, ease: 'power3.in' })
@@ -83,6 +93,9 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         stagger: 0.03,
         ease: 'power2.out',
       })
+      if (searchBarRef.current) {
+        gsap.to(searchBarRef.current, { opacity: 0, y: 10, duration: 0.2, ease: 'power2.in' })
+      }
     }
   }, [isOpen])
 
@@ -152,6 +165,37 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
           </ul>
         </nav>
 
+        {/* Barra de busca interna */}
+        <div className="sm-search-wrapper" ref={searchBarRef}>
+          <p className="sm-socials-label" style={{ marginBottom: '0.5rem' }}>Buscar no site</p>
+          <form
+            onSubmit={e => {
+              e.preventDefault()
+              if (inlineQuery.trim().length >= 2) setSearchOpen(true)
+            }}
+            style={{ position: 'relative' }}
+          >
+            <input
+              type="search"
+              value={inlineQuery}
+              onChange={e => setInlineQuery(e.target.value)}
+              onFocus={() => { if (inlineQuery.trim().length >= 2) setSearchOpen(true) }}
+              placeholder="Projetos, documentos, FAQ..."
+              className="sm-search-input"
+              aria-label="Buscar conteúdo"
+            />
+            <button
+              type="submit"
+              className="sm-search-btn"
+              aria-label="Pesquisar"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
         {/* Rodapé do menu — vazio para espaçamento */}
         <div />
       </div>
@@ -183,7 +227,7 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         </svg>
       </button>
 
-      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchOverlay isOpen={searchOpen} onClose={() => { setSearchOpen(false); setInlineQuery('') }} initialQuery={inlineQuery} />
 
       {/* Botão toggle MENU / CLOSE */}
       <button

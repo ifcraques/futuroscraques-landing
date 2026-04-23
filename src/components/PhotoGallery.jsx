@@ -3,29 +3,29 @@ import { HandWrittenTitle } from './ui/hand-writing-text'
 
 // Fotos reais do Instituto Futuros Craques
 const row1 = [
-  { src: '/gallery/Escola de Basquete CT3x3.jpeg', alt: 'Escola de Basquete CT3x3 — IFC' },
-  { src: '/gallery/_DSC2820.jpg', alt: 'Atletas IFC em ação' },
-  { src: '/gallery/Time Drible Certo 3x3.jpg', alt: 'Time Drible Certo 3x3' },
-  { src: '/gallery/_DSC3045.jpg', alt: 'Treinamento IFC' },
-  { src: '/gallery/GALERA CT.jpg', alt: 'Galera do Centro de Treinamento' },
-  { src: '/gallery/_DSC3418.jpg', alt: 'Competição IFC' },
-  { src: '/gallery/IFC_CraquesdoFutebol.jpg', alt: 'IFC — Craques do Futebol' },
-  { src: '/gallery/_DSC3569.jpg', alt: 'Jovens atletas IFC' },
-  { src: '/gallery/nico-guga-011-cropped.jpeg', alt: 'Atletas de destaque IFC' },
-  { src: '/gallery/_DSC3690.jpg', alt: 'Evento esportivo IFC' },
+  { src: '/gallery/web/_DSC2840.jpg', alt: 'Escola de Basquete CT3x3 — IFC' },
+  { src: '/gallery/web/_DSC2820.jpg', alt: 'Atletas IFC em ação' },
+  { src: '/gallery/web/Time Drible Certo 3x3.jpg', alt: 'Time Drible Certo 3x3' },
+  { src: '/gallery/web/_DSC3045.jpg', alt: 'Treinamento IFC' },
+  { src: '/gallery/web/GALERA CT.jpg', alt: 'Galera do Centro de Treinamento' },
+  { src: '/gallery/web/_DSC3418.jpg', alt: 'Competição IFC' },
+  { src: '/gallery/web/IFC_CraquesdoFutebol.jpg', alt: 'IFC — Craques do Futebol' },
+  { src: '/gallery/web/_DSC3059.jpg', alt: 'Jovens atletas IFC' },
+  { src: '/gallery/web/IMG_3667.jpg', alt: 'Atletas de destaque IFC' },
+  { src: '/gallery/web/IMG_7733.jpg', alt: 'Evento esportivo IFC' },
 ]
 
 const row2 = [
-  { src: '/gallery/Corrida Neo Running.jpg', alt: 'Corrida Neo Running — IFC' },
-  { src: '/gallery/_DSC2947.jpg', alt: 'Basquete 3x3 IFC' },
-  { src: '/gallery/GALERA CT (1).jpg', alt: 'Turma do CT — IFC' },
-  { src: '/gallery/_DSC3057.jpg', alt: 'Atletas em quadra' },
-  { src: '/gallery/240305_se_49erworlds_0569_3611.jpg', alt: 'IFC no campeonato mundial' },
-  { src: '/gallery/_DSC3496.jpg', alt: 'Jogo oficial IFC' },
-  { src: '/gallery/20240428_claudiocapucho_neo_running_10625_1144601_95879.jpg', alt: 'Neo Running IFC' },
-  { src: '/gallery/_DSC3691.jpg', alt: 'Celebração IFC' },
-  { src: '/gallery/183-IMG_3024.jpg', alt: 'Jovens IFC' },
-  { src: '/gallery/_DSC2972.jpg', alt: 'Treino coletivo IFC' },
+  { src: '/gallery/web/Corrida Neo Running.jpg', alt: 'Corrida Neo Running — IFC' },
+  { src: '/gallery/web/_DSC2947.jpg', alt: 'Basquete 3x3 IFC' },
+  { src: '/gallery/web/GALERA CT (1).jpg', alt: 'Turma do CT — IFC' },
+  { src: '/gallery/web/_DSC3057.jpg', alt: 'Atletas em quadra' },
+  { src: '/gallery/web/240305_se_49erworlds_0569_3611.jpg', alt: 'IFC no campeonato mundial' },
+  { src: '/gallery/web/_DSC3496.jpg', alt: 'Jogo oficial IFC' },
+  { src: '/gallery/web/20240428_claudiocapucho_neo_running_10625_1144601_95879.jpg', alt: 'Neo Running IFC' },
+  { src: '/gallery/web/IMG_9377.jpg', alt: 'Celebração IFC' },
+  { src: '/gallery/web/183-IMG_3024.jpg', alt: 'Jovens IFC' },
+  { src: '/gallery/web/_DSC2972.jpg', alt: 'Treino coletivo IFC' },
 ]
 
 function MarqueeRow({ items, reverse = false, speed = 35 }) {

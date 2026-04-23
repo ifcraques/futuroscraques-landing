@@ -1,0 +1,162 @@
+/* MODERNO THEME */
+
+/* Melhorias no Header */
+.header {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+.header.scrolled {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+  font-size: 1.3rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* Melhorias no CTA Button */
+.cta-btn {
+  background: linear-gradient(135deg, var(--accent), #1ab5ff);
+  box-shadow: 0 4px 15px rgba(0, 162, 232, 0.3);
+  border-radius: 6px;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.9rem;
+}
+
+.cta-btn:hover {
+  box-shadow: 0 6px 20px rgba(0, 162, 232, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Melhorias no Hero */
+.hero-content h1 {
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Melhorias nos Stats */
+.stat-number {
+  font-size: 3.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(0, 162, 232, 0.3);
+}
+
+/* Melhorias nos Project Cards */
+.project-card {
+  border: 1px solid rgba(0, 51, 102, 0.1);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-16px);
+  box-shadow: 0 32px 80px rgba(22, 163, 74, 0.2);
+  border-color: var(--accent);
+}
+
+/* Melhorias nos Impact Cards */
+.impact-card {
+  background: white;
+  border: 1px solid rgba(0, 51, 102, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.impact-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 162, 232, 0.15);
+  transform: translateY(-8px);
+  border-color: var(--accent);
+}
+
+/* Melhorias nos Testimonials */
+.testimonial {
+  border: 1px solid rgba(0, 51, 102, 0.08);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonial:hover {
+  box-shadow: 0 20px 60px rgba(22, 163, 74, 0.15);
+  transform: translateY(-12px);
+  border-color: var(--accent);
+}
+
+/* Melhorias no CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+  box-shadow: 0 32px 80px rgba(22, 163, 74, 0.25);
+  border-radius: 24px;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.cta-btn-white {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 1rem 2.5rem;
+}
+
+.cta-btn-white:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Melhorias no Footer */
+footer {
+  background: #0a1929;
+  border-top: 1px solid rgba(0, 162, 232, 0.1);
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .cta-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.8rem;
+  }
+}

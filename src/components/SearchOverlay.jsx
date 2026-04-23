@@ -63,7 +63,7 @@ function highlight(text, query) {
   )
 }
 
-export default function SearchOverlay({ isOpen, onClose }) {
+export default function SearchOverlay({ isOpen, onClose, initialQuery = '' }) {
   const [query, setQuery] = useState('')
   const inputRef = useRef(null)
   const navigate = useNavigate()
@@ -79,7 +79,7 @@ export default function SearchOverlay({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 80)
-      setQuery('')
+      setQuery(initialQuery || '')
     }
   }, [isOpen])
 
