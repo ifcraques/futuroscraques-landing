@@ -1,0 +1,9 @@
+[submodule ".claude/worktrees/recursing-liskov-06fb91"]
+	path = .claude/worktrees/recursing-liskov-06fb91
+	url = https://github.com/ifcraques/futuroscraques-landing.git
+[submodule ".claude/worktrees/stoic-dijkstra-278b72"]
+	path = .claude/worktrees/stoic-dijkstra-278b72
+	url = https://github.com/ifcraques/futuroscraques-landing.git
+[submodule ".claude/worktrees/youthful-shockley"]
+	path = .claude/worktrees/youthful-shockley
+	url = https://github.com/ifcraques/futuroscraques-landing.git
