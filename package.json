@@ -11,7 +11,10 @@
     "deploy": "npm run build && gh-pages -d dist",
     "scrape": "node scripts/scrape-wix.js",
     "checkpoint": "git add -A && git commit -m \"checkpoint: estado salvo antes de mudanças\"",
-    "revert": "git reset --hard HEAD~1"
+    "revert": "git reset --hard HEAD~1",
+    "audit": "node scripts/audit.js",
+    "audit:fix": "npm audit fix && npm audit --audit-level=moderate",
+    "audit:ci": "npm audit --audit-level=high"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
