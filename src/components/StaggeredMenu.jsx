@@ -138,7 +138,7 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         {/* Logo do IFC */}
         <div style={{ position: 'absolute', top: '1.8rem', left: '2.5rem' }}>
           <img
-            src="/ifc-logo.jpeg"
+            src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png"
             alt="IFC"
             style={{ height: '40px', objectFit: 'contain' }}
           />

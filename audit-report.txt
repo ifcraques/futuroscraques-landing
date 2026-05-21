@@ -1,0 +1,6 @@
+============================================================
+  AUDITORIA DE SEGURANÇA - Instituto Futuros Craques
+  2026-04-29T14:00:59.087Z
+============================================================
+
+  Nenhuma vulnerabilidade encontrada.

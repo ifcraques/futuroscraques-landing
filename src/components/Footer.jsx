@@ -304,7 +304,7 @@ export default function Footer() {
         >
           <Link to="/">
             <img
-              src="/ifc-logo.jpeg"
+              src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png"
               alt="Instituto Futuros Craques"
               style={{ height: '72px', width: 'auto', display: 'block', flexShrink: 0 }}
             />

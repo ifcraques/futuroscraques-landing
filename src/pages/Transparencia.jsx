@@ -412,13 +412,39 @@ const tabs = [
     isFaq: true,
   },
   {
+    id: 'politicas',
+    label: 'Políticas',
+    icon: '📜',
+    description: 'Políticas institucionais, regulamentos e diretrizes do Instituto',
+    subsections: [
+      {
+        title: 'Políticas Institucionais',
+        items: [
+          { label: 'Código de Conduta e Ética', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_57f89245012e4ed087fb58dd5c6bfe2a.pdf', type: 'pdf' },
+          { label: 'Política de Proteção de Dados (LGPD)', url: '/transparencia/politica-lgpd.pdf', type: 'pdf' },
+          { label: 'Política Antidopagem', url: '/transparencia/politica-antidopagem.pdf', type: 'pdf' },
+          { label: 'Política de Salvaguarda de Crianças e Adolescentes', url: '/transparencia/politica-salvaguarda.pdf', type: 'pdf' },
+          { label: 'Política de Comunicação e Imagem', url: '/transparencia/politica-comunicacao.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Regulamentos',
+        items: [
+          { label: 'Regulamento Interno IFC', url: '/transparencia/regulamento-interno.pdf', type: 'pdf' },
+          { label: 'Regulamento de Uso de Recursos', url: '/transparencia/regulamento-recursos.pdf', type: 'pdf' },
+          { label: 'Regulamento de Seleção de Atletas', url: '/transparencia/regulamento-selecao.pdf', type: 'pdf' },
+        ],
+      },
+    ],
+  },
+  {
     id: 'projetos',
     label: 'Projetos (Documentação)',
     icon: '📁',
     description: 'Documentação técnica e legal dos projetos esportivos',
     subsections: [
       {
-        title: 'Drible Certo 3x3',
+        title: 'Drible Certo 3×3',
         items: [
           { label: 'Certidão Estadual', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_7bba27eaecd24f789e4f5b8ae3259224.pdf', type: 'pdf' },
           { label: 'Certidão Federal', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_c2fdf7a223494728afb6ed96433047c2.pdf', type: 'pdf' },
@@ -426,6 +452,14 @@ const tabs = [
           { label: 'Publicação D.O.', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_57784e4d507c46b790ea1b0edd47f629.pdf', type: 'pdf' },
           { label: 'Edital', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_6af5475984b544b29f2350b3425ac579.pdf', type: 'pdf' },
           { label: 'Segunda Publicação D.O.', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_8dcc04c5295b4ab1ad61799e257b396a.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Centro de Treinamento 3×3',
+        items: [
+          { label: 'Projeto Técnico — CT 3×3', url: '/transparencia/ct3x3-projeto-tecnico.pdf', type: 'pdf' },
+          { label: 'Convênio SEESP', url: '/transparencia/ct3x3-convenio-seesp.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/ct3x3-relatorio.pdf', type: 'pdf' },
         ],
       },
       {
@@ -437,6 +471,84 @@ const tabs = [
           { label: 'Publicação D.O.', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_57784e4d507c46b790ea1b0edd47f629.pdf', type: 'pdf' },
           { label: 'Edital', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_6af5475984b544b29f2350b3425ac579.pdf', type: 'pdf' },
           { label: 'Segunda Publicação D.O.', url: 'https://www.futuroscraques.org/_files/ugd/3db4e0_8dcc04c5295b4ab1ad61799e257b396a.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Projeto Clube Escola',
+        items: [
+          { label: 'Projeto Técnico — Clube Escola', url: '/transparencia/clube-escola-projeto-tecnico.pdf', type: 'pdf' },
+          { label: 'Convênio SEME', url: '/transparencia/clube-escola-convenio-seme.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/clube-escola-relatorio.pdf', type: 'pdf' },
+          { label: 'Listagem de Alunos Atendidos', url: '/transparencia/clube-escola-alunos.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Verão Para Todos',
+        items: [
+          { label: 'Edital Verão Para Todos 2022', url: 'https://www.futuroscraques.org/_files/ugd/168440_5f6a6ff5ffd54e278efccec48dd85d15.pdf', type: 'pdf' },
+          { label: 'Resultado Edital Verão Para Todos 2022', url: 'https://www.futuroscraques.org/_files/ugd/168440_7387a7b5144440f98697b77a7b630ab1.pdf', type: 'pdf' },
+          { label: 'Projeto Técnico — Verão Para Todos', url: '/transparencia/verao-para-todos-projeto.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/verao-para-todos-relatorio.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Festival Beach Games',
+        items: [
+          { label: 'Chamamento Beach Sports 2024', url: 'https://www.futuroscraques.org/_files/ugd/168440_bf16b10b42cc4debbd30fdc56214a816.pdf', type: 'pdf' },
+          { label: 'Edital Beach Sports 2024', url: 'https://www.futuroscraques.org/_files/ugd/168440_184521b4c6ca4387ba095e085f815c02.pdf', type: 'pdf' },
+          { label: 'Resultado Edital Beach Sports 2024', url: 'https://www.futuroscraques.org/_files/ugd/168440_7e04a9db7df04a259003252b25c2e861.pdf', type: 'pdf' },
+          { label: 'Projeto Técnico — Beach Games 2025', url: '/transparencia/beach-games-projeto.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Escola do Dinheiro',
+        items: [
+          { label: 'Projeto Técnico — Escola do Dinheiro', url: '/transparencia/escola-dinheiro-projeto.pdf', type: 'pdf' },
+          { label: 'Convênio CONDECA', url: '/transparencia/escola-dinheiro-convenio.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/escola-dinheiro-relatorio.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Bike Conectando Histórias',
+        items: [
+          { label: 'Projeto Técnico — Bike Conectando Histórias', url: '/transparencia/bike-projeto-tecnico.pdf', type: 'pdf' },
+          { label: 'Convênio / Parceria', url: '/transparencia/bike-convenio.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/bike-relatorio.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Virada Esportiva',
+        items: [
+          { label: 'Chamamento SEME — Virada Esportiva 2024', url: 'https://www.futuroscraques.org/_files/ugd/168440_893b2e25e3eb42c8a28ea1732b440bac.pdf', type: 'pdf' },
+          { label: 'Chamamento SEME — Virada Esportiva 2025', url: 'https://www.futuroscraques.org/_files/ugd/168440_e3454a1ba7a04b85b664f59c396ec811.pdf', type: 'pdf' },
+          { label: 'Projeto Técnico — Virada Esportiva', url: '/transparencia/virada-esportiva-projeto.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/virada-esportiva-relatorio.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Copa SP de Jiu Jitsu',
+        items: [
+          { label: 'Projeto Técnico — Copa SP Jiu Jitsu', url: '/transparencia/jiu-jitsu-projeto.pdf', type: 'pdf' },
+          { label: 'Convênio SEME', url: '/transparencia/jiu-jitsu-convenio.pdf', type: 'pdf' },
+          { label: 'Regulamento da Competição', url: '/transparencia/jiu-jitsu-regulamento.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/jiu-jitsu-relatorio.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Oficina do Código',
+        items: [
+          { label: 'Projeto Técnico — Oficina do Código', url: '/transparencia/oficina-codigo-projeto.pdf', type: 'pdf' },
+          { label: 'Convênio CONDECA', url: '/transparencia/oficina-codigo-convenio.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/oficina-codigo-relatorio.pdf', type: 'pdf' },
+        ],
+      },
+      {
+        title: 'Festival Aberto SP de Judô',
+        items: [
+          { label: 'Projeto Técnico — Festival de Judô', url: '/transparencia/judo-projeto.pdf', type: 'pdf' },
+          { label: 'Convênio SEME', url: '/transparencia/judo-convenio.pdf', type: 'pdf' },
+          { label: 'Regulamento da Competição', url: '/transparencia/judo-regulamento.pdf', type: 'pdf' },
+          { label: 'Relatório de Atividades', url: '/transparencia/judo-relatorio.pdf', type: 'pdf' },
         ],
       },
     ],

@@ -15,6 +15,7 @@ import Noticias from './pages/Noticias'
 import Post from './pages/Post'
 import Login from './pages/Login'
 import ProjetoDet from './pages/ProjetoDet'
+import FAQ from './pages/FAQ'
 import ScrollToTop from './components/ScrollToTop'
 import AccessibilityWidget from './components/AccessibilityWidget'
 
@@ -84,6 +85,7 @@ function AppShell() {
           <Route path="/noticias"          element={<Noticias />} />
           <Route path="/noticias/:slug"    element={<Post />} />
           <Route path="/login"             element={<Login />} />
+          <Route path="/faq"               element={<FAQ />} />
         </Routes>
       </main>
 

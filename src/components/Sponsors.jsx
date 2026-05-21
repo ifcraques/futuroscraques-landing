@@ -16,7 +16,7 @@ export default function Sponsors() {
     { src: '/logos/B3_Logo.png',        alt: 'B3',               url: 'https://www.b3.com.br' },
     { src: '/logos/caixa_logo.png',     alt: 'Caixa Residencial',url: 'https://www.caixaresidencial.com.br' },
     { src: '/logos/sankofort_logo.png', alt: 'Sankonfort', url: 'https://www.sankonfort.com.br/' },
-    { src: '/logos/estácio_logo.png',   alt: 'Estácio',    url: 'https://www.estacio.br' },
+    { src: '/logos/estacio_logo.png',    alt: 'Estácio',    url: 'https://www.estacio.br' },
     { src: '/logos/engemet_logo.png',   alt: 'Engemet',    url: 'https://www.engemet.com.br/' },
     { src: '/logos/freixenet_logo.png', alt: 'Freixenet',  url: 'https://www.freixenet.com.br/' },
     { src: '/logos/metalinox_logo.png', alt: 'Metalinox',        url: 'https://www.metalinox.com.br' },
@@ -39,14 +39,13 @@ export default function Sponsors() {
 
   /* ── APOIO ───────────────────────────────────────────────── */
   const apoio = [
-    { src: '/logos/unip_logo.png',     alt: 'UNIP', url: 'https://www.unip.br/' },
-    { src: '/logos/NAR_logo_dark.png', alt: 'NAR',  url: 'https://www.narsp.com.br/', noGrayscale: true },
+    { src: '/logos/unip_logo.png', alt: 'UNIP', url: 'https://www.unip.br/' },
   ]
 
   /* ── REALIZAÇÃO ──────────────────────────────────────────── */
   const realizacao = [
     { src: '/logos/realizacao/sec-esporte-lazer.png', alt: 'SEME — Secretaria de Esportes e Lazer de SP', url: 'https://www.capital.sp.gov.br/esportes' },
-    { src: '/logos/realizacao/SEESP.png',             alt: 'Governo do Estado de São Paulo',              url: 'https://www.saopaulo.sp.gov.br' },
+    { src: 'https://static.wixstatic.com/media/3db4e0_856fd146bbb34d86bd1d96f7c6c857fd~mv2.png', alt: 'Governo do Estado de São Paulo', url: 'https://www.saopaulo.sp.gov.br' },
     { src: '/logos/realizacao/seesp-lei.png',         alt: 'Secretaria de Esportes + Lei',                url: 'https://www.gov.br/esporte' },
     { src: '/logos/realizacao/CBC.png',               alt: 'CBC — Comitê Brasileiro de Clubes',           url: 'https://www.cbb.com.br' },
   ]

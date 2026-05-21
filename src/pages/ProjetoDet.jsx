@@ -780,10 +780,10 @@ export default function ProjetoDet() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   {[
-                    { label: 'Projeto Técnico IFC 2024', href: '#' },
-                    { label: 'Publicação D.O. Federal', href: '#' },
-                    { label: 'Aprovação Estadual (PDF)', href: '#' },
-                    { label: 'Edital LIE', href: '#' },
+                    { label: 'Projeto Técnico IFC 2024', href: 'https://www.futuroscraques.org/_files/ugd/3db4e0_f3537f2a81d645fab64a600464dbf99d.pdf' },
+                    { label: 'Publicação D.O. Federal', href: 'https://www.futuroscraques.org/_files/ugd/3db4e0_57784e4d507c46b790ea1b0edd47f629.pdf' },
+                    { label: 'Certidão Estadual', href: 'https://www.futuroscraques.org/_files/ugd/3db4e0_7bba27eaecd24f789e4f5b8ae3259224.pdf' },
+                    { label: 'Edital LIE', href: 'https://www.futuroscraques.org/_files/ugd/3db4e0_6af5475984b544b29f2350b3425ac579.pdf' },
                   ].map((doc) => (
                     <a key={doc.label} href={doc.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                       <div style={{

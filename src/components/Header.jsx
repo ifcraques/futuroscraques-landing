@@ -105,7 +105,7 @@ export default function Header() {
               }}
             >
               <img
-                src="/ifc-logo.jpeg"
+                src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png"
                 alt="IFC"
                 style={{
                   height: '38px',
@@ -357,7 +357,7 @@ export default function Header() {
             }}
           >
             <motion.img
-              src="/ifc-logo.jpeg"
+              src="https://static.wixstatic.com/media/3db4e0_27f9403394064b069d5a94a0cec86f23~mv2.png"
               alt="Instituto Futuros Craques"
               initial={{ scale: 0.3, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

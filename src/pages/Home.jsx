@@ -5,6 +5,7 @@ import Testimonials from '../components/Testimonials'
 import PhotoGallery from '../components/PhotoGallery'
 import Sponsors from '../components/Sponsors'
 import CTA from '../components/CTA'
+import LeadForm from '../components/LeadForm'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Testimonials />
         <PhotoGallery />
         <Sponsors />
+        <LeadForm />
         <CTA />
       </div>
     </>

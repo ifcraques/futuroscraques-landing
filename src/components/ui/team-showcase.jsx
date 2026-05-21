@@ -2,54 +2,91 @@ import { useState } from 'react'
 import { FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 
-/**
- * TeamShowcase — Seção TIME do IFC
- * Grade de fotos interativa com hover e links sociais.
- * Fotos: pessoas diversas, trajes formais/elegantes.
- */
+// Imports estáticos — Vite garante que as fotos carregam
+import imgGustavo  from '@/assets/time/gustavo.jpg'
+import imgGenoveva from '@/assets/time/genoveva.jpg'
+import imgManoel   from '@/assets/time/manoel.jpg'
+import imgAriane   from '@/assets/time/ariane.jpg'
+import imgJean     from '@/assets/time/jean.jpg'
+import imgVivian   from '@/assets/time/vivian.jpg'
+import imgLeo      from '@/assets/time/leo.jpg'
+import imgVanessa  from '@/assets/time/vanessa.png'
+import imgSandra   from '@/assets/time/sandra.png'
+import imgJulia    from '@/assets/time/julia.png'
+
+// Placeholder SVG inline para quem ainda não tem foto
+const PLACEHOLDER = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e8ede8'/%3E%3Ccircle cx='200' cy='155' r='70' fill='%23c5d4c5'/%3E%3Cellipse cx='200' cy='340' rx='110' ry='80' fill='%23c5d4c5'/%3E%3C/svg%3E`
 
 const IFC_MEMBERS = [
   {
     id: '1',
-    name: 'Marcos Andrade',
-    role: 'Professor de Educação Física',
-    image: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=400&h=500&fit=crop&crop=top',
+    name: 'Gustavo Bracco',
+    role: 'Diretor',
+    image: imgGustavo,
     social: { linkedin: '#', instagram: '#' },
   },
   {
     id: '2',
-    name: 'Dra. Camila Ferreira',
-    role: 'Médica e Nutricionista',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=top',
-    social: { linkedin: '#', instagram: '#' },
+    name: 'Genoveva Rodrigues Simão',
+    role: 'Vice-Presidente',
+    image: imgGenoveva,
+    social: { linkedin: '#' },
   },
   {
     id: '3',
-    name: 'Rafael Costa',
-    role: 'Advogado',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=top',
+    name: 'Manoel Alves',
+    role: 'Presidente',
+    image: imgManoel,
     social: { linkedin: '#' },
   },
   {
     id: '4',
-    name: 'Dra. Priya Mendes',
-    role: 'Psicóloga',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=top',
-    social: { linkedin: '#', instagram: '#' },
-  },
-  {
-    id: '5',
-    name: 'Thiago Barbosa',
-    role: 'Engenheiro e Administrador',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=top',
+    name: 'Sandra Silva',
+    role: 'Diretora Financeira',
+    image: imgSandra,
     social: { linkedin: '#' },
   },
   {
-    id: '6',
-    name: 'Juliana Rocha',
-    role: 'Comunicação e Design',
-    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop&crop=top',
+    id: '5',
+    name: 'Ariane Rodrigues',
+    role: 'Diretora',
+    image: imgAriane,
     social: { linkedin: '#', instagram: '#' },
+  },
+  {
+    id: '6',
+    name: 'Jean Brito',
+    role: 'Assessor Administrativo',
+    image: imgJean,
+    social: { linkedin: '#', instagram: '#' },
+  },
+  {
+    id: '7',
+    name: 'Vivian Alves',
+    role: 'Assessora Administrativa',
+    image: imgVivian,
+    social: { linkedin: '#', instagram: '#' },
+  },
+  {
+    id: '8',
+    name: 'Leo Willians',
+    role: 'Coordenador Esportivo',
+    image: imgLeo,
+    social: { linkedin: '#', instagram: '#' },
+  },
+  {
+    id: '9',
+    name: 'Vanessa Struckl',
+    role: 'Marketing',
+    image: imgVanessa,
+    social: { linkedin: '#' },
+  },
+  {
+    id: '10',
+    name: 'Julia Camilo',
+    role: 'Assistente Social',
+    image: imgJulia,
+    social: { linkedin: '#' },
   },
 ]
 
