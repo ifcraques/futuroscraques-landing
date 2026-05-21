@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 _arquivo/
+
+# Claude Code internals
+.claude/
+desktop.ini

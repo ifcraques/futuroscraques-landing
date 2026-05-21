@@ -60,6 +60,7 @@ export default function Sponsors() {
         src={src}
         alt={alt}
         loading="lazy"
+        className="sponsor-logo-img"
         style={{
           height: h + 'px',
           width: 'auto',
@@ -74,12 +75,7 @@ export default function Sponsors() {
       />
     )
     const wrapper = (
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '28px 42px',
-      }}>
+      <div className="sponsor-logo-pad">
         {img}
       </div>
     )
@@ -88,27 +84,22 @@ export default function Sponsors() {
       : wrapper
   }
 
-  /* ── Linha de logos sem linhas ──────────────────────────── */
-  const LogoRow = ({ items, h = 70, cols }) => (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: cols
-        ? `repeat(${cols}, 1fr)`
-        : `repeat(${items.length}, 1fr)`,
-    }}>
-      {items.map((l) => (
-        <div key={l.alt} style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minWidth: 0,
-          overflow: 'hidden',
-        }}>
-          <LogoItem {...l} h={h} />
-        </div>
-      ))}
-    </div>
-  )
+  /* ── Linha de logos ─────────────────────────────────────── */
+  const LogoRow = ({ items, h = 70, cols, isRealizacao = false }) => {
+    const numCols = cols || items.length
+    return (
+      <div
+        className={`sponsor-logo-row${isRealizacao ? ' sponsor-realizacao-row' : ''}`}
+        style={{ gridTemplateColumns: `repeat(${numCols}, 1fr)` }}
+      >
+        {items.map((l) => (
+          <div key={l.alt} className="sponsor-logo-cell">
+            <LogoItem {...l} h={h} />
+          </div>
+        ))}
+      </div>
+    )
+  }
 
   const SectionLabel = ({ label }) => (
     <p style={{
@@ -125,6 +116,62 @@ export default function Sponsors() {
 
   return (
     <section id="sponsors-section" className="section" style={{ padding: '7rem 0' }}>
+      <style>{`
+        .sponsor-logo-row {
+          display: grid;
+        }
+        .sponsor-logo-cell {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 0;
+          overflow: hidden;
+        }
+        .sponsor-logo-pad {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 28px 42px;
+        }
+
+        /* ── Mobile ──────────────────────────────────────────── */
+        @media (max-width: 640px) {
+          .sponsor-logo-pad {
+            padding: 14px 12px;
+          }
+          /* Forçar 2 colunas em todas as linhas de logos */
+          .sponsor-logo-row {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          /* Reduzir altura das imagens para caber na tela */
+          .sponsor-logo-img {
+            height: auto !important;
+            max-height: 48px !important;
+          }
+          /* Realizacao pode ser um pouco maior (logos institucionais) */
+          .sponsor-realizacao-row .sponsor-logo-img {
+            max-height: 70px !important;
+          }
+        }
+
+        /* ── Tablet ──────────────────────────────────────────── */
+        @media (min-width: 641px) and (max-width: 900px) {
+          .sponsor-logo-pad {
+            padding: 18px 22px;
+          }
+          .sponsor-logo-row {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          .sponsor-logo-img {
+            height: auto !important;
+            max-height: 64px !important;
+          }
+          .sponsor-realizacao-row .sponsor-logo-img {
+            max-height: 100px !important;
+          }
+        }
+      `}</style>
+
       <motion.h2
         className="section-title"
         style={{ textAlign: 'center', color: '#0d1f2d' }}
@@ -173,7 +220,7 @@ export default function Sponsors() {
 
         {/* ── APOIO — centralizado ── */}
         <SectionLabel label="Apoio" />
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0', flexWrap: 'wrap', padding: '0 2rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '0 2rem' }}>
           {apoio.map((l) => (
             <div key={l.alt} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <LogoItem {...l} h={70} />
@@ -183,7 +230,7 @@ export default function Sponsors() {
 
         {/* ── REALIZAÇÃO — 4 logos ── */}
         <SectionLabel label="Realização" />
-        <LogoRow items={realizacao} cols={4} h={210} />
+        <LogoRow items={realizacao} cols={4} h={210} isRealizacao />
 
         {/* ── MINISTÉRIO — destaque ── */}
         <div style={{ display: 'flex', justifyContent: 'center', padding: '1rem 4rem 2rem' }}>
@@ -193,6 +240,7 @@ export default function Sponsors() {
                   src={ministerio.src}
                   alt={ministerio.alt}
                   loading="lazy"
+                  className="sponsor-ministerio-img"
                   style={{ height: '140px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
                   whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.03 }}
                   transition={{ duration: 0.3 }}
@@ -202,6 +250,7 @@ export default function Sponsors() {
                 src={ministerio.src}
                 alt={ministerio.alt}
                 loading="lazy"
+                className="sponsor-ministerio-img"
                 style={{ height: '140px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
                 whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.03 }}
                 transition={{ duration: 0.3 }}
@@ -210,6 +259,19 @@ export default function Sponsors() {
         </div>
 
       </motion.div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .sponsor-ministerio-img {
+            height: auto !important;
+            max-height: 80px !important;
+            max-width: 100% !important;
+          }
+          #sponsors-section {
+            padding: 4rem 0 !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }
