@@ -211,26 +211,26 @@ export default function Sponsors() {
 
         {/* ── PATROCINADORES ── */}
         <SectionLabel label="Patrocinadores" />
-        <LogoRow items={tier1}             h={110} />
-        <LogoRow items={tier2.slice(0, 4)} h={88} />
-        <LogoRow items={tier2.slice(4, 8)} h={88} />
-        <LogoRow items={tier3.slice(0, 4)} h={75} />
-        <LogoRow items={tier3.slice(4, 8)} h={90} />
-        <LogoRow items={tier3.slice(8)}    h={75} />
+        <LogoRow items={tier1}             h={94} />
+        <LogoRow items={tier2.slice(0, 4)} h={75} />
+        <LogoRow items={tier2.slice(4, 8)} h={75} />
+        <LogoRow items={tier3.slice(0, 4)} h={64} />
+        <LogoRow items={tier3.slice(4, 8)} h={77} />
+        <LogoRow items={tier3.slice(8)}    h={64} />
 
         {/* ── APOIO — centralizado ── */}
         <SectionLabel label="Apoio" />
         <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '0 2rem' }}>
           {apoio.map((l) => (
             <div key={l.alt} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <LogoItem {...l} h={70} />
+              <LogoItem {...l} h={60} />
             </div>
           ))}
         </div>
 
         {/* ── REALIZAÇÃO — 4 logos ── */}
         <SectionLabel label="Realização" />
-        <LogoRow items={realizacao} cols={4} h={210} isRealizacao />
+        <LogoRow items={realizacao} cols={4} h={179} isRealizacao />
 
         {/* ── MINISTÉRIO — destaque ── */}
         <div style={{ display: 'flex', justifyContent: 'center', padding: '1rem 4rem 2rem' }}>
@@ -241,7 +241,7 @@ export default function Sponsors() {
                   alt={ministerio.alt}
                   loading="lazy"
                   className="sponsor-ministerio-img"
-                  style={{ height: '140px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
+                  style={{ height: '119px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
                   whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.03 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -251,7 +251,7 @@ export default function Sponsors() {
                 alt={ministerio.alt}
                 loading="lazy"
                 className="sponsor-ministerio-img"
-                style={{ height: '140px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
+                style={{ height: '119px', width: 'auto', maxWidth: '900px', objectFit: 'contain', filter: 'grayscale(100%)', opacity: 0.65, display: 'block' }}
                 whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.03 }}
                 transition={{ duration: 0.3 }}
               />

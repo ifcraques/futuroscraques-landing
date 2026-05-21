@@ -120,8 +120,7 @@ export default function Projects() {
   // Cinematic scroll timeline
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Initial states — everything hidden
-      gsap.set('.proj-heading', { autoAlpha: 0, y: 50 })
+      // Card e slides começam ocultos; o heading fica visível ao entrar na seção
       gsap.set('.proj-card', { autoAlpha: 0, y: 100, scale: 0.94 })
       gsap.set('.proj-slide', { autoAlpha: 0 })
 
@@ -136,11 +135,10 @@ export default function Projects() {
         },
       })
 
-      // 1. Section heading fades in
-      tl.to('.proj-heading', { autoAlpha: 1, y: 0, duration: 1.5, ease: 'expo.out' })
+      // 1. Heading já está visível — sai ao primeiro scroll
+      tl.to('.proj-heading', { autoAlpha: 0, y: -40, duration: 1, ease: 'power2.in' }, '+=0.5')
 
-      // 2. Heading exits, card rises from below
-      tl.to('.proj-heading', { autoAlpha: 0, y: -40, duration: 1, ease: 'power2.in' }, '+=0.8')
+      // 2. Card rises from below
       tl.to('.proj-card', { autoAlpha: 1, y: 0, scale: 1, duration: 2, ease: 'expo.out' }, '<0.4')
 
       // 3. Program 1 slides in from right

@@ -1658,3 +1658,40 @@
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* ══════════════════════════════════════════════════════
+   ESPAÇAMENTO ENTRE SEÇÕES — desktop mais compacto
+   ══════════════════════════════════════════════════════ */
+#video-section,
+#testimonials-section,
+#gallery-section,
+#sponsors-section {
+  padding-top: 4.5rem !important;
+  padding-bottom: 4.5rem !important;
+}
+
+/* CTA usa margin em vez de padding */
+.cta-section {
+  margin-top: 3.5rem !important;
+  margin-bottom: 3.5rem !important;
+}
+
+/* ── Mobile: espaçamentos ainda menores ── */
+@media (max-width: 768px) {
+  #video-section,
+  #testimonials-section,
+  #gallery-section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  #sponsors-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .cta-section {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
