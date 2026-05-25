@@ -37,7 +37,8 @@
       "mcp__plugin_claude-mem_mcp-search__get_observations",
       "Bash(claude install-skill:*)",
       "Skill(gsd:verify-work)",
-      "Skill(gsd:verify-work:*)"
+      "Skill(gsd:verify-work:*)",
+      "Bash(rm -rf /home/user/futuroscraques-landing/juris/.git && git add juris/ && git status --short)"
     ]
   }
 }
