@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "query": "\"financiamento imobiliário\" \"imóvel\" \"um milhão\" OR \"1.000.000\" OR \"alto padrão\"",
+    "dateStart": "01/01/2021",
+    "dateEnd": "31/12/2025",
+    "scrapedAt": null,
+    "note": "Execute `npm run scrape` para popular com dados reais do TJSP."
+  },
+  "stats": {
+    "total": 0,
+    "procedente": 0,
+    "improcedente": 0,
+    "parcial": 0,
+    "indeterminado": 0,
+    "rightsCounts": {}
+  },
+  "decisions": []
+}

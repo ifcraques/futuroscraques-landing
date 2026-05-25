@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "scrape": "node scripts/scrape-tjsp.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
@@ -22,6 +23,7 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "playwright": "^1.50.0",
     "@eslint/js": "^9.39.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

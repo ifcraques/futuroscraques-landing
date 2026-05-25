@@ -1,11 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from '@/pages/Home'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Research from '@/pages/Research'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/pesquisa" replace />} />
+        <Route path="/pesquisa" element={<Research />} />
       </Routes>
     </BrowserRouter>
   )
