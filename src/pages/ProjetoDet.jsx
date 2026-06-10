@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Globe } from '../components/ui/Globe'
 import { motion } from 'framer-motion'
 
@@ -413,7 +413,6 @@ const DC3X3_ARCS = [
 
 export default function ProjetoDet() {
   const { slug } = useParams()
-  const navigate = useNavigate()
   const projeto = PROJETOS_DB.find(p => p.slug === slug)
 
   // Projeto não encontrado

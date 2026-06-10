@@ -58,7 +58,7 @@ const programas = [
 
 export default function Impact() {
   return (
-    <section id="impact-section" style={{ padding: '7rem 0', background: '#f8f7f4' }}>
+    <section id="impact-section" style={{ padding: '7rem 0', background: 'var(--surface, #f8f7f4)' }}>
       <div className="section">
 
         {/* Header */}
@@ -82,7 +82,7 @@ export default function Impact() {
 
         <motion.h2
           className="section-title"
-          style={{ color: '#0d1f2d', textAlign: 'left', marginBottom: '0.5rem' }}
+          style={{ color: 'var(--heading, #0d1f2d)', textAlign: 'left', marginBottom: '0.5rem' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -95,7 +95,7 @@ export default function Impact() {
           style={{
             fontFamily: "'Outfit', sans-serif",
             fontSize: '1.05rem',
-            color: '#5a6a75',
+            color: 'var(--muted, #5a6a75)',
             marginBottom: '3.5rem',
             maxWidth: '560px',
             lineHeight: 1.7,
@@ -122,10 +122,10 @@ export default function Impact() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                background: '#fff',
+                background: 'var(--card-bg, #fff)',
                 borderRadius: '24px',
                 padding: '2.25rem',
-                border: '1px solid rgba(0,0,0,0.07)',
+                border: '1px solid var(--border, rgba(0,0,0,0.07))',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.05)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -185,7 +185,7 @@ export default function Impact() {
                   fontFamily: "'Bebas Neue', sans-serif",
                   fontSize: '1.9rem',
                   fontWeight: 400,
-                  color: '#0d1f2d',
+                  color: 'var(--heading, #0d1f2d)',
                   letterSpacing: '0.03em',
                   marginBottom: '0.5rem',
                   lineHeight: 1.1,
@@ -195,7 +195,7 @@ export default function Impact() {
                 <p style={{
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: '0.97rem',
-                  color: '#4b5563',
+                  color: 'var(--text, #4b5563)',
                   lineHeight: 1.65,
                   margin: 0,
                 }}>
@@ -204,7 +204,7 @@ export default function Impact() {
               </div>
 
               {/* Divisor */}
-              <div style={{ height: '1px', background: 'rgba(0,0,0,0.07)' }} />
+              <div style={{ height: '1px', background: 'var(--border, rgba(0,0,0,0.07))' }} />
 
               {/* Detalhes */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
@@ -247,7 +247,7 @@ function Detail({ cor, label, value }) {
         <span style={{
           fontFamily: "'Outfit', sans-serif",
           fontSize: '0.9rem',
-          color: '#4b5563',
+          color: 'var(--text, #4b5563)',
           lineHeight: 1.55,
         }}>
           {value}

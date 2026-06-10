@@ -22,31 +22,6 @@ const MVV = [
   },
 ]
 
-const EQUIPE = [
-  'Professores de Educação Física',
-  'Advogados',
-  'Médicos e Nutricionistas',
-  'Engenheiros e Administradores',
-  'Psicólogos',
-  'Comunicadores e Designers',
-]
-
-const MARCOS = [
-  { ano: '2005', desc: 'Fundação do Instituto em Brasília com foco em basquete de base.' },
-  { ano: '2010', desc: 'Expansão para 10 cidades. Primeiros atletas revelados para seleções estaduais.' },
-  { ano: '2015', desc: 'Lançamento do programa Drible Certo 3×3, precursor do basquete olímpico no Brasil.' },
-  { ano: '2020', desc: 'Adaptação digital durante a pandemia. Atendimento continuado para mais de 800 famílias.' },
-  { ano: '2026', desc: 'Presença em 30+ cidades. Mais de 40.000 jovens impactados em duas décadas.' },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-}
-
 export default function QuemSomos() {
   return (
     <div style={{ background: '#f8f9fa', minHeight: '100vh', paddingTop: '100px' }}>
@@ -305,14 +280,39 @@ export default function QuemSomos() {
 
       {/* ── Linha do tempo ── */}
       <div style={{ padding: '0 clamp(1.5rem, 6vw, 6rem)' }}>
-        <p style={{
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: '0.9rem', letterSpacing: '0.22em',
-          color: '#6b7280', textTransform: 'uppercase',
-          marginBottom: '3rem',
-        }}>
-          Nossa história
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: '0.9rem', letterSpacing: '0.22em',
+            color: '#6b7280', textTransform: 'uppercase',
+            marginBottom: '0.8rem',
+          }}>
+            Nossa história
+          </p>
+          <h2 style={{
+            fontFamily: "'Instrument Serif', serif",
+            fontSize: 'clamp(2.16rem, 3.6vw, 3.36rem)',
+            fontWeight: 400, color: '#111827',
+            lineHeight: 1.1, marginBottom: '1.2rem',
+          }}>
+            Duas décadas em{' '}
+            <em style={{ fontStyle: 'italic', color: '#4b5563' }}>movimento</em>
+          </h2>
+          <p style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: '1.05rem', color: '#6b7280',
+            lineHeight: 1.8, fontWeight: 300,
+            maxWidth: '58ch', marginBottom: '3rem',
+          }}>
+            De um projeto de basquete de base em 2005 a títulos mundiais e
+            políticas públicas — os marcos que construíram o Instituto Futuros Craques.
+          </p>
+        </motion.div>
 
         <IFCTimeline />
       </div>

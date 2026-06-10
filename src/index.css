@@ -74,6 +74,37 @@
       --text-dark: #333333;
       --text-light: #666666;
       --border: #e2e8f0;
+
+      /* ── Tema (light por padrão) ── */
+      --page-bg: #ffffff;
+      --surface: #f8f7f4;
+      --card-bg: #ffffff;
+      --heading: #0d1f2d;
+      --text: #333333;
+      --muted: #5a6a75;
+    }
+
+    html { color-scheme: light; }
+    html.dark { color-scheme: dark; }
+
+    /* ── Dark theme — overrides de variáveis ── */
+    .dark {
+      --page-bg: #0b1119;
+      --surface: #0e1722;
+      --card-bg: #16212e;
+      --heading: #f1f5f9;
+      --text: #d6dee6;
+      --muted: #9aabb8;
+      --border: #243240;
+
+      /* remap das variáveis legadas usadas pelas classes antigas */
+      --bg-light: #0e1722;
+      --text-dark: #d6dee6;
+      --text-light: #9aabb8;
+
+      /* tons usados pontualmente em componentes */
+      --leadform-bg: rgba(22, 163, 74, 0.07);
+      --leadform-border: rgba(22, 163, 74, 0.25);
     }
 
     html {
@@ -86,10 +117,11 @@
       font-family: 'Outfit', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background: var(--bg-light);
-      color: var(--text-dark);
+      background: var(--page-bg);
+      color: var(--text);
       overflow-x: hidden;
       position: relative;
+      transition: background-color 0.45s ease, color 0.45s ease;
     }
 
     .particles-container {
@@ -1695,3 +1727,80 @@
     margin-bottom: 2rem !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   DARK MODE — overrides globais de superfícies/textos
+   (componentes usam muitas cores inline; o !important
+   garante legibilidade sem reescrever cada arquivo)
+   ══════════════════════════════════════════════════════ */
+
+/* títulos e subtítulos de seção (inline color nos componentes) */
+.dark .section-title    { color: var(--heading) !important; }
+.dark .section-subtitle { color: var(--muted) !important; }
+
+/* seções com fundo claro fixo */
+.dark #impact-section { background: var(--surface) !important; }
+.dark #faq-section    { background: var(--page-bg) !important; }
+.dark #projects       { background: var(--surface); }
+
+/* título externo da seção de projetos (classe própria) */
+.dark .proj-outer-title {
+  color: var(--heading) !important;
+  text-shadow: none;
+}
+.dark .proj-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+/* título manuscrito da galeria de fotos */
+.dark #gallery-section h2,
+.dark #gallery-section .inline-flex p {
+  color: var(--heading) !important;
+}
+
+/* cards/superfícies das páginas internas (classes do CSS legado) */
+.dark .transp-panel,
+.dark .transp-doc-btn,
+.dark .contact-form,
+.dark .contact-info-card,
+.dark .value-card,
+.dark .team-card,
+.dark .support-card,
+.dark .testimonial,
+.dark .project-card,
+.dark .proj-card {
+  background: var(--card-bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.dark .transp-nav-btn {
+  background: var(--card-bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.dark .transp-panel-title h2,
+.dark .value-card h3,
+.dark .support-card h3,
+.dark .contact-form h2,
+.dark .contact-value,
+.dark .team-role,
+.dark .project-content h3,
+.dark .proj-docs-title {
+  color: var(--heading);
+}
+
+.dark .testimonial-author { color: var(--accent); }
+.dark .social-links a     { color: var(--text); }
+
+.dark .form-group input,
+.dark .form-group textarea {
+  background: var(--card-bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.dark .proj-doc-link { background: rgba(255, 255, 255, 0.05); }

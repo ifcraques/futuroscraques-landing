@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
 import { PROJETOS_DB } from './ProjetoDet'
 import '../styles/Projetos.css'
@@ -363,56 +363,103 @@ function ProjetosCarousel({ projetos }) {
 export default function Projetos() {
   const [filtro, setFiltro] = useState('todos')
 
-  const filtrados = filtro === 'todos'
-    ? PROJETOS
-    : PROJETOS.filter(p => p.categoria === filtro)
+  // Contagem de projetos por categoria (para os badges dos chips)
+  const contagem = useMemo(() => {
+    const mapa = { todos: PROJETOS.length }
+    for (const p of PROJETOS) {
+      mapa[p.categoria] = (mapa[p.categoria] || 0) + 1
+    }
+    return mapa
+  }, [])
+
+  const filtrados = useMemo(
+    () => (filtro === 'todos' ? PROJETOS : PROJETOS.filter(p => p.categoria === filtro)),
+    [filtro]
+  )
 
   return (
     <div style={{ background: '#f8f9fa', minHeight: '100vh', paddingTop: '100px' }}>
 
       {/* Filtros */}
-      <div style={{
-        padding: '4rem clamp(1.5rem, 6vw, 6rem) 3rem',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5rem',
-        flexWrap: 'wrap',
-        borderBottom: '1px solid #e5e7eb',
-      }}>
-        {CATEGORIAS.map(cat => (
-          <motion.button
-            key={cat.id}
-            onClick={() => setFiltro(cat.id)}
-            whileTap={{ scale: 0.96 }}
-            style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-              padding: '7px 16px', borderRadius: '20px', cursor: 'pointer',
-              border: filtro === cat.id ? '1px solid #111827' : '1px solid #d1d5db',
-              background: filtro === cat.id ? '#111827' : 'transparent',
-              color: filtro === cat.id ? '#fff' : '#374151',
-              transition: 'all 0.2s',
-            }}
-          >
-            {cat.nome}
-          </motion.button>
-        ))}
+      <div
+        role="group"
+        aria-label="Filtrar projetos por categoria"
+        style={{
+          padding: '4rem clamp(1.5rem, 6vw, 6rem) 3rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          flexWrap: 'wrap',
+          borderBottom: '1px solid #e5e7eb',
+        }}
+      >
+        {CATEGORIAS.map((cat, i) => {
+          const ativo = filtro === cat.id
+          const total = contagem[cat.id] || 0
+          return (
+            <motion.button
+              key={cat.id}
+              onClick={() => setFiltro(cat.id)}
+              aria-pressed={ativo}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              style={{
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+                padding: '7px 8px 7px 16px', borderRadius: '20px', cursor: 'pointer',
+                border: ativo ? '1px solid #111827' : '1px solid #d1d5db',
+                background: ativo ? '#111827' : 'transparent',
+                color: ativo ? '#fff' : '#374151',
+                transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+              }}
+            >
+              {cat.nome}
+              <span style={{
+                fontSize: '0.58rem',
+                fontWeight: 600,
+                letterSpacing: '0.04em',
+                lineHeight: 1,
+                padding: '4px 8px',
+                borderRadius: '9999px',
+                background: ativo ? 'rgba(255,255,255,0.18)' : 'rgba(17,24,39,0.06)',
+                color: ativo ? '#fff' : '#6b7280',
+                transition: 'background 0.25s, color 0.25s',
+              }}>
+                {total}
+              </span>
+            </motion.button>
+          )
+        })}
       </div>
 
-      {/* Carrossel */}
+      {/* Carrossel com transição animada entre filtros */}
       <div style={{ paddingTop: '4rem', paddingBottom: '2rem' }}>
-        <ProjetosCarousel key={filtro} projetos={filtrados} />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filtro}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {filtrados.length > 0 ? (
+              <ProjetosCarousel projetos={filtrados} />
+            ) : (
+              <div style={{
+                textAlign: 'center', padding: '5rem',
+                color: '#9ca3af',
+                fontFamily: "'Outfit', sans-serif", fontSize: '0.85rem',
+              }}>
+                Nenhum projeto nesta categoria.
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
-
-      {filtrados.length === 0 && (
-        <div style={{
-          textAlign: 'center', padding: '5rem',
-          color: '#9ca3af',
-          fontFamily: "'Outfit', sans-serif", fontSize: '0.85rem',
-        }}>
-          Nenhum projeto nesta categoria.
-        </div>
-      )}
 
       {/* CTA */}
       <div style={{

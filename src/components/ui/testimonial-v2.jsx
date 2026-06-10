@@ -144,7 +144,7 @@ export default function TestimonialV2() {
               gap: '1.5rem',
             }}
           >
-            {currentGroup.map((t, i) => (
+            {currentGroup.map((t) => (
               <div
                 key={t.name}
                 style={{

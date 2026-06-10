@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import SearchOverlay from './SearchOverlay'
+import ThemeToggle from './ui/theme-toggle'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
 import './StaggeredMenu.css'
@@ -33,20 +34,8 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
   const itemsTl       = useRef(null)
   const searchBarRef  = useRef(null)
 
-  const [panelWidth, setPanelWidth] = useState(() =>
-    window.innerWidth <= 1024 ? '100vw' : 'clamp(280px, 38vw, 440px)'
-  )
-
   // Fecha menu ao mudar de rota
   useEffect(() => { if (isOpen) onToggle() }, [location.pathname])
-
-  // Responsive
-  useEffect(() => {
-    const onResize = () =>
-      setPanelWidth(window.innerWidth <= 1024 ? '100vw' : 'clamp(280px, 38vw, 440px)')
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
 
   // Estado inicial do CLOSE
   useEffect(() => {
@@ -100,7 +89,6 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
   }, [isOpen])
 
   const panelTransform  = isOpen ? 'translateX(0)' : 'translateX(100%)'
-  const toggleTransform = isOpen ? `translateX(calc(-1 * ${panelWidth}))` : 'translateX(0)'
   const panelTransition = 'transform 0.72s cubic-bezier(0.16, 1, 0.3, 1)'
 
   return (
@@ -196,8 +184,17 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
           </form>
         </div>
 
-        {/* Rodapé do menu — vazio para espaçamento */}
-        <div />
+        {/* Rodapé do menu — alternador de tema */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1rem',
+          marginTop: '1.5rem',
+        }}>
+          <p className="sm-socials-label" style={{ margin: 0 }}>Aparência</p>
+          <ThemeToggle />
+        </div>
       </div>
 
       {/* Botão busca */}

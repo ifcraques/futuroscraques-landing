@@ -1,5 +1,66 @@
 import { motion } from 'framer-motion'
 
+/* ── Componente de logo ──────────────────────────────────── */
+const LogoItem = ({ src, alt, url, h = 70, noGrayscale = false }) => {
+  const img = (
+    <motion.img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className="sponsor-logo-img"
+      style={{
+        height: h + 'px',
+        width: 'auto',
+        maxWidth: '100%',
+        objectFit: 'contain',
+        display: 'block',
+        filter: noGrayscale ? 'none' : 'grayscale(100%)',
+        opacity: noGrayscale ? 1 : 0.65,
+      }}
+      whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    />
+  )
+  const wrapper = (
+    <div className="sponsor-logo-pad">
+      {img}
+    </div>
+  )
+  return url
+    ? <a href={url} target="_blank" rel="noopener noreferrer" title={alt} style={{ display: 'flex' }}>{wrapper}</a>
+    : wrapper
+}
+
+/* ── Linha de logos ─────────────────────────────────────── */
+const LogoRow = ({ items, h = 70, cols, isRealizacao = false }) => {
+  const numCols = cols || items.length
+  return (
+    <div
+      className={`sponsor-logo-row${isRealizacao ? ' sponsor-realizacao-row' : ''}`}
+      style={{ gridTemplateColumns: `repeat(${numCols}, 1fr)` }}
+    >
+      {items.map((l) => (
+        <div key={l.alt} className="sponsor-logo-cell">
+          <LogoItem {...l} h={h} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const SectionLabel = ({ label }) => (
+  <p style={{
+    textAlign: 'center',
+    color: 'var(--accent)',
+    fontFamily: "'Outfit', sans-serif",
+    fontWeight: 700,
+    fontSize: '0.7rem',
+    letterSpacing: '3px',
+    textTransform: 'uppercase',
+    margin: '2.5rem 0 0',
+  }}>{label}</p>
+)
+
 export default function Sponsors() {
 
   /* ── TIER 1 — 4 principais ───────────────────────────────── */
@@ -40,6 +101,7 @@ export default function Sponsors() {
   /* ── APOIO ───────────────────────────────────────────────── */
   const apoio = [
     { src: '/logos/unip_logo.png', alt: 'UNIP', url: 'https://www.unip.br/' },
+    { src: '/logos/nar_logo.svg',  alt: 'NAR — Núcleo de Alto Rendimento Esportivo de São Paulo', url: 'https://www.narsp.com.br/' },
   ]
 
   /* ── REALIZAÇÃO ──────────────────────────────────────────── */
@@ -52,67 +114,6 @@ export default function Sponsors() {
 
   /* ── MINISTÉRIO (destaque rodapé) ───────────────────────── */
   const ministerio = { src: '/logos/realizacao/mesp-e-lei.png', alt: 'Ministério do Esporte + Lei de Incentivo', url: 'https://www.gov.br/esporte' }
-
-  /* ── Componente de logo ──────────────────────────────────── */
-  const LogoItem = ({ src, alt, url, h = 70, noGrayscale = false }) => {
-    const img = (
-      <motion.img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className="sponsor-logo-img"
-        style={{
-          height: h + 'px',
-          width: 'auto',
-          maxWidth: '100%',
-          objectFit: 'contain',
-          display: 'block',
-          filter: noGrayscale ? 'none' : 'grayscale(100%)',
-          opacity: noGrayscale ? 1 : 0.65,
-        }}
-        whileHover={{ filter: 'grayscale(0%)', opacity: 1, scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      />
-    )
-    const wrapper = (
-      <div className="sponsor-logo-pad">
-        {img}
-      </div>
-    )
-    return url
-      ? <a href={url} target="_blank" rel="noopener noreferrer" title={alt} style={{ display: 'flex' }}>{wrapper}</a>
-      : wrapper
-  }
-
-  /* ── Linha de logos ─────────────────────────────────────── */
-  const LogoRow = ({ items, h = 70, cols, isRealizacao = false }) => {
-    const numCols = cols || items.length
-    return (
-      <div
-        className={`sponsor-logo-row${isRealizacao ? ' sponsor-realizacao-row' : ''}`}
-        style={{ gridTemplateColumns: `repeat(${numCols}, 1fr)` }}
-      >
-        {items.map((l) => (
-          <div key={l.alt} className="sponsor-logo-cell">
-            <LogoItem {...l} h={h} />
-          </div>
-        ))}
-      </div>
-    )
-  }
-
-  const SectionLabel = ({ label }) => (
-    <p style={{
-      textAlign: 'center',
-      color: 'var(--accent)',
-      fontFamily: "'Outfit', sans-serif",
-      fontWeight: 700,
-      fontSize: '0.7rem',
-      letterSpacing: '3px',
-      textTransform: 'uppercase',
-      margin: '2.5rem 0 0',
-    }}>{label}</p>
-  )
 
   return (
     <section id="sponsors-section" className="section" style={{ padding: '7rem 0' }}>
@@ -220,7 +221,7 @@ export default function Sponsors() {
 
         {/* ── APOIO — centralizado ── */}
         <SectionLabel label="Apoio" />
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '0 2rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', padding: '0 2rem' }}>
           {apoio.map((l) => (
             <div key={l.alt} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <LogoItem {...l} h={60} />

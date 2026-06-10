@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import SearchOverlay from './SearchOverlay'
+import ThemeToggle from './ui/theme-toggle'
 
 const navItems = [
   { label: 'Quem Somos',   href: '/quemsomos', type: 'page' },
@@ -165,6 +166,11 @@ export default function Header() {
 
           {/* CTA + search + hamburger */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            {/* Tema claro/escuro — discreto, só desktop */}
+            <span className="desktop-nav">
+              <ThemeToggle />
+            </span>
+
             {/* Search icon */}
             <motion.button
               onClick={() => setSearchOpen(true)}

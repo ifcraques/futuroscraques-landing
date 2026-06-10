@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import DOMPurify from 'dompurify'
 
 const CATEGORY_COLORS = {
   'Institucional': '#16a34a',
@@ -111,7 +112,7 @@ export default function Post() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
           className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.conteudoHtml }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.conteudoHtml, { ADD_ATTR: ['target'] }) }}
         />
 
         {/* Tags */}

@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { useState, lazy, Suspense } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './index.css'
 import StaggeredMenu from './components/StaggeredMenu'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import Transparencia from './pages/Transparencia'
-import QuemSomos from './pages/QuemSomos'
-import Contato from './pages/Contato'
-import ComoApoiar from './pages/ComoApoiar'
-import Projetos from './pages/Projetos'
-import Noticias from './pages/Noticias'
-import Post from './pages/Post'
-import Login from './pages/Login'
-import ProjetoDet from './pages/ProjetoDet'
-import FAQ from './pages/FAQ'
 import ScrollToTop from './components/ScrollToTop'
 import AccessibilityWidget from './components/AccessibilityWidget'
 
-const textVariants = {
-  hidden: { opacity: 0, y: 16, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+/* Code-splitting: páginas secundárias carregam sob demanda */
+const Transparencia = lazy(() => import('./pages/Transparencia'))
+const QuemSomos     = lazy(() => import('./pages/QuemSomos'))
+const Contato       = lazy(() => import('./pages/Contato'))
+const ComoApoiar    = lazy(() => import('./pages/ComoApoiar'))
+const Projetos      = lazy(() => import('./pages/Projetos'))
+const Noticias      = lazy(() => import('./pages/Noticias'))
+const Post          = lazy(() => import('./pages/Post'))
+const ProjetoDet    = lazy(() => import('./pages/ProjetoDet'))
+const FAQ           = lazy(() => import('./pages/FAQ'))
+
+function PageFallback() {
+  return (
+    <div style={{
+      minHeight: '60vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: "'Outfit', sans-serif",
+      color: 'var(--muted, #5a6a75)',
+      letterSpacing: '0.12em',
+      textTransform: 'uppercase',
+      fontSize: '0.8rem',
+    }}>
+      Carregando…
+    </div>
+  )
 }
 
 function AppShell() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div style={{ minHeight: '100vh', background: '#ffffff', position: 'relative' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--page-bg, #ffffff)', position: 'relative' }}>
 
       {/* Menu GSAP */}
       <StaggeredMenu
@@ -69,24 +81,24 @@ function AppShell() {
         </Link>
       </div>
 
-      {/* Páginas */}
       <AccessibilityWidget />
 
       {/* Páginas */}
       <main id="main-content">
-        <Routes>
-          <Route path="/"             element={<Home />} />
-          <Route path="/transparencia" element={<Transparencia />} />
-          <Route path="/quemsomos"    element={<QuemSomos />} />
-          <Route path="/contato"      element={<Contato />} />
-          <Route path="/comoapoiar"   element={<ComoApoiar />} />
-          <Route path="/projetos"          element={<Projetos />} />
-          <Route path="/projetos/:slug"    element={<ProjetoDet />} />
-          <Route path="/noticias"          element={<Noticias />} />
-          <Route path="/noticias/:slug"    element={<Post />} />
-          <Route path="/login"             element={<Login />} />
-          <Route path="/faq"               element={<FAQ />} />
-        </Routes>
+        <Suspense fallback={<PageFallback />}>
+          <Routes>
+            <Route path="/"              element={<Home />} />
+            <Route path="/transparencia" element={<Transparencia />} />
+            <Route path="/quemsomos"     element={<QuemSomos />} />
+            <Route path="/contato"       element={<Contato />} />
+            <Route path="/comoapoiar"    element={<ComoApoiar />} />
+            <Route path="/projetos"          element={<Projetos />} />
+            <Route path="/projetos/:slug"    element={<ProjetoDet />} />
+            <Route path="/noticias"          element={<Noticias />} />
+            <Route path="/noticias/:slug"    element={<Post />} />
+            <Route path="/faq"               element={<FAQ />} />
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer />
@@ -102,9 +114,9 @@ function AppShell() {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <AppShell />
-    </HashRouter>
+    </BrowserRouter>
   )
 }

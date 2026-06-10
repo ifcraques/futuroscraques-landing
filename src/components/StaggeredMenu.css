@@ -192,3 +192,43 @@
     width: 100%;
   }
 }
+
+/* ── Dark mode ── */
+.dark .sm-panel {
+  background: #101926;
+}
+
+.dark .sm-item-wrap {
+  color: #e8edf2;
+}
+
+.dark .sm-item-wrap:hover .sm-item-text {
+  color: #22c55e;
+}
+
+.dark .sm-search-wrapper {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .sm-search-input {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e8edf2;
+}
+
+.dark .sm-search-input::placeholder {
+  color: #6b7a88;
+}
+
+.dark .sm-search-input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #16a34a;
+}
+
+.dark .sm-social-link {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark .sm-social-link:hover {
+  color: #fff;
+}

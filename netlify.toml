@@ -1,21 +1,34 @@
 [build]
   command = "npm run build"
-    publish = "dist"
+  publish = "dist"
 
-    [build.environment]
-      NODE_VERSION = "20"
-        GIT_SUBMODULE_STRATEGY = "none"
+  [build.environment]
+    NODE_VERSION = "20"
+    GIT_SUBMODULE_STRATEGY = "none"
 
-        # Headers para evitar cache
-        [[headers]]
-          for = "/*"
-            [headers.values]
-                Cache-Control = "no-cache, no-store, must-revalidate"
-                    Pragma = "no-cache"
-                        Expires = "0"
+# HTML sempre revalidado (deploys aparecem na hora)
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
 
-                        # Redirect SPA para HashRouter
-                        [[redirects]]
-                          from = "/*"
-                            to = "/index.html"
-                              status = 200
+# Assets com hash no nome: cache de 1 ano
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Segurança básica
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Fallback SPA (BrowserRouter)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

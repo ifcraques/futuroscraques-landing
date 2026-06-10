@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import PdfViewerModal from '../components/PdfViewerModal'
 
 // ── FAQ data (from futuroscraques.org/perguntasrespostas) ──────────────────────
 const FAQ_ITEMS = [
@@ -575,17 +576,19 @@ function getItemCount(tab) {
   return 0
 }
 
-function DocLink({ item }) {
+function DocLink({ item, onOpen }) {
   return (
-    <motion.a
-      href={item.url}
+    <motion.button
+      type="button"
+      onClick={() => onOpen(item)}
       className="transp-doc-btn"
-      target="_blank"
-      rel="noreferrer"
+      aria-haspopup="dialog"
+      aria-label={`Visualizar documento: ${item.label}`}
       variants={itemVariants}
       transition={{ duration: 0.35 }}
       whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(0,51,102,0.12)' }}
       whileTap={{ scale: 0.98 }}
+      style={{ width: '100%', textAlign: 'left', font: 'inherit' }}
     >
       <div className="transp-doc-icon-wrap">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -599,17 +602,19 @@ function DocLink({ item }) {
       <span className="transp-doc-label">{item.label}</span>
       <span className="transp-doc-action">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-          <polyline points="15 3 21 3 21 9" />
-          <line x1="10" y1="14" x2="21" y2="3" />
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          <line x1="11" y1="8" x2="11" y2="14" />
+          <line x1="8" y1="11" x2="14" y2="11" />
         </svg>
       </span>
-    </motion.a>
+    </motion.button>
   )
 }
 
 export default function Transparencia() {
   const [activeTab, setActiveTab] = useState('docs')
+  const [pdfDoc, setPdfDoc] = useState(null)
   const activeData = tabs.find((t) => t.id === activeTab)
   const totalItems = getItemCount(activeData)
 
@@ -693,7 +698,7 @@ export default function Transparencia() {
                     animate="visible"
                   >
                     {section.items.map((item) => (
-                      <DocLink key={item.url} item={item} />
+                      <DocLink key={item.url} item={item} onOpen={setPdfDoc} />
                     ))}
                   </motion.div>
                 </div>
@@ -706,13 +711,20 @@ export default function Transparencia() {
                 animate="visible"
               >
                 {activeData.items.map((item) => (
-                  <DocLink key={item.url} item={item} />
+                  <DocLink key={item.url} item={item} onOpen={setPdfDoc} />
                 ))}
               </motion.div>
             )}
           </motion.div>
         </AnimatePresence>
       </section>
+
+      <PdfViewerModal
+        open={Boolean(pdfDoc)}
+        url={pdfDoc?.url}
+        title={pdfDoc?.label}
+        onClose={() => setPdfDoc(null)}
+      />
     </div>
   )
 }

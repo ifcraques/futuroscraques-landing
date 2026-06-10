@@ -3,16 +3,16 @@ import { FaLinkedinIn, FaInstagram } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 
 // Imports estáticos — Vite garante que as fotos carregam
-import imgGustavo  from '@/assets/time/gustavo.jpg'
-import imgGenoveva from '@/assets/time/genoveva.jpg'
-import imgManoel   from '@/assets/time/manoel.jpg'
-import imgAriane   from '@/assets/time/ariane.jpg'
-import imgJean     from '@/assets/time/jean.jpg'
-import imgVivian   from '@/assets/time/vivian.jpg'
-import imgLeo      from '@/assets/time/leo.jpg'
-import imgVanessa  from '@/assets/time/vanessa.png'
-import imgSandra   from '@/assets/time/sandra.png'
-import imgJulia    from '@/assets/time/julia.png'
+import imgGustavo  from '@/assets/time/gustavo.webp'
+import imgGenoveva from '@/assets/time/genoveva.webp'
+import imgManoel   from '@/assets/time/manoel.webp'
+import imgAriane   from '@/assets/time/ariane.webp'
+import imgJean     from '@/assets/time/jean.webp'
+import imgVivian   from '@/assets/time/vivian.webp'
+import imgLeo      from '@/assets/time/leo.webp'
+import imgVanessa  from '@/assets/time/vanessa.webp'
+import imgSandra   from '@/assets/time/sandra.webp'
+import imgJulia    from '@/assets/time/julia.webp'
 
 // Placeholder SVG inline para quem ainda não tem foto
 const PLACEHOLDER = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e8ede8'/%3E%3Ccircle cx='200' cy='155' r='70' fill='%23c5d4c5'/%3E%3Cellipse cx='200' cy='340' rx='110' ry='80' fill='%23c5d4c5'/%3E%3C/svg%3E`

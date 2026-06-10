@@ -17,6 +17,7 @@ export function Globe({
   arcHeight = 0.3,
   speed = 0.003,
   theta = 0.15,
+  phiStart = 0,
   diffuse = 1.2,
   mapSamples = 16000,
 }) {
@@ -79,7 +80,7 @@ export function Globe({
     const canvas = canvasRef.current
     let globe = null
     let animationId
-    let phi = 0
+    let phi = phiStart
 
     function init() {
       const width = canvas.offsetWidth
@@ -153,7 +154,7 @@ export function Globe({
       if (globe) globe.destroy()
     }
   }, [markers, arcs, markerColor, baseColor, arcColor, glowColor, dark, mapBrightness,
-      markerSize, markerElevation, arcWidth, arcHeight, speed, theta, diffuse, mapSamples])
+      markerSize, markerElevation, arcWidth, arcHeight, speed, theta, phiStart, diffuse, mapSamples])
 
   return (
     <div className={`relative aspect-square select-none ${className}`}>
