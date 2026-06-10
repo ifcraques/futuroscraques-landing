@@ -197,55 +197,42 @@ export default function StaggeredMenu({ isOpen, onToggle }) {
         </div>
       </div>
 
-      {/* Botão busca */}
-      <button
-        onClick={() => setSearchOpen(true)}
-        aria-label="Buscar no site"
-        title="Buscar (Ctrl+K)"
-        style={{
-          position: 'fixed',
-          top: '24px',
-          right: '130px',
-          zIndex: 55,
-          background: 'rgba(255,255,255,0.12)',
-          border: '1px solid rgba(255,255,255,0.18)',
-          borderRadius: '8px',
-          width: '40px', height: '40px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', color: '#fff',
-          backdropFilter: 'blur(8px)',
-          transition: 'background 0.2s, transform 0.15s',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; e.currentTarget.style.transform = 'scale(1.06)' }}
-        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.transform = 'scale(1)' }}
-      >
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-        </svg>
-      </button>
+      {/* Ações fixas no topo direito: busca + menu lado a lado */}
+      <div className="sm-actions">
+        <button
+          onClick={() => setSearchOpen(true)}
+          aria-label="Buscar no site"
+          title="Buscar (Ctrl+K)"
+          className="sm-search-trigger"
+        >
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+
+        {/* Botão toggle MENU / CLOSE */}
+        <button
+          className="sm-toggle"
+          onClick={onToggle}
+        >
+          <div style={{ overflow: 'hidden', height: '1.4em', position: 'relative', minWidth: '3.4rem' }}>
+            <span ref={menuLabelRef} style={{ display: 'block', position: 'absolute', inset: 0 }}>
+              MENU
+            </span>
+            <span ref={closeLabelRef} style={{ display: 'block', position: 'absolute', inset: 0 }}>
+              CLOSE
+            </span>
+          </div>
+          <span
+            ref={iconRef}
+            style={{ fontSize: '1.2rem', lineHeight: 1, fontWeight: 300, display: 'inline-block' }}
+          >
+            +
+          </span>
+        </button>
+      </div>
 
       <SearchOverlay isOpen={searchOpen} onClose={() => { setSearchOpen(false); setInlineQuery('') }} initialQuery={inlineQuery} />
-
-      {/* Botão toggle MENU / CLOSE */}
-      <button
-        className="sm-toggle"
-        onClick={onToggle}
-      >
-        <div style={{ overflow: 'hidden', height: '1.4em', position: 'relative', minWidth: '3.4rem' }}>
-          <span ref={menuLabelRef} style={{ display: 'block', position: 'absolute', inset: 0 }}>
-            MENU
-          </span>
-          <span ref={closeLabelRef} style={{ display: 'block', position: 'absolute', inset: 0 }}>
-            CLOSE
-          </span>
-        </div>
-        <span
-          ref={iconRef}
-          style={{ fontSize: '1.2rem', lineHeight: 1, fontWeight: 300, display: 'inline-block' }}
-        >
-          +
-        </span>
-      </button>
     </>
   )
 }

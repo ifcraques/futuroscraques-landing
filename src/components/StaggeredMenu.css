@@ -21,11 +21,36 @@
   width: clamp(280px, 38vw, 440px);
 }
 
-.sm-toggle {
+.sm-actions {
   position: fixed;
   top: 28px;
   right: 28px;
   z-index: 55;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.sm-search-trigger {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.sm-search-trigger:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.06);
+}
+
+.sm-toggle {
   display: flex;
   align-items: center;
   gap: 12px;
