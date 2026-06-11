@@ -101,7 +101,7 @@ export default function Sponsors() {
   /* ── APOIO ───────────────────────────────────────────────── */
   const apoio = [
     { src: '/logos/unip_logo.png', alt: 'UNIP', url: 'https://www.unip.br/' },
-    { src: '/logos/nar_logo.png',  alt: 'NAR — Núcleo de Alto Rendimento Esportivo de São Paulo', url: 'https://www.narsp.com.br/' },
+    { src: '/logos/nar_logo.png',  alt: 'NAR — Núcleo de Alto Rendimento Esportivo de São Paulo', url: 'https://www.narsp.com.br/', h: 78 },
   ]
 
   /* ── REALIZAÇÃO ──────────────────────────────────────────── */
@@ -224,7 +224,7 @@ export default function Sponsors() {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', padding: '0 2rem' }}>
           {apoio.map((l) => (
             <div key={l.alt} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <LogoItem {...l} h={60} />
+              <LogoItem h={60} {...l} />
             </div>
           ))}
         </div>
