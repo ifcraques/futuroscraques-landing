@@ -101,7 +101,7 @@ export default function Sponsors() {
   /* ── APOIO ───────────────────────────────────────────────── */
   const apoio = [
     { src: '/logos/unip_logo.png', alt: 'UNIP', url: 'https://www.unip.br/' },
-    { src: '/logos/nar_logo.svg',  alt: 'NAR — Núcleo de Alto Rendimento Esportivo de São Paulo', url: 'https://www.narsp.com.br/' },
+    { src: '/logos/nar_logo.png',  alt: 'NAR — Núcleo de Alto Rendimento Esportivo de São Paulo', url: 'https://www.narsp.com.br/' },
   ]
 
   /* ── REALIZAÇÃO ──────────────────────────────────────────── */
