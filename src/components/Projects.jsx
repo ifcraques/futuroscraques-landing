@@ -236,11 +236,11 @@ export default function Projects() {
               </div>
 
               {/* RIGHT: Text content — 3 zonas: topo / meio / base */}
-              <div className="flex-1 flex flex-col px-10 py-12 lg:py-16 lg:pr-20 lg:pl-14 z-10 gap-0">
+              <div className="flex-1 flex flex-col min-h-0 overflow-y-auto px-[clamp(1.25rem,3vw,2.5rem)] py-[clamp(1.1rem,3.5vh,4rem)] lg:pr-[clamp(2rem,4vw,5rem)] lg:pl-14 z-10 gap-0">
 
                 {/* ── TOPO: counter + badge + título ── */}
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-3 mb-8">
+                  <div className="flex items-center gap-3 mb-[clamp(0.7rem,2vh,2rem)]">
                     <span className="text-3xl" aria-hidden="true">{prog.emoji}</span>
                     <div className="h-px flex-1 bg-white/10" />
                     <span
@@ -252,24 +252,24 @@ export default function Projects() {
                   </div>
 
                   <div
-                    className="self-start px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-7"
+                    className="self-start px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-[clamp(0.6rem,1.8vh,1.75rem)]"
                     style={{ background: `${prog.accent}20`, color: prog.accent }}
                   >
                     {prog.badge}
                   </div>
 
-                  <h3 className="proj-silver-text text-4xl md:text-5xl lg:text-[4.2rem] font-black tracking-tight leading-none">
+                  <h3 className="proj-silver-text font-black tracking-tight leading-none text-[clamp(1.9rem,5.5vh,4.2rem)]">
                     {prog.title}
                   </h3>
                 </div>
 
                 {/* ── MEIO: descrição + tópicos — cresce e centraliza ── */}
-                <div className="flex-1 flex flex-col justify-center py-10 lg:py-14">
-                  <p className="text-blue-100/65 text-base md:text-lg leading-relaxed mb-16 max-w-xl">
+                <div className="flex-1 flex flex-col justify-center min-h-0 py-[clamp(0.8rem,2.5vh,3.5rem)]">
+                  <p className="text-blue-100/65 leading-relaxed max-w-xl text-[clamp(0.85rem,1.9vh,1.125rem)] mb-[clamp(1rem,3.5vh,4rem)]">
                     {prog.desc}
                   </p>
 
-                  <div className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-[clamp(0.6rem,1.6vh,1.25rem)]">
                     {prog.pillars.map((pillar, pi) => (
                       <div key={pi} className="flex items-start gap-4">
                         <div
@@ -283,7 +283,7 @@ export default function Projects() {
                           >
                             {pillar.label}
                           </span>
-                          <span className="text-blue-100/65 text-sm md:text-base leading-snug">
+                          <span className="text-blue-100/65 leading-snug text-[clamp(0.78rem,1.6vh,1rem)]">
                             {pillar.text}
                           </span>
                         </div>
@@ -293,11 +293,11 @@ export default function Projects() {
                 </div>
 
                 {/* ── BASE: métrica + dots + CTA ── */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-[clamp(0.7rem,1.8vh,1.5rem)]">
                   <div className="h-px bg-white/10" />
 
                   <div className="flex items-baseline gap-4">
-                    <span className="text-6xl lg:text-7xl font-black text-white tracking-tighter leading-none">
+                    <span className="font-black text-white tracking-tighter leading-none text-[clamp(2.2rem,6.5vh,4.5rem)]">
                       {prog.metric}
                     </span>
                     <span className="text-blue-200/50 text-sm font-black uppercase tracking-[0.15em]">
@@ -320,7 +320,7 @@ export default function Projects() {
                     </div>
 
                     <button
-                      className="flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-white/30"
+                      className="flex items-center gap-2 rounded-2xl font-semibold text-white transition-all duration-300 hover:gap-3 focus:outline-none focus:ring-2 focus:ring-white/30 px-[clamp(1.2rem,2vw,1.75rem)] py-[clamp(0.5rem,1.3vh,0.875rem)] text-[clamp(0.85rem,1.7vh,1rem)]"
                       style={{
                         background: `linear-gradient(135deg, ${prog.accent}30, ${prog.accent}10)`,
                         border: `1px solid ${prog.accent}44`,
