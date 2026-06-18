@@ -12,19 +12,19 @@ const FOTOS = {
   'drible-certo-3x3':
     'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1080&q=80',
   'centro-treinamento-3x3':
-    'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1080&q=80',
+    'https://images.unsplash.com/photo-1559838831-d8fbd8af6469?w=1080&q=80',
   'circuitos-ifc':
-    'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1080&q=80',
+    'https://images.unsplash.com/photo-1509941654768-e0a6884be9b2?w=1080&q=80',
   'clube-escola':
-    'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1080&q=80',
+    'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=1080&q=80',
   'verao-para-todos':
     'https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=1080&q=80',
   'festival-beach-games':
-    'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1080&q=80',
+    'https://images.unsplash.com/photo-1754685630685-fd0539d63543?w=1080&q=80',
   'escola-do-dinheiro':
     'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1080&q=80',
   'bike-conectando-historias':
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1080&q=80',
+    'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1080&q=80',
   'virada-esportiva':
     'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1080&q=80',
   'copa-sp-jiu-jitsu':
